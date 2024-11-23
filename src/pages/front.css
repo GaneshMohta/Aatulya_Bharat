@@ -1,0 +1,694 @@
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* .aatulya-body {
+  background-color: white;
+} */
+
+.me-2{
+  font-size: 15px;
+  color: black;
+}
+
+.mib-prod-img {
+  height: 30vh;
+  width: 100%;
+  border-radius: 5%;
+}
+
+.h-con {
+  position: absolute;
+  bottom: 85%;
+  left: 37%;
+  font-weight: bolder;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 45px;
+}
+
+.la {
+  position: absolute;
+  top: 25%;
+  left: 2%;
+  opacity: 0.6;
+  font-size: 30px;
+  font-weight: 800;
+  color: beige;
+}
+
+.la:hover {
+  color: black;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* .rotating-thing {
+  animation: rotate 3s infinite linear;
+} */
+
+.card,
+.card1 {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+  transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  margin: 25px;
+  width: 192px;
+  height: 240px;
+}
+
+.card1 {
+  display: inline-block;
+  margin-left: 5vw;
+  width: auto;
+  height: auto;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.245);
+  opacity: 1;
+}
+
+.mib-h1 {
+  font-size: 2vh;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dest-hidden {
+  font-size: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.8s;
+}
+
+.dest-hov div {
+  transform: translate(25px, 0px);
+  transition: 0.5s ease-in-out;
+  text-align: center;
+}
+
+.dest-hov:hover div {
+  font-size: 20px;
+  width: 100%;
+  transform: translateY(-48px);
+  transition-delay: 0.5s;
+}
+
+.dest-hov:hover .dest-hidden {
+  font-size: 10px;
+  transition-delay: 0.8s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+  animation: typing 4s steps(40, end);
+}
+
+.hm-m1 >img{
+  height: 100vh;
+}
+
+.hm-m1{
+  height: auto;
+}
+
+.matemasie-regular {
+  font-family: "Matemasie", sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 20vh;
+}
+
+.wedding {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 105, 228, 0.5),
+    rgba(176, 25, 190, 0.5)
+  );
+  /* width: 100vw; */
+  overflow: hidden;
+}
+
+.matemasie-regular1 {
+  width: 50%;
+  padding: 20px;
+  color: #333;
+}
+
+.weddy-h1 {
+  font-size: 4rem;
+  color: crimson;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.weddy-desc {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.bg-weddy {
+  position: relative;
+  height: 70vh;
+  width: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weddy-img {
+  border-radius: 10px;
+  /* background-size: cover; */
+  object-fit:cover;
+  width: 100%;
+  filter: brightness(0.7);
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+
+.wedding-image{
+  border-radius: 5%;
+  height: 30vh;
+  box-shadow: 1px 8px 16px rgba(239, 0, 0, 0.888);
+}
+
+.bg-weddy:hover .weddy-img {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+.weddy-icon {
+  color: crimson;
+  opacity: 0.8;
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.weddy-icon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.weddy-overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weddy-overlay-text {
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.weddy-cards {
+  height: 50vh;
+  width: 30vw;
+  border-radius: 10px;
+}
+
+
+.table-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+
+.wedding-table {
+  border-collapse: separate;
+  border-spacing: 15px;
+  width: 45%;
+}
+
+
+.wedding-table td {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.wedding-table td:hover {
+  transform: translateY(-5px);
+}
+
+
+
+
+
+.tab-img {
+  height: 80px;
+  width: 120px;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.price-container p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.location {
+  color: #ff6347;
+}
+
+
+.cards-hov {
+  background-color: black;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  height: 50vh;
+  width: 30vw;
+  border-radius: 10px;
+  visibility: hidden;
+  font-weight: 800;
+  color: whitesmoke;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.relative:hover .cards-hov {
+  visibility: visible;
+  opacity: 0.5;
+  transition: opacity 0.8s ease-in-out;
+}
+
+
+
+.cards-h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  font-size: bold;
+}
+
+.wedding {
+  padding: 2rem 0;
+}
+
+.weddy-h1 {
+  font-size: 3.5rem;
+  color: #ff4c60;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.weddy-h1:hover {
+  transform: scale(1.1);
+}
+
+.weddy-desc {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 10px 0;
+  max-width: 600px;
+}
+
+.bg-weddy {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+
+.weddy-img {
+  object-fit: cover;
+  filter: brightness(1.0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.bg-weddy:hover .weddy-img {
+  transform: scale(1.02);
+}
+
+.weddy-icon {
+  color: #ff4c60;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.weddy-icon:hover {
+  opacity: 1;
+}
+
+.weddy-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.weddy-overlay-text {
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.bg-weddy:hover .weddy-overlay-text {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+.temple-container {
+  width: 100vw;
+  overflow-x:hidden;
+  font-family: 'Arial, sans-serif';
+}
+
+.hero-section {
+  height: 80vh;
+  width: 100vw;
+  padding: 20px;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.temple-img-container {
+  background: linear-gradient(to top right, #ff7e5f, #feb47b);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.temple-image {
+  height: 100%;
+  width: auto;
+}
+
+.temple-description {
+  width: 70vw;
+  padding: 20px;
+}
+
+.temple-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.temple-text {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #34495e;
+  margin-top: 20px;
+}
+
+.carousel-section {
+  height: 60vh;
+  background: #f39c12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: visible;
+
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.carousel-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.temp-cards {
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tcards-hov {
+  position: relative;
+  top: -90%;
+  background: rgba(0, 0, 0, 0.5);
+  width: 60%;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.image-card{
+width: 30vw;
+height: 50vh;
+}
+
+.image-card:hover .temp-cards {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.temp-cards{
+  height: 90%;
+}
+
+.image-card:hover .tcards-hov {
+  opacity: 1;
+}
+
+
+.attractions-container {
+  text-align: center;
+  padding: 10px;
+  color: black;
+}
+
+.attractions-container h2 {
+  margin-bottom: 5px;
+}
+
+.attractions-container p {
+  color: #b0b0b0;
+}
+
+.attractions-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.attraction-card {
+  width: 300px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.attraction-card:hover {
+  transform: translateY(-2px);
+}
+
+.attraction-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.attraction-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.attraction-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.attraction-info p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.att-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  height: 80vh;
+}
+
+.logo {
+  flex: 1;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+  .weddy-h1 {
+    font-size: 2.5rem;
+  }
+
+  .weddy-desc {
+    font-size: 1rem;
+  }
+
+  .weddy-overlay-text {
+    font-size: 1.8rem;
+  }
+
+  .bg-weddy {
+    height: 400px;
+  }
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .dest-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dest-hov {
+    width: 90%;
+    height: 30vh;
+  }
+
+  .dest-detail {
+    opacity: 0;
+    text-align: center;
+    width: 30%;
+    left: 63vw;
+    top: -4%;
+    height: 100%;
+    /* padding-top: 8px; */
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .dest-hov:hover .dest-detail {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(10px);
+    width: 30%;
+    top: -4%;
+    left: 63vw;
+    height: 100%;
+
+  }
+
+  .hm-m1 {
+    height: auto;
+  }
+
+  .hm-m1 > img {
+    height: 50vh;
+  }
+
+  .backdrop-card {
+    position: absolute;
+    top: 20vh;
+    left: 25vw;
+  }
+
+  .backdrop-card > div {
+    height: 25vh;
+    width: 70vw;
+  }
+}
