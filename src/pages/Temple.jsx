@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import './front.css';
+import Chatbot from 'react-chatbot-kit';
+import ActionProviderHeritage from '../components/bot/ActionProviderHeritage';
+import config from '../components/bot/config';
+import MessageParser from '../components/bot/MessageParser';
+import 'react-chatbot-kit/build/main.css';
+import { IoMdChatbubbles } from "react-icons/io";
+
 
 export default function Temple() {
+  const [visible , setVisible] = useState(false);
+
+  const Isvisible = () =>{
+    setVisible((prev)=>!prev);
+  }
+
   return (
     <div>
       {/* Header Section */}
@@ -35,16 +48,6 @@ export default function Temple() {
           </div>
         </div>
         <div className="image-section flex justify-around mt-8 flex-wrap">
-          <div className='image-card'>
-            <img
-              className='temp-cards'
-              src='https://lh5.googleusercontent.com/proxy/Ipfc4eLmNV2qlWPF8r2yc7LbSkLpChRBUhFCORTThFaAXaKeerJ-W93u0ye35hIEi8A83PK2jfx3wJK9k6aoRtIDJ4n3ys0eynVl2dkpNFrkyVrZfRC-zx4PVzcUvmOxHxis42A3zYUAoQ'
-              alt="Temple 1"
-            />
-            <div className="tcards-hov">
-              <h2>Murdeshwara</h2>
-            </div>
-          </div>
 
           <div className='image-card'>
             <img
@@ -80,6 +83,15 @@ export default function Temple() {
           </div>
         </div>
       </div>
+
+      <button onClick={Isvisible} className="fixed bottom-10 right-2 bg-black z-10 p-1 rounded-md"><IoMdChatbubbles  size={42} color="white" /></button>
+{
+  visible ? (<div className="fixed bottom-2 right-2"><Chatbot
+        config={config}
+        messageParser={MessageParser}
+        actionProvider={ActionProviderHeritage}
+      /></div>) : (<div></div>)
+}
     </div>
   );
 }

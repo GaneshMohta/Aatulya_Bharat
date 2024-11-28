@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Chatbot from "react-chatbot-kit";
+import config from "../components/bot/config";
+import ActionProviderTraveler from "../components/bot/ActionProviderTraveler";
+import MessageParser from "../components/bot/MessageParser";
+import 'react-chatbot-kit/build/main.css';
+import { IoMdChatbubbles } from "react-icons/io";
 
 export default function AdventurePage() {
+  const [visible , setVisible] = useState(false)
+
+  const isVisible = () => {
+    setVisible((prev)=>!prev)
+  }
   const attractions = [
     { id: 1, name: 'College Trips', description: 'make memorable to ur Journey', imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU1gARMF4qrJHK2_Xde2m8rE1fHV2JJA7mlQ&s' },
     { id: 2, name: 'Islands, Andaman-Nicobar', description: 'Island is Filled with Attractive adventure', imgSrc: 'https://htoindia.com/wp-content/uploads/2019/06/Andaman-Nicobar-Island.jpg' },
     { id: 3, name: 'Hawa Mahal, Jaipur', description: 'Pink City', imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIy16C95WyISHMYiweGNYba4p2f5kdZD_heQ&s' },
-    // Add more attractions as needed
+
   ];
   return (
     <div>
@@ -25,12 +36,9 @@ export default function AdventurePage() {
 
       <header className="att-header">
       <div className="logo">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvZjGuKX2pqDKgyMm3MBj-QKPYSCR0f5V56w&s" alt="DOOK International" className='w-[100vw] h-[100%]' />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvZjGuKX2pqDKgyMm3MBj-QKPYSCR0f5V56w&s" alt="DOOK International" className='' />
       </div>
-      <div className="search-bar">
-        <input type="text" placeholder="Search for Destinations, Attractions, Activities, Experiences & Countries" />
-        <button>Search</button>
-      </div>
+
     </header>
 
       <div className="attractions-container">
@@ -49,7 +57,14 @@ export default function AdventurePage() {
       </div>
     </div>
 
-
+    <button onClick={isVisible} className="fixed bottom-10 right-2 bg-black z-10 p-1 rounded-md"><IoMdChatbubbles  size={42} color="white" /></button>
+    {
+  visible ? (<div className="fixed bottom-2 right-2"><Chatbot
+        config={config}
+        messageParser={MessageParser}
+        actionProvider={ActionProviderTraveler}
+      /></div>) : (<div></div>)
+     }
     </div>
   )
 }

@@ -8,7 +8,7 @@ import path from 'path';
 import multer from 'multer';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
-
+import { v4 as uuidv4 } from 'uuid';
 // Import routes
 import userRouter from './Routes/userRoutes.js';
 import blogRouter from './Routes/blogRoutes.js';
@@ -60,7 +60,7 @@ app.post('/uploads', upload.single('image'), (req, res) => {
 });
 
 // MongoDB connection
-mongoose.connect('mongodb://127.0.0.1/MeraBharat')
+mongoose.connect("mongodb://127.0.0.1:27017/MeraBharat")
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -87,23 +87,89 @@ app.use('/api/v1/auth', authRouter);
 // });
 
 // chatbot
-app.post('/webhook', async (req, res) => {
-  const intent = req.body.queryResult.intent.displayName;
-  const parameters = req.body.queryResult.parameters;
+// app.post('/webhook', async (req, res) => {
+//   const intent = req.body.queryResult.intent.displayName;
+//   const parameters = req.body.queryResult.parameters;
 
-  if (intent === 'AskLocation') {
-      const location = parameters.location;
-      await WeddingDetails.create({ location });
-      res.json({ fulfillmentText: `Location "${location}" has been noted!` });
-  } else if (intent === 'AskBudget') {
-      const budget = parameters.amount;
-      await Wedding.create({ budget });
-      res.json({ fulfillmentText: `Budget of "${budget}" has been noted!` });
+//   if (intent === 'AskLocation') {
+//       const location = parameters.location;
+//       await Wedding.create({ location });
+//       res.json({ fulfillmentText: `Location "${location}" has been noted!` });
+//   } else if (intent === 'AskBudget') {
+//       const budget = parameters.amount;
+//       await Wedding.create({ budget });
+//       res.json({ fulfillmentText: `Budget of "${budget}" has been noted!` });
+//   }
+//    else if (intent === 'AskTheme') {
+//       const theme = parameters.theme;
+//       await Wedding.create({ theme });
+//       res.json({ fulfillmentText: `Theme "${theme}" has been noted!` });
+//   }
+// });
+import { SessionsClient } from '@google-cloud/dialogflow';
+
+const projectConfig = {
+  projectId: {
+      projectId: 'merabharat-97f8a',
+      keyFilename: process.env.WEDDING_KEY_PATH,
+  },
+  travelId: {
+      projectId: 'merabharat-ge9f',
+      keyFilename: process.env.TRAVEL_KEY_PATH,
+  },
+  HeritageId: {
+      projectId: 'heritage-ddhf',
+      keyFilename: process.env.HERITAGE_KEY_PATH,
+  },
+};
+
+
+app.post('/api/chat', async (req, res) => {
+  const { userMessage, context } = req.body;
+
+  if (!userMessage || !context) {
+      return res.status(400).json({ error: 'Missing userMessage or context in the request.' });
   }
-   else if (intent === 'AskTheme') {
-      const theme = parameters.theme;
-      await Wedding.create({ theme });
-      res.json({ fulfillmentText: `Theme "${theme}" has been noted!` });
+
+  const config = projectConfig[context];
+  if (!config) {
+      return res.status(400).json({ error: 'Invalid context provided.' });
+  }
+  console.log(config)
+  const { projectId, keyFilename } = config;
+  const sessionClient = new SessionsClient({ keyFilename });
+  const sessionId = uuidv4();
+
+  try {
+      const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
+      console.log("Session Path:", sessionPath);
+
+      const request = {
+          session: sessionPath,
+          queryInput: {
+              text: {
+                  text: userMessage,
+                  languageCode: 'en',
+              },
+          },
+      };
+
+      console.log("Request Object:", request);
+
+      const [response] = await sessionClient.detectIntent(request);
+
+      if (!response || !response.queryResult) {
+          console.error("No queryResult in Dialogflow response:", response);
+          return res.status(500).json({ error: "Unexpected response from Dialogflow." });
+      }
+
+      const fulfillmentText = response.queryResult.fulfillmentText || "Sorry, I couldn't understand that.";
+      console.log("Response from Dialogflow:", fulfillmentText);
+
+      res.json({ botResponse: fulfillmentText });
+  } catch (error) {
+      console.error("Error communicating with Dialogflow:", error.message);
+      res.status(500).json({ error: "Error communicating with Dialogflow." });
   }
 });
 

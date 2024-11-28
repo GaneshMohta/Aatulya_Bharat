@@ -1,8 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
+import Chatbot from "react-chatbot-kit";
+import config from "../components/bot/config";
+import ActionProvider from "../components/bot/ActionProvider";
+import MessageParser from "../components/bot/MessageParser";
+import 'react-chatbot-kit/build/main.css';
+import { IoMdChatbubbles } from "react-icons/io";
 export default function WeddingPage() {
+  const [visible ,setVisible] = useState(false);
+
+  const isVisible = () => {
+    setVisible((prevVisible) => !prevVisible); 
+};
   useEffect(()=>{
     window.scroll(0,0)
   },[])
@@ -219,6 +229,16 @@ export default function WeddingPage() {
           </table>
         </div>
       </div>
+
+      <button onClick={isVisible} className="fixed bottom-10 right-2 bg-black z-10 p-1 rounded-md"><IoMdChatbubbles  size={42} color="white" /></button>
+{
+  visible ? (<div className="fixed bottom-2 right-2"><Chatbot
+        config={config}
+        messageParser={MessageParser}
+        actionProvider={ActionProvider}
+      /></div>) : (<div></div>)
+}
+
     </div>
   );
 }
