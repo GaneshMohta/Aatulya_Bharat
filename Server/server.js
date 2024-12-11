@@ -58,7 +58,6 @@ app.post('/uploads', upload.single('image'), (req, res) => {
   const imageUrl = `/uploads/${req.file.filename}`;
   res.json({ imageUrl });
 });
-
 // MongoDB connection
 // mongoose.connect("mongodb://127.0.0.1:27017/MeraBharat")
 //   .then(() => {
