@@ -60,13 +60,21 @@ app.post('/uploads', upload.single('image'), (req, res) => {
 });
 
 // MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/MeraBharat")
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((e) => {
-    console.error('Error connecting to MongoDB:', e);
-  });
+// mongoose.connect("mongodb://127.0.0.1:27017/MeraBharat")
+//   .then(() => {
+//     console.log('Connected to MongoDB');
+//   })
+//   .catch((e) => {
+//     console.error('Error connecting to MongoDB:', e);
+//   });
+
+  mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+      console.log('Connected to MongoDB');
+    })
+    .catch((e) => {
+      console.error('Error connecting to MongoDB:', e);
+    });
 
 // Test route to verify server is working
 app.get('/', (req, res) => {
@@ -173,7 +181,6 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-
 app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+  console.log('Server is running on https://aatulya-bharat.onrender.com');
 });
