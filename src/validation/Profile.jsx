@@ -10,7 +10,7 @@ const Profile = () => {
     const email = localStorage.getItem('Bharat_email')
     console.log(email)
     const fetchData = async() =>{
-      const res = await axios.get("http://localhost:3000/user/getuser",
+      const res = await axios.get("https://aatulya-bharat.onrender.com/user/getuser",
         {
           params: { email: email },
         });

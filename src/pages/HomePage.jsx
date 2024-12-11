@@ -9,6 +9,7 @@ import './responsive.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { CgProfile } from "react-icons/cg";
+import {logo} from '../assets'
 
 
 export default function HomePage() {
@@ -40,10 +41,10 @@ export default function HomePage() {
       <Carousel
         responsive={responsive}
         autoPlay={true}
-        autoPlaySpeed={5000}  // 5 seconds
-        infinite={true}        // Loop through items infinitely
-        arrows={false}         // Hide left and right arrows
-        showDots={false}       // Hide navigation dots
+        autoPlaySpeed={5000}
+        infinite={true}
+        arrows={false}
+        showDots={false}
       >
         <div className='relative h-auto bg-white hm-m1'>
           <img src="https://thesocialmediaexplorer.wordpress.com/wp-content/uploads/2015/09/3.jpg?w=1000" alt='hm-img' className='w-full'/>
@@ -69,7 +70,7 @@ export default function HomePage() {
         <div className='relative h-auto bg-white hm-m1'>
           <img src="https://static-blog.treebo.com/wp-content/uploads/2018/06/Uttar-Pradesh.jpg" alt='hm-img' className='w-full'/>
           <div className="absolute top-1 flex justify-between w-full hm-h1">
-            <div className='ms-2'></div>
+          <div className='ms-2'></div>
             <div><h1>ATALTUYA BHARAT</h1></div>
             <div className='me-2 relative'>
             <CgProfile onClick={() => setDropdownVisible(!isDropdownVisible)} className='cursor-pointer'/>

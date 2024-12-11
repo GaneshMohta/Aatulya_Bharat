@@ -19,7 +19,7 @@ export default function Signin() {
         console.log("Authorization Code:", authResult.code);
 
         // Send the authorization code to the backend
-        const result = await axios.post("http://localhost:3000/api/v1/auth/google", {
+        const result = await axios.post("https://aatulya-bharat.onrender.com/api/v1/auth/google", {
           code: authResult.code,
         });
 
@@ -63,7 +63,7 @@ export default function Signin() {
     console.log(payload);
 
     try{
-      const res= await axios.post("http://localhost:3000/user/login",payload);
+      const res= await axios.post("https://aatulya-bharat.onrender.com/user/login",payload);
       console.log(res)
       localStorage.setItem("token",res.data.token);
       localStorage.setItem("Bharat_email",res.data.email);

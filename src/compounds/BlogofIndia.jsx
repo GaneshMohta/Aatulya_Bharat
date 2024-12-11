@@ -14,7 +14,7 @@ const BlogofIndia = () => {
   const navigate=useNavigate();
 
   const getBlogs= async()=>{
-    const res= await axios.get("http://localhost:3000/blog/get");
+    const res= await axios.get("https://aatulya-bharat.onrender.com/blog/get");
     console.log(res);
     dispatch(setBlogs(res.data));
 
@@ -36,7 +36,7 @@ const BlogofIndia = () => {
             blog.map((item) => (
                 <Link to={`blog/${item.id}`} key={item.Titleid}>
                 <div className='card text-center'>
-                <img src={`http://localhost:3000/uploads/${item.image}`} alt="image"  className='h-48 w-48 rounded-t-lg'/>
+                <img src={`https://aatulya-bharat.onrender.com/uploads/${item.image}`} alt="image"  className='h-48 w-48 rounded-t-lg'/>
                 <h3 className='whitespace-nowrap overflow-hidden text-ellipsis pb-0 ps-2 pe-1'>{item.Title}</h3>
                 <span className='text-center font-thin author p-0 relative bottom-2'>{item.author}</span>
                 </div>

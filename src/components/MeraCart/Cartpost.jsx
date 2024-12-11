@@ -55,7 +55,7 @@ export default function Cartpost() {
         formData.append('quantity',quantity);
         console.log(formData);
         try {
-          const res = await axios.post("http://localhost:3000/product/create", formData, {
+          const res = await axios.post("https://aatulya-bharat.onrender.com/product/create", formData, {
             headers: { "Content-Type": "multipart/form-data" },
           });
           console.log(res);

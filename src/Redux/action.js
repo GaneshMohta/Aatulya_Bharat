@@ -26,7 +26,7 @@ const fetchDataFailure = (error) =>{
 export const fetchData = () => {
     return (dispatch)=>{
         dispatch(fetchDataRequest());
-        axios.get('http://localhost:3000/product/get')
+        axios.get('https://aatulya-bharat.onrender.com/product/get')
         .then(res => {const data = res.data;
             dispatch(fetchDataSuccess(data));
         }).catch(error => {

@@ -18,7 +18,7 @@ export default function Signup() {
         console.log("Authorization Code:", authResult.code);
 
         // Send the authorization code to the backend
-        const result = await axios.post("http://localhost:3000/api/v1/auth/google", {
+        const result = await axios.post("https://aatulya-bharat.onrender.com/api/v1/auth/google", {
           code: authResult.code,
         });
 
@@ -62,7 +62,7 @@ export default function Signup() {
     console.log(payload);
 
     try{
-      const res= await axios.post("http://localhost:3000/user/sign-up",payload);
+      const res= await axios.post("https://aatulya-bharat.onrender.com/user/sign-up",payload);
       navigate('/');
     }
     catch(e){

@@ -39,7 +39,7 @@ export default function MakeIndia() {
       }
 
   // const getProducts=async()=>{
-  //   const res = await axios.get("http://localhost:3000/product/get");
+  //   const res = await axios.get("https://aatulya-bharat.onrender.com/product/get");
   //   console.log("res",res);
   //   dispatch(getProducts(res.data));
   // }
@@ -92,7 +92,7 @@ export default function MakeIndia() {
         {prod.map((product) => (
           <div key={product.id} className="card1">
             <img
-              src={`http://localhost:3000/uploads/${product.image}`}
+              src={`https://aatulya-bharat.onrender.com/uploads/${product.image}`}
               width={150}
               alt={product.name}
               className="mib-prod-img"
@@ -120,7 +120,7 @@ export default function MakeIndia() {
                    {prod.map((product) => (
                     <div key={product.id} className="card1">
                       <img
-                        src={`http://localhost:3000/uploads/${product.image}`}
+                        src={`https://aatulya-bharat.onrender.com/uploads/${product.image}`}
                         width={150}
                         alt={product.name}
                         className="mib-prod-img"
@@ -147,7 +147,7 @@ export default function MakeIndia() {
                   {prod.map((product) => (
                     <div key={product.id} className="card1">
                       <img
-                        src={`http://localhost:3000/uploads/${product.image}`}
+                        src={`https://aatulya-bharat.onrender.com/uploads/${product.image}`}
                         width={150}
                         alt={product.name}
                         className="mib-prod-img"

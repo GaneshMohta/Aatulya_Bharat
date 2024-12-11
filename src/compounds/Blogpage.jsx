@@ -13,7 +13,7 @@ export default function Blogpage() {
     const fetchBlog = async () => {
       try {
         console.log("Fetching blog data...");
-        const response = await axios.get(`http://localhost:3000/blog/${id}`);
+        const response = await axios.get(`https://aatulya-bharat.onrender.com/blog/${id}`);
         setSingleBlog(response.data);
 
 
@@ -28,7 +28,7 @@ export default function Blogpage() {
     return <div>Loading...</div>;
   }
 
-   
+
 
   return (
     <div>
@@ -43,7 +43,7 @@ export default function Blogpage() {
         </div>
       </div>
 
-      <img src={`http://localhost:3000/uploads/${singleBlog.image}`} alt={singleBlog.Title} />
+      <img src={`https://aatulya-bharat.onrender.com/uploads/${singleBlog.image}`} alt={singleBlog.Title} />
       <h1>{singleBlog.Title}</h1>
       <div className='w-[80vw] flex justify-center text-center '>
       <ReactQuill value={singleBlog.QuillContent} readOnly={true} theme="bubble" />

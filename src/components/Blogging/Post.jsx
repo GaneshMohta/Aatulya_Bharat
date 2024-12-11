@@ -139,7 +139,7 @@ export default function Post() {
       console.log("Form ", formData);
       const token = localStorage.getItem('token');
 
-      const response = await axios.post('http://localhost:3000/blog/create', formData, {
+      const response = await axios.post('https://aatulya-bharat.onrender.com/blog/create', formData, {
         headers: {
           "Content-Type": "multipart/form-data" ,
           Authorization: `Bearer ${token}`

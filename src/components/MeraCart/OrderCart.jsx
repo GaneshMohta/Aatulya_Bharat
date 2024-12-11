@@ -70,7 +70,7 @@ return (
           <button className="button1" onClick={() => handleRemoveitem(props)} >Remove</button>
           </div>
           <div className='w-[40%] flex justify-end'>
-          <img src={`http://localhost:3000/uploads/${props.image}`} alt="product" className="image1" />
+          <img src={`https://aatulya-bharat.onrender.com/uploads/${props.image}`} alt="product" className="image1" />
           </div>
         </div>
       ))}
