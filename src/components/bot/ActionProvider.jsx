@@ -9,7 +9,7 @@ class ActionProvider {
   handleUserMessage = async (message) => {
       try {
         const response = await axios.post(
-            'http://localhost:3000/api/chat',
+            'https://aatulya-bharat.onrender.com/api/chat',
             { userMessage: message , context : 'projectId'},
             { headers: { 'Content-Type': 'application/json' } }
         );

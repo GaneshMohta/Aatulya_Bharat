@@ -5,7 +5,7 @@ import axios from "axios";
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async () => {
-        const res = await axios('http://localhost:3000/product/get',{
+        const res = await axios('https://aatulya-bharat.onrender.com/product/get',{
             headers: {
                 "Content-Type": "application/json"
             }
