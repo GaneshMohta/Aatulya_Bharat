@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React,{ lazy,  useState }  from 'react'
 import MB1 from '../components/states/image/mb3.jpg'
 import NE from '../components/states/image/National-Emblem.jpg'
 import { Link } from 'react-router-dom'
 import './front.css'
-import Bestofindia from './Bestofindia'
-import BlogofIndia from '../compounds/BlogofIndia'
+
+const Bestofindia = lazy(() => import('./Bestofindia'));
+const BlogofIndia = lazy(() => import('../compounds/BlogofIndia'));
 import './responsive.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { CgProfile } from "react-icons/cg";
-import {logo} from '../assets'
 
 
 export default function HomePage() {

@@ -1,85 +1,70 @@
-import { useState } from 'react'
+import { Suspense, lazy } from 'react';
 import './App.css';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import {BrowserRouter as Router, Routes ,Route } from 'react-router-dom';
-import Rajastan from './components/states/Rajastan';
-import Maharashtra from './components/states/Maharasthra';
-import TamilNadu from './components/states/TamilNadu';
-import Up from './components/states/Up';
-import Mp from './components/states/Mp';
-import Kerala from './components/states/Kerala';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './index.css';
 
-import Gujarat from './components/states/Gujarat';
-import './index.css'
-import HomePage from './pages/HomePage';
-import KnowIndia from './pages/KnowIndia';
-import Post from './components/Blogging/Post';
-import Blogpage from './compounds/Blogpage';
-import Signup from './validation/Signup';
-import MakeIndia from './pages/MakeIndia';
-import MainBlogs from './compounds/MainBlogs';
-import Cartpost from './components/MeraCart/Cartpost';
-import OrderCart from './components/MeraCart/OrderCart';
-import Ref from './pages/Ref';
-import MapIndia from './components/states/MapIndia';
-import WeddingPage from './pages/WeddingPage';
-import Signin from './validation/Signin';
-import Temple from './pages/Temple.jsx';
-import AdventurePage from './pages/AdventurePage.jsx';
-import Profile from './validation/Profile.jsx';
-
-
-
-// const STATES = {
-//   Maharashtra: {
-
-//   }
-// };
+// Dynamically import components
+const Rajastan = lazy(() => import('./components/states/Rajastan'));
+const Maharashtra = lazy(() => import('./components/states/Maharasthra'));
+const TamilNadu = lazy(() => import('./components/states/TamilNadu'));
+const Up = lazy(() => import('./components/states/Up'));
+const Mp = lazy(() => import('./components/states/Mp'));
+const Kerala = lazy(() => import('./components/states/Kerala'));
+const Gujarat = lazy(() => import('./components/states/Gujarat'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const KnowIndia = lazy(() => import('./pages/KnowIndia'));
+const Post = lazy(() => import('./components/Blogging/Post'));
+const Blogpage = lazy(() => import('./compounds/Blogpage'));
+const Signup = lazy(() => import('./validation/Signup'));
+const MakeIndia = lazy(() => import('./pages/MakeIndia'));
+const MainBlogs = lazy(() => import('./compounds/MainBlogs'));
+const Cartpost = lazy(() => import('./components/MeraCart/Cartpost'));
+const OrderCart = lazy(() => import('./components/MeraCart/OrderCart'));
+const Ref = lazy(() => import('./pages/Ref'));
+const MapIndia = lazy(() => import('./components/states/MapIndia'));
+const WeddingPage = lazy(() => import('./pages/WeddingPage'));
+const Signin = lazy(() => import('./validation/Signin'));
+const Temple = lazy(() => import('./pages/Temple.jsx'));
+const AdventurePage = lazy(() => import('./pages/AdventurePage.jsx'));
+const Profile = lazy(() => import('./validation/Profile.jsx'));
 
 function App() {
-
-  // const [activeState,setActiveState]=useState({
-  //   data: STATES.Maharashtra,
-  //   name: "India"
-  // })
-  // const [stateLists, newStateLists] = useState(STATES)
- // style={{position:'relative',right:'5%',margin:"0%",padding:"0%"}}
-
-
-
   return (
     <>
-    <GoogleOAuthProvider clientId="990977981881-5hkqf6bqhkij2jit0pq1cge935gp37rf.apps.googleusercontent.com">
-      <Router>
-        <Routes>
-        <Route path='/ref' element={<Ref />}></Route>
-        <Route path='/'  element={<HomePage />}></Route>
-        <Route path='/signin' element={<Signin />}></Route>
-          <Route path='/map'  element={<MapIndia/>}></Route>
-          <Route path='/Rajasthan'  element={<Rajastan/>}></Route>
-          <Route path='/Maharashtra' element={<Maharashtra/>}></Route>
-          <Route path='/TamilNadu' element={<TamilNadu/>}></Route>
-          <Route path='/Kerala' element={<Kerala/>}></Route>
-          <Route path='/MadhyaPradesh' element={<Mp/>}></Route>
-          <Route path='/UttarPradesh' element={<Up/>}></Route>
-          <Route path='/KnowIndia' element={<KnowIndia/>}></Route>
-          <Route path='/Post' element={<Post />}></Route>
-          <Route path="/blogs/:id" element={<Blogpage />}></Route>
-          <Route path='/signup' element={<Signup/>}></Route>
-          <Route path='/Make-in-India' element={<MakeIndia/>}></Route>
-          <Route path='/blogs' element={<MainBlogs />}></Route>
-          <Route path='/MyBusiness' element={<Cartpost />}></Route>
-          <Route path='/orderCart' element={<OrderCart />}></Route>
-          <Route path='/WeddingPage' element={<WeddingPage />}></Route>
-          <Route path='/Temple' element={<Temple />}></Route>
-          <Route path='/profile' element={<Profile/>}></Route>
-          <Route path='/adventurePage' element={<AdventurePage />}></Route>
-        </Routes>
-
-      </Router>
+      <GoogleOAuthProvider clientId="990977981881-5hkqf6bqhkij2jit0pq1cge935gp37rf.apps.googleusercontent.com">
+        <Router>
+          {/* Wrap all routes in Suspense */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/ref" element={<Ref />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/map" element={<MapIndia />} />
+              <Route path="/Rajasthan" element={<Rajastan />} />
+              <Route path="/Maharashtra" element={<Maharashtra />} />
+              <Route path="/TamilNadu" element={<TamilNadu />} />
+              <Route path="/Kerala" element={<Kerala />} />
+              <Route path="/MadhyaPradesh" element={<Mp />} />
+              <Route path="/UttarPradesh" element={<Up />} />
+              <Route path="/KnowIndia" element={<KnowIndia />} />
+              <Route path="/Post" element={<Post />} />
+              <Route path="/blogs/:id" element={<Blogpage />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/Make-in-India" element={<MakeIndia />} />
+              <Route path="/blogs" element={<MainBlogs />} />
+              <Route path="/MyBusiness" element={<Cartpost />} />
+              <Route path="/orderCart" element={<OrderCart />} />
+              <Route path="/WeddingPage" element={<WeddingPage />} />
+              <Route path="/Temple" element={<Temple />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/adventurePage" element={<AdventurePage />} />
+            </Routes>
+          </Suspense>
+        </Router>
       </GoogleOAuthProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

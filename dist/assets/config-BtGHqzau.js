@@ -1,0 +1,1 @@
+import{b as o}from"./main-CJu9c4SX.js";import"./vendor-BvbJF06O.js";const e={botName:"Wedding Planner Bot",initialMessages:[o.createChatBotMessage("Hello! How can I assist you with your wedding planning today?")],customStyles:{botMessageBox:{backgroundColor:"#376B7E"},chatButton:{backgroundColor:"#5ccc9d"}},state:{}};export{e as default};

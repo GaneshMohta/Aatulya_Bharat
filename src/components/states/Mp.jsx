@@ -1,5 +1,5 @@
-import React from 'react'
-import Carousel from './Carousel';
+import React, {lazy} from 'react'
+const Carousel =lazy(()=>import("./Carousel"));
 export default function Mp() {
     const images = [
         "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRPT29SL6ep3Op2pzpor1UOn_xFIwqf6yGR69NpR1xmI3P5CLhPOKOYheAcaCi4aOPVDp9om2BWyRtvEAaSV5xp4aCet7DAkd6iur4UEQ",

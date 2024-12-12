@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Chatbot from "react-chatbot-kit";
-import config from "../components/bot/config";
-import ActionProvider from "../components/bot/ActionProvider";
-import MessageParser from "../components/bot/MessageParser";
+const config = lazy(()=>import('../components/bot/config'))
+const ActionProvider = lazy(()=>import('../components/bot/ActionProvider'))
+const MessageParser = lazy(()=>import('../components/bot/MessageParser'))
+// import ActionProvider from "../components/bot/ActionProvider";
+// import MessageParser from "../components/bot/MessageParser";
 import 'react-chatbot-kit/build/main.css';
 import { IoMdChatbubbles } from "react-icons/io";
 export default function WeddingPage() {
   const [visible ,setVisible] = useState(false);
 
   const isVisible = () => {
-    setVisible((prevVisible) => !prevVisible); 
+    setVisible((prevVisible) => !prevVisible);
 };
   useEffect(()=>{
     window.scroll(0,0)

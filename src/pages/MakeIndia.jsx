@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {lazy, useEffect} from 'react'
 import './front.css'
 import { FaShoppingCart } from "react-icons/fa";
 import Carousel from 'react-multi-carousel';
@@ -7,7 +7,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import { IoIosHeart } from "react-icons/io";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from 'react-router-dom';
-import Navbar from './NavBar';
+const NavBar = lazy(()=>import('./NavBar'));
 import { useDispatch, useSelector } from 'react-redux';
 import { arraycart, incrementitem } from '../Redux/cartSlice';
 import axios from 'axios';

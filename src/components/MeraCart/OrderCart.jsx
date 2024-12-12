@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react'
+import React, { lazy, useMemo } from 'react'
 import { BsArrowLeftShort } from "react-icons/bs";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './Order.css'
 import { decrementitem, incrementitem , removeitem } from '../../Redux/cartSlice';
-import Payment from './Payment';
+const Payment = lazy(()=>import('./Payment'));
 
 export default function OrderCart() {
 
