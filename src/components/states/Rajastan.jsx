@@ -1,8 +1,8 @@
-import React from 'react';
+import React , {lazy} from 'react';
 
 
 import './state.css';
-import Carousel from './Carousel';
+const Carousel =lazy(()=>import("./Carousel"));
 
 export default function Rajasthan() {
   const images = [
@@ -51,7 +51,7 @@ export default function Rajasthan() {
         <h1>Beauty And Culure of the State</h1>
       </div>
       <div>
-        
+
       </div>
     </div>
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ne from "../components/states/image/image.png";
 import { useDispatch, useSelector } from "react-redux";
 import { CiSearch } from "react-icons/ci";
-import { searchBlogs, setBlogs } from "../Redux/blogslice";
+// import { searchBlogs, setBlogs } from "../Redux/blogslice";
 import { IoIosCreate } from "react-icons/io";
 import axios from "axios";
 import "./Blog.css";

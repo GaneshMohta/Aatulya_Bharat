@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import ne from "../components/states/image/image.png";
+
 import { useDispatch, useSelector } from "react-redux";
 import { CiSearch } from "react-icons/ci";
-import { searchBlogs, setBlogs } from "../../Redux/blogslice";
+
+const searchBlogs = lazy(()=>import('../../Redux/blogslice'));
+const setBlogs = lazy(()=>import('../../Redux/blogslice'))
+
 import { IoIosCreate } from "react-icons/io";
 import axios from "axios";
 import "./Blog.css";

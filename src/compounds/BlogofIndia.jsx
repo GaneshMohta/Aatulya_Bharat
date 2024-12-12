@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect , lazy } from 'react'
 import "../pages/front.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { setBlogs } from '../Redux/blogslice';
+const setBlogs = lazy(()=>import('../Redux/blogslice'))
 import axios from 'axios';
 
 const BlogofIndia = () => {
