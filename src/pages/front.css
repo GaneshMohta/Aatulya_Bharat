@@ -120,15 +120,15 @@
   margin: 0 auto;
   position: relative;
   display: inline-block;
-  animation: typing 4s steps(40, end);
+  animation: typing 3s steps(30, end);
 }
 
-.hm-m1 >img{
+.hm-img{
   height: 100vh;
 }
 
 .hm-m1{
-  height: auto;
+  height: 100vh;
 }
 
 .matemasie-regular {
@@ -617,7 +617,7 @@ height: 50vh;
 
 
 @media (max-width: 768px) {
-  .weddy-h1 {
+  /* .weddy-h1 {
     font-size: 2.5rem;
   }
 
@@ -631,13 +631,13 @@ height: 50vh;
 
   .bg-weddy {
     height: 400px;
-  }
+  } */
 }
 
 
 
 @media screen and (max-width: 500px) {
-  .dest-cards {
+  /* .dest-cards {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -658,9 +658,9 @@ height: 50vh;
     top: -4%;
     height: 100%;
     /* padding-top: 8px; */
-    visibility: hidden;
-    transition: all 0.3s ease-in-out;
-  }
+    /* visibility: hidden;
+    transition: all 0.3s ease-in-out; */
+  /* }
 
   .dest-hov:hover .dest-detail {
     opacity: 1;
@@ -685,10 +685,10 @@ height: 50vh;
     position: absolute;
     top: 20vh;
     left: 25vw;
-  }
-
+  } */
+/*
   .backdrop-card > div {
     height: 25vh;
     width: 70vw;
-  }
+  }  */
 }

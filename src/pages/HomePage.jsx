@@ -16,22 +16,24 @@ export default function HomePage() {
 
   const [isDropdownVisible, setDropdownVisible] = useState(false);
 
-  let u_name=localStorage.getItem('u_name');
+  let u_name=localStorage.getItem('u_name') || null;
+
+
   const responsive = {
     superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
+      breakpoint: { max: 3000, min: 2500 },
       items: 1
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 2500, min: 1000 },
       items: 1
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1000, min: 904 },
       items: 1
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 900, min: 400 },
       items: 1
     }
   };
@@ -41,13 +43,16 @@ export default function HomePage() {
       <Carousel
         responsive={responsive}
         autoPlay={true}
-        autoPlaySpeed={5000}
+        autoPlaySpeed={4000}
         infinite={true}
         arrows={false}
         showDots={false}
+        transitionDuration={2000}
+        pauseOnHover={false}
+
       >
         <div className='relative h-auto bg-white hm-m1'>
-          <img src="https://thesocialmediaexplorer.wordpress.com/wp-content/uploads/2015/09/3.jpg?w=1000" alt='hm-img' className='w-full'/>
+          <img src="https://thesocialmediaexplorer.wordpress.com/wp-content/uploads/2015/09/3.jpg?w=1000" alt='hm-img' className='w-full hm-img'/>
           <div className="absolute top-1 flex justify-between w-full hm-h1">
             <div className='ms-2'></div>
             <div><h1>ATALTUYA BHARAT</h1></div>
@@ -55,8 +60,14 @@ export default function HomePage() {
               <CgProfile onClick={() => setDropdownVisible(!isDropdownVisible)} className='cursor-pointer'/>
               {isDropdownVisible && (
                 <div className='absolute top-8 right-0 bg-white shadow-md rounded p-2'>
-                  <p className='text-sm text-gray-700'>{u_name}</p>
-                  <Link to="/profile" className='text-blue-500 hover:underline'>View Profile</Link>
+                  {
+                    u_name == null ? (<Link to='/signin' className='w-14' ><div className='button bg-blue-500 text-white font-semibold text-xs p-2 min-w-fit'>Sign In</div></Link>):(
+                     <div>
+                        <Link to="/profile" className='text-blue-500 text-pretty'>{u_name}</Link>
+                      </div>
+                    )
+                  }
+
                 </div>
               )}
             </div></div>
@@ -68,7 +79,7 @@ export default function HomePage() {
         </div>
 
         <div className='relative h-auto bg-white hm-m1'>
-          <img src="https://static-blog.treebo.com/wp-content/uploads/2018/06/Uttar-Pradesh.jpg" alt='hm-img' className='w-full'/>
+          <img src="https://static-blog.treebo.com/wp-content/uploads/2018/06/Uttar-Pradesh.jpg" alt='hm-img' className='w-full hm-img'/>
           <div className="absolute top-1 flex justify-between w-full hm-h1">
           <div className='ms-2'></div>
             <div><h1>ATALTUYA BHARAT</h1></div>
@@ -76,8 +87,13 @@ export default function HomePage() {
             <CgProfile onClick={() => setDropdownVisible(!isDropdownVisible)} className='cursor-pointer'/>
               {isDropdownVisible && (
                 <div className='absolute top-8 right-0 bg-white shadow-md rounded p-2'>
-                  <p className='text-sm text-gray-700'>{u_name}</p>
-                  <Link to="/profile" className='text-blue-500 hover:underline'>View Profile</Link>
+                {
+                    u_name == null ? (<Link to='/signin' className='w-14' ><div className='button bg-blue-500 text-white font-semibold text-xs p-2 min-w-fit'>Sign In</div></Link>):(
+                     <div>
+                        <Link to="/profile" className='text-blue-500 text-pretty'>{u_name}</Link>
+                      </div>
+                    )
+                  }
                 </div>
               )}
             </div> </div>
@@ -87,7 +103,7 @@ export default function HomePage() {
                 <h1 className='text-orange-700 font-bold'>The Incredible states of India</h1>
                 <p className='text-white'>8 Beauties and 28 Wonders of India</p>
                 <br />
-                <Link to='Map'>
+                <Link to='/Map'>
                 <button className='bg-yellow-400 p-1 rounded-md w-20'>Explore</button>
                 </Link>
               </div>
@@ -99,7 +115,7 @@ export default function HomePage() {
         </div>
 
         <div className='relative h-auto bg-white hm-m1'>
-          <img src="https://i.pinimg.com/736x/f4/c4/3c/f4c43cd02794709f565d65d40a83d66b.jpg" alt='hm-img' className='w-full'/>
+          <img src="https://i.pinimg.com/736x/f4/c4/3c/f4c43cd02794709f565d65d40a83d66b.jpg" alt='hm-img' className='w-full hm-img'/>
           <div className="absolute top-1 flex justify-between w-full hm-h1">
             <div className='ms-2'></div>
             <div><h1>ATALTUYA BHARAT</h1></div>
@@ -107,8 +123,13 @@ export default function HomePage() {
               <CgProfile onClick={() => setDropdownVisible(!isDropdownVisible)} className='cursor-pointer'/>
               {isDropdownVisible && (
                 <div className='absolute top-8 right-0 bg-white shadow-md rounded p-2'>
-                  <p className='text-sm text-gray-700'>{u_name}</p>
-                  <Link to="/profile" className='text-blue-500 hover:underline'>View Profile</Link>
+                    {
+                    u_name == null ? (<Link to='/signin' className='w-14' ><div className='button bg-blue-500 text-white font-semibold text-xs p-2 min-w-fit'>Sign In</div></Link>):(
+                     <div>
+                        <Link to="/profile" className='text-blue-500 text-pretty'>{u_name}</Link>
+                      </div>
+                    )
+                  }
                 </div>
               )}
             </div></div>
@@ -119,7 +140,7 @@ export default function HomePage() {
                 <h1 className='text-orange-700 font-bold'>Make in India</h1>
                 <p className='text-white'>It is an India Product Zero Defect and Zero Effect</p>
                 <br />
-                <Link to='Make-in-India'>
+                <Link to='/Make-in-India'>
                 <button className='bg-yellow-400 p-1 rounded-md w-20'>Explore</button>
                 </Link>
               </div>

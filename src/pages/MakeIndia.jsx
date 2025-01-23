@@ -79,7 +79,7 @@ export default function MakeIndia() {
           <h1 className='font-semibold mib-h1 text-orange-500  mt-0  md:relative left-24 '>MAKE IN BHARAT</h1>
       </div>
       <div className=''>
-            <Navbar />
+            <NavBar />
       </div>
       </div>
 

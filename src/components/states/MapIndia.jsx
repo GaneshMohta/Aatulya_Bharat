@@ -2,6 +2,8 @@ import { useState } from 'react';
 import India from "@react-map/india";
 import { Link, useNavigate } from 'react-router-dom';
 import { BsArrowLeftShort } from "react-icons/bs";
+import img from "./image/54alusrv.png"
+
 
 const STATES = {
   Maharashtra: {
@@ -19,10 +21,9 @@ export default function MapIndia() {
 
   const handleSelect = (state, selectedStatesArray) => {
     console.log('Selected state:', state);
-    // console.log('All selected states:', selectedStatesArray);
+
     setSelectedStates(selectedStatesArray || [state]);
 
-    // Navigate to the selected state's page (for single selection)
     if (selectedStatesArray === undefined) {
       const stateName = state.replace(/\s/g, "");
       navigate(`/${stateName}`);
@@ -30,7 +31,12 @@ export default function MapIndia() {
   };
 
   return (
-    <div className='maps'>
+    <div className='maps' style={{
+      backgroundImage: `url(${img})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      minHeight:'100vh'
+    }}>
       <div className='aatulya-header flex justify-between p-2 sticky top-0 z-50 bg-slate-200 items-center'>
         <div className='flex gap-2'>
           <Link to='/'>
@@ -42,10 +48,10 @@ export default function MapIndia() {
         </div>
       </div>
 
-      <div className='map-container'>
+      <div className='map-container  flex justify-center '>
         <India
           type="select-single"
-          size={500}  // Adjust the size
+          size={500}
           mapColor="lightblue"
           strokeColor="black"
           strokeWidth={1}
