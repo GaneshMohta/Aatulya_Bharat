@@ -27,13 +27,11 @@ export default function MakeIndia() {
   let len = prod.length;
   // const isLoading = useSelector((state) => state.content.isLoading)
   // const error = useSelector((state) => state.content.error)
-
      const isLoading = useSelector((state) => state.product.isLoading)
      const error = useSelector((state)=>state.product.error)
       if (isLoading) {
         return 'loading...'
       }
-
       if (error) {
         return error
       }

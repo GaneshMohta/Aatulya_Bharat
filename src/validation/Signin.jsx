@@ -25,6 +25,8 @@ export default function Signin() {
 
         // Handle the user data from the backend
         console.log(result.data.user)
+        localStorage.setItem("token",authResult.code);
+        localStorage.setItem("Bharat_email",result.data.user.email);
 
         navigate("/");
       } else {

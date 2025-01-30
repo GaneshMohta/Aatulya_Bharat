@@ -23,6 +23,8 @@ export default function Signup() {
         });
 
         // Handle the user data from the backend
+        localStorage.setItem("token",authResult.code);
+        localStorage.setItem("Bharat_email",res.data.user);
         console.log(result.data.user)
 
         navigate("/");

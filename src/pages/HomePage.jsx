@@ -16,8 +16,11 @@ export default function HomePage() {
 
   const [isDropdownVisible, setDropdownVisible] = useState(false);
 
-  let u_name=localStorage.getItem('u_name') || null;
-
+  let user_name=localStorage.getItem('Bharat_email') || null;
+  let u_name;
+  if(user_name !== null){
+  u_name = user_name.split('@')[0];
+  }
 
   const responsive = {
     superLargeDesktop: {
