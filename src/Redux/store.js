@@ -5,6 +5,12 @@ import productSlice from './productSlice';
 import nameSlice from './nameslice'
 
 
+// const persistStore = {
+//   key : 'root',
+//   whitelist : [state]
+// }
+
+
 
 const store = configureStore({
   reducer: {

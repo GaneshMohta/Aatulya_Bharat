@@ -4,6 +4,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import ErrorPage from './pages/ErrorPage.jsx';
+import States from './components/states/States.jsx';
 
 // Dynamically import components
 const Rajastan = lazy(() => import('./components/states/Rajastan'));
@@ -61,6 +62,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/adventurePage" element={<AdventurePage />} />
               <Route path ="*" element={<ErrorPage/>} />
+              <Route path="/wonders" element={<States/>}/>
             </Routes>
           </Suspense>
         </Router>

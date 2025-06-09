@@ -22,7 +22,7 @@ const fetchDataFailure = (error) =>{
         payload : error,
     }
 }
-
+ 
 export const fetchData = () => {
     return (dispatch)=>{
         dispatch(fetchDataRequest());

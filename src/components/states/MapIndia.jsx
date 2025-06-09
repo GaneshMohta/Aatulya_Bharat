@@ -3,6 +3,8 @@ import India from "@react-map/india";
 import { Link, useNavigate } from 'react-router-dom';
 import { BsArrowLeftShort } from "react-icons/bs";
 import img from "./image/54alusrv.png"
+//import { useDispatch } from 'react-redux';
+
 
 
 const STATES = {
@@ -20,13 +22,15 @@ export default function MapIndia() {
   const [selectedStates, setSelectedStates] = useState([]);
 
   const handleSelect = (state, selectedStatesArray) => {
+
     console.log('Selected state:', state);
 
     setSelectedStates(selectedStatesArray || [state]);
 
     if (selectedStatesArray === undefined) {
       const stateName = state.replace(/\s/g, "");
-      navigate(`/${stateName}`);
+      localStorage.setItem('currState',stateName);
+      navigate('/wonders');
     }
   };
 

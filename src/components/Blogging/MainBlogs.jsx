@@ -26,6 +26,7 @@ export default function MainBlogs() {
         "Content-Type": "application/json",
       },
     });
+    //console.log("res ",res);
     setBlogs(res.data);
     // dispatch(setBlogs(res.data));
   };
@@ -72,7 +73,7 @@ export default function MainBlogs() {
                             <p className="text-sm">{ourblog.author}</p>
                         </div>
                         <div className="w-[30%] flex justify-end img-container">
-                            <img src={`https://aatulya-bharat.onrender.com/uploads/${ourblog.image}`} alt="Blog" />
+                            <img src={`https://aatulya-bharat.onrender.com/uploads/${ourblog.TitleImage}`} alt="Blog" />
                         </div>
                     </div>
                 </Link>
