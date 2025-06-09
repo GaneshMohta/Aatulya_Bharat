@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,7 +8,6 @@ import States from './components/states/States.jsx';
 
 // Dynamically import components
 const HomePage = lazy(() => import('./pages/HomePage'));
-const KnowIndia = lazy(() => import('./pages/KnowIndia'));
 const Post = lazy(() => import('./components/Blogging/Post'));
 const Blogpage = lazy(() => import('./compounds/Blogpage'));
 const Signup = lazy(() => import('./validation/Signup'));
@@ -24,19 +23,40 @@ const Temple = lazy(() => import('./pages/Temple.jsx'));
 const AdventurePage = lazy(() => import('./pages/AdventurePage.jsx'));
 const Profile = lazy(() => import('./validation/Profile.jsx'));
 
+
+class ErrorBoundary extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {hasError:false};
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render(){
+    if(this.state.hasError){
+      return <h1>Something went wrong while loading the page.</h1>
+    }
+
+  return this.props.children;
+  }
+}
+
 function App() {
   return (
-    <>
       <GoogleOAuthProvider clientId="990977981881-5hkqf6bqhkij2jit0pq1cge935gp37rf.apps.googleusercontent.com">
         <Router>
+          <ErrorBoundary>
           {/* Wrap all routes in Suspense */}
-          <Suspense fallback={<div>Loading...</div>}>
+
             <Routes>
               <Route path="/ref" element={<Ref />} />
-              <Route path="/" element={<HomePage />} />
+              <Suspense fallback={<div>Loading...</div>}>
+                <Route path="/" element={<HomePage />} />
+              </Suspense>
               <Route path="/signin" element={<Signin />} />
               <Route path="/map" element={<MapIndia />} />
-              <Route path="/KnowIndia" element={<KnowIndia />} />
               <Route path="/Post" element={<Post />} />
               <Route path="/blogs/:id" element={<Blogpage />} />
               <Route path="/signup" element={<Signup />} />
@@ -51,10 +71,9 @@ function App() {
               <Route path ="*" element={<ErrorPage/>} />
               <Route path="/wonders" element={<States/>}/>
             </Routes>
-          </Suspense>
+        </ErrorBoundary>
         </Router>
       </GoogleOAuthProvider>
-    </>
   );
 }
 
