@@ -37,7 +37,7 @@ export const getBlog= async(req,res)=>{
 
 export const getBlogId = async (req, res) => {
   try {
-    const blogId = await Blog.findOne({ TitleId: req.params.Titleid })
+    const blogId = await Blog.findOne({ Titleid: req.params.Titleid })
     if (!blogId) {
       return res.status(404).json({ message: 'Blog not found' });
     }
