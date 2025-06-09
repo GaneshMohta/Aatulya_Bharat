@@ -7,13 +7,6 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import States from './components/states/States.jsx';
 
 // Dynamically import components
-const Rajastan = lazy(() => import('./components/states/Rajastan'));
-const Maharashtra = lazy(() => import('./components/states/Maharasthra'));
-const TamilNadu = lazy(() => import('./components/states/TamilNadu'));
-const Up = lazy(() => import('./components/states/Up'));
-const Mp = lazy(() => import('./components/states/Mp'));
-const Kerala = lazy(() => import('./components/states/Kerala'));
-const Gujarat = lazy(() => import('./components/states/Gujarat'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 const KnowIndia = lazy(() => import('./pages/KnowIndia'));
 const Post = lazy(() => import('./components/Blogging/Post'));
@@ -43,12 +36,6 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/signin" element={<Signin />} />
               <Route path="/map" element={<MapIndia />} />
-              <Route path="/Rajasthan" element={<Rajastan />} />
-              <Route path="/Maharashtra" element={<Maharashtra />} />
-              <Route path="/TamilNadu" element={<TamilNadu />} />
-              <Route path="/Kerala" element={<Kerala />} />
-              <Route path="/MadhyaPradesh" element={<Mp />} />
-              <Route path="/UttarPradesh" element={<Up />} />
               <Route path="/KnowIndia" element={<KnowIndia />} />
               <Route path="/Post" element={<Post />} />
               <Route path="/blogs/:id" element={<Blogpage />} />
