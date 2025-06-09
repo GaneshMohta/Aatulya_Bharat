@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,lazy } from 'react';
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import './front.css';
 import Chatbot from 'react-chatbot-kit';
-const ActionProviderHeritage = lazy(()=>import('../components/bot/ActionProviderHeritage'))
-const MessageParser = lazy(()=>import('../components/bot/MessageParser'))
-// import ActionProviderHeritage from '../components/bot/ActionProviderHeritage';
-const config = lazy(()=>import('../components/bot/config'))
-// import MessageParser from '../components/bot/MessageParser';
+//const ActionProviderHeritage = lazy(()=>import('../components/bot/ActionProviderHeritage'))
+//const MessageParser = lazy(()=>import('../components/bot/MessageParser'))
+import ActionProviderHeritage from '../components/bot/ActionProviderHeritage';
+import config from '../components/bot/config';
+//const config = lazy(()=>import('../components/bot/config'))
+import MessageParser from '../components/bot/MessageParser';
 import 'react-chatbot-kit/build/main.css';
 import { IoMdChatbubbles } from "react-icons/io";
 

@@ -17,7 +17,6 @@ const blogslice = createSlice({
     searchBlogs : (state,action)=>{
       if(action.payload === ""){
         state.filterblog = state.blogs;
-
       }
       else {
         state.filterblog = state.blogs.filter((bloger) =>bloger.cat.toLowerCase().includes(action.payload.toLowerCase()));

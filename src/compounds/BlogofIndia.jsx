@@ -1,11 +1,14 @@
-import React, { useEffect , lazy } from 'react'
+import React, { useEffect , lazy, useState } from 'react'
 import "../pages/front.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-const setBlogs = lazy(()=>import('../Redux/blogslice'))
+// const setBlogs = lazy(()=>import('../Redux/blogslice'))
+import { setBlogs } from '../Redux/blogslice';
 import axios from 'axios';
 
 const BlogofIndia = () => {
+
+  const [blog,setBlog] = useState([]);
   useEffect(()=>{
       getBlogs();
   },[])
@@ -14,9 +17,13 @@ const BlogofIndia = () => {
   const navigate=useNavigate();
 
   const getBlogs= async()=>{
-    const res= await axios.get("https://aatulya-bharat.onrender.com/blog/get");
-    console.log(res);
-    dispatch(setBlogs(res.data));
+    const res= await axios.get("https://aatulya-bharat.onrender.com/blog/get", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // dispatch(setBlogs(res.data));
+    setBlog(res.data);
 
   }
 
@@ -25,7 +32,7 @@ const BlogofIndia = () => {
     navigate('/blogs');
    }
 
-    const blog = useSelector((state)=>state.blog.blogs);
+
 
 
   return (

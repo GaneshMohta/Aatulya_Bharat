@@ -2,10 +2,12 @@ import React, { lazy, useState } from 'react'
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Chatbot from "react-chatbot-kit";
-
-const config = lazy(()=>import('../components/bot/config'))
-const ActionProviderTraveler = lazy(()=>import('../components/bot/ActionProviderTraveler'));
-const MessageParser = lazy(()=>import('../components/bot/MessageParser'))
+import config from '../components/bot/config';
+import ActionProviderTraveler from '../components/bot/ActionProviderTraveler';
+import MessageParser from '../components/bot/MessageParser';
+// const config = lazy(()=>import('../components/bot/config'))
+// const ActionProviderTraveler = lazy(()=>import('../components/bot/ActionProviderTraveler'));
+// const MessageParser = lazy(()=>import('../components/bot/MessageParser'))
 import 'react-chatbot-kit/build/main.css';
 import { IoMdChatbubbles } from "react-icons/io";
 

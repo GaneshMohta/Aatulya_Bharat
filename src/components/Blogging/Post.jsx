@@ -138,7 +138,7 @@ export default function Post() {
     try {
       console.log("Form ", formData);
       const token = localStorage.getItem('token');
-
+      // https://aatulya-bharat.onrender.com
       const response = await axios.post('https://aatulya-bharat.onrender.com/blog/create', formData, {
         headers: {
           "Content-Type": "multipart/form-data" ,

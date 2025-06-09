@@ -30,7 +30,7 @@ export default function Carousel({slides}) {
         transform: `translateX(-${curr * 100}%)`,
     }}>
         {slides.map((s , index)=>(
-            <img src={s} key={index}  />
+            <img src={s} key={index} className='object-cover h-[80vh] min-w-full' />
         ))}
     </div>
 
