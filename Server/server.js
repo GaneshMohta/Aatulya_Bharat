@@ -142,7 +142,7 @@ app.post('/api/chat', async (req, res) => {
   if (!config) {
       return res.status(400).json({ error: 'Invalid context provided.' });
   }
-  console.log(config)
+ // console.log(config)
   const { projectId, keyFilename } = config;
   const sessionClient = new SessionsClient({ keyFilename });
   const sessionId = uuidv4();

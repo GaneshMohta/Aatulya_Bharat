@@ -74,7 +74,7 @@ export default function Cartpost() {
      <div className='flex justify-between p-2 bg-slate-300'>
       <div className='flex gap-2'>
       <Link to='/Make-in-India'><span className='text-slate-950 relative top-1'><BsArrowLeftShort/></span></Link>
-      <h3>Aatulya Bharat</h3>
+      <h3 className='text-xl font-semibold text-gray-800'>Atulya Bharat</h3>
       </div>
       </div>
       <h1 className='font-serif text-base text-center text-red-400 pt-2'>DESH KA MAAN DESH KA SAAMAN</h1>

@@ -44,23 +44,21 @@ export default function MainBlogs() {
   return (
 
     <div className="flex flex-col aatulya-responsive ">
-    <div className="flex justify-around h-[10vh] bg-slate-300 aatulya-header sticky top-1 z-10 w-full">
-        <Link to="/">
-            <span className="z-10 relative top-[3vh] right-[20vw]">
-                <BsArrowLeftShort />
-            </span>
-        </Link>
-        <span className="absolute left-[40vw] top-3 text-[100%] font-bold">
-            Aatulya Bharat
-        </span>
-        <Link to="/post" className="text-xl flex items-center relative left-[20%]">
+    <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 flex justify-between p-2">
+        <div className="flex items-center gap-3">
+            <Link to='/' className="text-gray-600 hover:text-gray-800 text-2xl">
+            ←
+            </Link>
+            <h1 className="text-xl font-semibold text-gray-800">Atulya Bharat</h1>
+        </div>
+        <Link to="/post" className="">
             <IoIosCreate />
             <span className="text-base">Write</span>
         </Link>
     </div>
 
     <div className="flex aatulya-body border-2 h-full">
-        <div className="w-[70vw] h-auto p-4 border-e-2">
+        <div className="w-[70%] h-auto p-4 border-e-2">
             {Blog.map((ourblog) => (
                 <Link to={`${ourblog.Titleid}`} key={ourblog.id} className="pt-2">
                     <div className="h-[30vh] gap-1 bg-zinc-400 flex m-2">
@@ -76,8 +74,8 @@ export default function MainBlogs() {
             ))}
         </div>
 
-        <div className="w-[30vw] sticky top-1 left-0 h-[90vh]">
-            <h1 className="pt-4 text-xl ps-4">Recommended Topics</h1>
+        <div className="w-[30%] sticky top-1 left-0 h-[90vh]">
+            <h1 className="pt-4 text-xl ps-4 text-gray-700 font-semibold">Recommended Topics</h1>
             <div className="flex justify-between py-3 flex-wrap gap-5 ps-4 pe-3">
                 {["States", "Cultures", "Heritage", "Innovation"].map((topic) => (
                     <button

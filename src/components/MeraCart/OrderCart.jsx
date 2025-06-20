@@ -36,7 +36,7 @@ export default function OrderCart() {
 
   if(Carts.length==0){
     return <>
-   <div className='flex justify-between p-2 bg-slate-300 sticky top-0'>
+   <div className='sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200'>
     <div className='flex gap-2'>
      <Link to='/Make-in-India'><span className='text-slate-950 relative top-1'><BsArrowLeftShort/></span></Link>
   <h3>Aatulya Bharat</h3>
@@ -45,11 +45,11 @@ export default function OrderCart() {
     <h1 style={{textAlign:"center"}} className='bg-slate-100 h-[90vh] flex items-center justify-center font-bold text-3xl text-blue-700'>😑Cart is Empty😑</h1>
 </>}
 return (
-  <div className='bg-slate-100 h-auto'>
-   <div className='flex justify-between p-2 bg-slate-300 sticky top-0'>
-    <div className='flex gap-2'>
-     <Link to='/Make-in-India'><span className='text-slate-950 relative top-1'><BsArrowLeftShort/></span></Link>
-  <h3>Aatulya Bharat</h3>
+  <div className='min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50'>
+   <div className='sticky top-0 z-50 p-1 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 items-center'>
+    <div className='flex gap-2 items-center'>
+     <Link to='/Make-in-India'><span className='text-gray-600 hover:text-gray-800 text-2xl'><BsArrowLeftShort/></span></Link>
+      <h3 className='text-xl font-semibold text-gray-800'>Atulya Bharat</h3>
   </div>
   </div>
   <div className="overall">

@@ -11,26 +11,68 @@
         "stateSubMoto": "Incredible State of India",
         "HOS": "History of States",
         "HOSImage": "https://mir-s3-cdn-cf.behance.net/projects/404/e778bb195966849.Y3JvcCwxOTkyLDE1NTgsMCwxOQ.jpg",
-        "History": "Rajasthan, the largest state in India, was once known as Rajputana. It has roots in the Indus Valley Civilization. Known for the valor of Rajputs, the region saw the rise of powerful states like Mewar and Marwar. It became part of India after the British left in 1947 and formally reorganized in 1958.",
+        "History": "Rajasthan, the largest state in India, was once known as Rajputana and had a pre-historic culture  similar to the Indus Valley civilization. The Chauhans dominated Rajput affairs from the seventh century and became an imperial power by the 12th century. Other prominent states included Marwar, Jaipur, Bundi, Kota, Bharatpur, and Alwar. The British Treaty of Subordinate Alliance in 1818 protected the princes' interests, leaving the people discontented. After the 1857 revolt, the people united under Mahatma Gandhi to contribute to the freedom movement. The introduction of provincial autonomy in 1935 intensified the agitation for civil liberties and political rights in Rajasthan. The States Reorganisation Act (1948) led to the Matsya Union (1948), which merged with other states, eventually becoming the United State of Greater Rajasthan in 1949. In 1958, the present State of Rajasthan was formally formed, with Ajmer state, Abu Road Taluka, and Sunel Tappa joining it. Rajasthan's western flank borders Pakistan,  while Punjab, Haryana, Uttar Pradesh, and Madhya Pradesh border it in north-east, south-east, and south-west",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/009/875/740/small_2x/seamless-pattern-with-mandala-ornament-ethnic-folk-ornament-vintage-monochrome-damask-ornament-decorative-background-great-for-any-design-free-vector.jpg",
-        "Culures": "Rich in folk music, Ghoomar dance, Rajasthani cuisine like Dal Baati Churma, vibrant textiles, and camel festivals."
+        "Cultures": [
+            {
+                "txt": "Dal Baati Churma is Rajasthan's most iconic dish, representing the essence of royal Rajasthani cuisine. This traditional meal consists of three components: dal (lentil curry), baati (hard wheat rolls baked in clay ovens), and churma (sweetened wheat flour mixed with ghee and jaggery). The dish originated as a practical meal for warriors who needed nutritious, long-lasting food during battles. Baati could be cooked over cow dung fire in the desert, while dal provided protein and churma offered energy. The preparation involves roasting wheat flour balls until golden, then crushing them and mixing with ghee, sugar, and dry fruits. This hearty meal is typically served during festivals and special occasions, symbolizing Rajasthani hospitality and the state's rich culinary heritage that has been passed down through generations.",
+                "image": "https://www.secondrecipe.com/wp-content/uploads/2020/11/dal-bati-churma.jpg"
+            },
+            {
+                "txt": "Ghoomar is Rajasthan's most celebrated folk dance, performed by women during festivals and special occasions. This graceful dance originated in the royal courts of Rajasthan and gets its name from 'ghoomna', meaning to revolve. Dancers wear traditional Rajasthani attire including colorful lehengas with intricate mirror work, heavy jewelry, and veils covering their faces. The dance involves graceful spinning movements where women move in circles, creating mesmerizing patterns with their flowing skirts. Accompanied by traditional folk songs and instruments like dhol, tabla, and harmonium, Ghoomar tells stories of daily life, mythology, and romance. The dance has religious significance too, often performed to honor Goddess Saraswati. UNESCO recognized Ghoomar as an Intangible Cultural Heritage, highlighting its importance in preserving Rajasthani culture and traditions.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Ghoomar_dancers_%28Rajasthan%2C_India%2C_2023%29.jpg/1200px-Ghoomar_dancers_%28Rajasthan%2C_India%2C_2023%29.jpg"
+            },
+            {
+                "txt": "Rajasthani folk music forms the soul of the state's cultural identity, characterized by haunting melodies that echo across the Thar Desert. Traditional instruments include the ravanhatha (ancient string instrument), khartal (wooden clappers), morchang (jaw harp), and algoza (double flute). Folk singers called 'Bhopas' and 'Manganiyars' are hereditary musicians who preserve centuries-old ballads and songs. These musical traditions narrate tales of brave Rajput warriors, desert life, love stories, and devotional themes. The music varies across regions - Marwari folk songs differ from Mewari traditions. Instruments like the dhol and shehnai accompany celebrations, while the haunting sound of the ravanhatha tells stories of heroism and romance. This musical heritage has influenced modern Indian cinema and continues to captivate audiences worldwide, representing the timeless spirit of Rajasthan.",
+                "image": "https://aathun.com/wp-content/uploads/2021/11/rs1.jpg"
+            },
+            {
+                "txt": "Camel festivals in Rajasthan celebrate the 'Ship of the Desert' that has been integral to the state's culture and economy for centuries. The most famous is the Pushkar Camel Fair, attracting thousands of visitors annually. These festivals showcase beautifully decorated camels adorned with colorful textiles, bells, and ornaments. Events include camel races, dancing camels, camel beauty contests, and traditional camel cart races. The festivals also feature cultural programs with folk music, dance performances, and local handicraft exhibitions. Camel milk and camel rides are popular attractions, while traditional Rajasthani cuisine is served to visitors. These celebrations highlight the historical importance of camels in trade, transportation, and warfare in the desert regions. The festivals preserve ancient traditions while promoting tourism, demonstrating how Rajasthan successfully blends its cultural heritage with modern economic opportunities.",
+                "image": "https://currentaffairs.adda247.com/wp-content/uploads/multisite/sites/5/2024/01/13160345/bi.jpg"
+            },
+            {
+                "txt": "Rajasthani textiles represent one of India's most vibrant and intricate textile traditions, known worldwide for their bold colors, mirror work, and detailed embroidery. Traditional techniques include bandhani (tie-dye), block printing, and gota work (gold thread embroidery). Famous textile centers like Jaipur, Jodhpur, and Sanganer have perfected these crafts over centuries. Artisans create stunning lehengas, sarees, dupattas, and wall hangings using natural dyes and traditional motifs inspired by nature, mythology, and royal heritage. The fabrics often feature bright colors like royal blue, deep red, golden yellow, and emerald green, reflecting the desert landscape and royal traditions. Techniques are passed down through generations, with entire families specializing in specific crafts. These textiles are not just clothing but expressions of artistic heritage, worn during festivals, weddings, and cultural celebrations, representing Rajasthan's rich artistic legacy.",
+                "image": "https://www.indovacations.net/rajasthan-Tours-Info/Images/Fabrics1.jpg"
+            }
+        ]
     },
-{
-  "name": "Chhattisgarh",
-  "image": [
-    "https://upload.wikimedia.org/wikipedia/commons/b/b1/Bhoramdeo_Temple%2C_Kawardha.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Bhoramdeo_Temple_Chhattisgarh.jpg/1024px-Bhoramdeo_Temple_Chhattisgarh.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Sirpur_Archaeological_Site.jpg/1024px-Sirpur_Archaeological_Site.jpg",
-    "https://s7ap1.scene7.com/is/image/incredibleindia/chitrakote-water-falls-jagdalpur-chhattisgarh-1-attr-hero?qlt=82&ts=1727011277081"
-  ],
-  "stateMoto": "बस्तर का गौरव (Pride of Bastar)",
-  "stateSubMoto": "Gateway to Tribal Heartland",
-  "HOS": "History & Heritage",
-  "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Bhoramdeo_Temple_Chhattisgarh.jpg",
-  "History": "Chhattisgarh, carved out of Madhya Pradesh in 2000, has a rich tribal heritage rooted in dynasties like the Maurya and Nagvanshi. The region is celebrated for its ancient rock shelters (Bhimbetka), medieval temples like Bhoramdeo (1089 AD), and archaeological gems at Sirpur dating back to 4th century CE. Chitrakote Falls along the Indravati River, dubbed India’s Niagara, has been a sacred site and cultural hub for Bastar’s indigenous communities :contentReference[oaicite:2]{index=2}.",
-  "wall": "https://static.vecteezy.com/system/resources/thumbnails/009/875/740/small_2x/seamless-pattern-with-mandala-ornament-ethnic-folk-ornament-vintage-monochrome-damask-ornament-decorative-background-great-for-any-design-free-vector.jpg",
-  "Culture": "Bastar’s culture is vibrant—famous for tribal handicrafts, Dhokra metalwork, Mardi dance, Bastar Dussehra and rich folk music traditions. The region’s festivals and rituals reflect deep-rooted forest traditions and artisanal heritage."
-},
+    {
+        "name": "Chhattisgarh",
+        "image": [
+            "https://upload.wikimedia.org/wikipedia/commons/b/b1/Bhoramdeo_Temple%2C_Kawardha.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Bhoramdeo_Temple_Chhattisgarh.jpg/1024px-Bhoramdeo_Temple_Chhattisgarh.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Sirpur_Archaeological_Site.jpg/1024px-Sirpur_Archaeological_Site.jpg",
+            "https://s7ap1.scene7.com/is/image/incredibleindia/chitrakote-water-falls-jagdalpur-chhattisgarh-1-attr-hero?qlt=82&ts=1727011277081"
+        ],
+        "stateMoto": "बस्तर का गौरव (Pride of Bastar)",
+        "stateSubMoto": "Gateway to Tribal Heartland",
+        "HOS": "History & Heritage",
+        "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Bhoramdeo_Temple_Chhattisgarh.jpg",
+        "History": "Chhattisgarh, carved out of Madhya Pradesh in 2000, has a rich tribal heritage rooted in dynasties like the Maurya and Nagvanshi. The region is celebrated for its ancient rock shelters (Bhimbetka), medieval temples like Bhoramdeo (1089 AD), and archaeological gems at Sirpur dating back to 4th century CE. Chitrakote Falls along the Indravati River, dubbed India's Niagara, has been a sacred site and cultural hub for Bastar's indigenous communities.",
+        "wall": "https://static.vecteezy.com/system/resources/thumbnails/009/875/740/small_2x/seamless-pattern-with-mandala-ornament-ethnic-folk-ornament-vintage-monochrome-damask-ornament-decorative-background-great-for-any-design-free-vector.jpg",
+        "Cultures": [
+            {
+                "txt": "Dhokra metalwork represents Chhattisgarh's ancient tribal craftsmanship, dating back over 4,000 years to the Indus Valley Civilization. This lost-wax casting technique creates intricate brass and bronze artifacts including figurines, jewelry, utensils, and decorative items. Tribal artisans, particularly from the Gharua community, have preserved this art form through generations. The process involves creating clay models, covering them with wax, then clay again, and finally pouring molten metal. Each piece is unique, featuring tribal motifs, animals, deities, and geometric patterns that reflect the cultural beliefs of indigenous communities. The craft requires exceptional skill and patience, with a single piece taking weeks to complete. Dhokra items are not just decorative but hold spiritual significance in tribal rituals and ceremonies. Today, this ancient art form supports thousands of tribal families while gaining international recognition as a symbol of India's rich craftsmanship heritage.",
+                "image": "https://example.com/dhokra-metalwork.jpg"
+            },
+            {
+                "txt": "Mardi dance is a vibrant cultural expression of the Gond tribe, primarily performed during festivals and harvest celebrations in Chhattisgarh. This energetic folk dance involves both men and women who form circles and dance to rhythmic beats of traditional drums and instruments. Dancers wear colorful tribal costumes adorned with beads, feathers, and traditional jewelry, while their faces are painted with natural colors in geometric patterns. The dance movements mimic various aspects of nature, agricultural activities, and tribal mythology. Songs accompanying the dance narrate stories of tribal heroes, forest deities, and seasonal changes. The Mardi dance serves multiple purposes - entertainment, spiritual connection with nature, and preservation of oral traditions. During performances, the entire community participates, strengthening social bonds and cultural identity. This ancient dance form continues to play a vital role in tribal festivals like Hareli and Pola, maintaining the rich cultural heritage of Chhattisgarh's indigenous communities.",
+                "image": "https://example.com/mardi-dance.jpg"
+            },
+            {
+                "txt": "Bastar Dussehra is unique among India's Dussehra celebrations, lasting for 75 days and centered around tribal traditions rather than the typical Ramayana narrative. This festival celebrates the local deity Devi Danteswari and involves the entire tribal community of Bastar region. The celebration begins with the Kachan Gadi ritual and includes elaborate processions, traditional dances, and cultural performances. The highlight is the magnificent chariot procession where the deity's idols are carried through the streets of Jagdalpur. Unlike other Dussehra festivals, Bastar's version emphasizes tribal customs, folk music, and indigenous rituals that have been practiced for centuries. The festival showcases the rich cultural diversity of various tribal communities including Gonds, Marias, and Abhuj Marias. Local artisans create beautiful decorations, tribal musicians perform traditional songs, and the entire region comes alive with cultural activities. This celebration demonstrates how ancient tribal traditions continue to thrive, offering visitors a glimpse into India's diverse cultural landscape.",
+                "image": "https://example.com/bastar-dussehra.jpg"
+            },
+            {
+                "txt": "Chhattisgarh's tribal handicrafts represent centuries of indigenous artistry, with each tribe specializing in unique crafts that reflect their cultural identity and connection with nature. The state is renowned for bamboo and cane craft, where artisans create baskets, furniture, decorative items, and musical instruments. Wood carving is another significant craft, producing intricate sculptures, masks, and household items from locally sourced timber. Tribal women excel in creating beautiful textiles using traditional looms, incorporating natural dyes and patterns inspired by forest life. Bell metal craft produces utensils, lamps, and decorative items that are essential in tribal rituals. These handicrafts are not merely commercial products but carry deep cultural significance, often used in ceremonies, festivals, and daily life. The techniques are passed down through generations, with each community maintaining its distinct style and motifs. Government initiatives and craft cooperatives help preserve these traditions while providing sustainable livelihoods to tribal artisans, ensuring the continuity of this rich heritage.",
+                "image": "https://example.com/tribal-handicrafts.jpg"
+            },
+            {
+                "txt": "Chhattisgarh's rich folk music traditions echo through its dense forests and tribal villages, representing the voice of indigenous communities who have preserved these melodies for generations. Traditional instruments include the mohuri (wind instrument), timki (small drum), nishaan (large drum), and various string instruments crafted from natural materials. Pandwani is a popular folk singing tradition where skilled performers narrate stories from the Mahabharata using musical storytelling techniques. Tribal communities have their own musical traditions - the Gonds perform ritualistic songs during festivals, while the Baigas have healing songs believed to cure ailments. Folk songs often revolve around themes of nature worship, agricultural cycles, love stories, and heroic tales of tribal leaders. The music serves multiple purposes: entertainment during festivals, spiritual connection during rituals, and preservation of oral history. These musical traditions continue to thrive in rural areas, with young tribal artists learning from elders, ensuring the continuity of Chhattisgarh's invaluable cultural heritage.",
+                "image": "https://example.com/folk-music-chhattisgarh.jpg"
+            }
+        ]
+    },
     {
       "name":"Bihar",
         "image": [
@@ -45,7 +87,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Magadha_Empire_Map.jpg/800px-Magadha_Empire_Map.jpg",
         "History": "Bihar, one of India's oldest inhabited regions, holds immense historical significance as the birthplace of Buddhism and Jainism. The ancient kingdom of Magadha, centered in present-day Bihar, was the seat of powerful empires including the Mauryan and Gupta dynasties. The region witnessed the enlightenment of Gautama Buddha at Bodh Gaya and the establishment of Nalanda University, one of the world's first residential universities. The Mauryan emperor Chandragupta Maurya and his grandson Ashoka ruled from Pataliputra (modern Patna), spreading Buddhism across Asia. The Gupta period marked a golden age of Indian culture, arts, and sciences. During medieval times, Bihar came under various Muslim rulers including the Delhi Sultanate and Mughal Empire. The region played a crucial role in India's independence movement with leaders like Dr. Rajendra Prasad, who became India's first President. The Champaran Satyagraha led by Mahatma Gandhi in 1917 marked his first major victory in India. Post-independence, Bihar faced economic challenges but has made significant strides in recent years. The state was bifurcated in 2000 when Jharkhand was carved out, allowing Bihar to focus on its predominantly agricultural economy and rich cultural heritage.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/009/875/740/small_2x/seamless-pattern-with-mandala-ornament-ethnic-folk-ornament-vintage-monochrome-damask-ornament-decorative-background-great-for-any-design-free-vector.jpg",
-        "Culures": "Buddhist and Jain heritage, Bihari folk music, Madhubani paintings, traditional crafts, and festivals like Chhath Puja."
+        "Cultures": [
+            {
+                "txt": "Madhubani painting, also known as Mithila art, is Bihar's most celebrated folk art form that originated in the Mithila region. This ancient art form, traditionally practiced by women, involves creating intricate paintings using natural pigments and dyes on walls, floors, and handmade paper. The paintings typically depict Hindu mythological scenes, nature motifs, and social events like marriages and festivals. Traditional themes include stories of Lord Krishna, Rama, Durga, and other deities, along with peacocks, fish, elephants, and geometric patterns. Artists use natural materials like rice paste, turmeric, indigo, and charcoal to create vibrant colors. The art form has three distinct styles: Bharni (filled with bright colors), Kachni (line drawings), and Tantrik (spiritual themes). UNESCO recognized Madhubani as a Masterpiece of Oral and Intangible Heritage of Humanity. Today, this traditional art has evolved from rural walls to international galleries, providing livelihood to thousands of women artists while preserving Bihar's rich cultural heritage.",
+                "image": "https://example.com/madhubani-painting.jpg"
+            },
+            {
+                "txt": "Chhath Puja is Bihar's most significant festival, dedicated to the Sun God (Surya) and his consort Chhathi Mata. This ancient Vedic festival, celebrated with unmatched devotion, spans four days and involves rigorous rituals including fasting, holy bathing, and standing in water bodies for hours. Devotees, primarily women called 'Vratis', observe strict fasting for 36 hours without water, preparing traditional offerings like thekua, kheer, and fruits in bamboo baskets called 'daura'. The festival's highlight occurs at river banks, ponds, or other water bodies where devotees stand waist-deep in water, offering prayers to the setting and rising sun. The ritualistic songs, called Chhath geet, create a spiritual atmosphere as hundreds of devotees gather together. This festival transcends religious boundaries, with people from all communities participating. The celebration emphasizes environmental consciousness, family unity, and gratitude to nature. Chhath Puja has gained recognition beyond Bihar, celebrated by the diaspora worldwide, making it a symbol of Bihari cultural identity and devotion.",
+                "image": "https://example.com/chhath-puja.jpg"
+            },
+            {
+                "txt": "Bihari folk music represents the cultural heartbeat of the state, encompassing various regional traditions that reflect the lives, struggles, and celebrations of common people. Sohar songs are sung during childbirth, welcoming new life with melodious tunes that express joy and hope. Kajri and Jhumar are popular during the monsoon season, celebrating love and nature's beauty. Biraha is a unique musical storytelling tradition where singers narrate tales of love, separation, and social issues through powerful vocals and dramatic expressions. Traditional instruments include the dhol, tabla, harmonium, sarangi, and manjira, creating rhythmic accompaniments to these folk songs. Regional variations exist across Bihar - Bhojpuri songs differ from Maithili traditions, each reflecting local dialects and cultural nuances. These songs serve multiple purposes: entertainment during festivals, cultural preservation, and social commentary. Many contemporary Bollywood songs have roots in Bihari folk music, demonstrating its enduring influence on Indian music. The tradition continues through local artists and cultural programs, maintaining Bihar's rich musical heritage.",
+                "image": "https://example.com/bihari-folk-music.jpg"
+            },
+            {
+                "txt": "Bihar's Buddhist heritage represents one of the world's most significant spiritual legacies, centered around Bodh Gaya where Gautama Buddha attained enlightenment under the Bodhi tree. The Mahabodhi Temple, a UNESCO World Heritage site, attracts millions of pilgrims and tourists annually. The state houses numerous Buddhist sites including Nalanda University ruins, once the world's first residential university attracting scholars from across Asia. Rajgir, where Buddha delivered many important sermons, contains ancient monasteries and meditation caves. Vaishali, birthplace of Lord Mahavira and site of Buddha's last sermon, showcases stupas and archaeological remains. These sites feature magnificent stupas, monasteries, sculptures, and meditation halls that reflect the artistic and architectural achievements of ancient India. The Buddhist heritage includes not just monuments but living traditions - meditation practices, philosophical teachings, and cultural festivals. Today, Bihar's Buddhist circuit is promoted as a major pilgrimage and tourist destination, connecting devotees worldwide with the origins of Buddhism while contributing to the state's economic development through heritage tourism.",
+                "image": "https://example.com/buddhist-heritage.jpg"
+            },
+            {
+                "txt": "Bihar's traditional crafts represent centuries of skilled artisanship, with each region specializing in unique handicrafts that reflect local culture and resources. Sikki grass craft, primarily from Madhubani district, involves creating baskets, decorative items, and toys using golden sikki grass. Artisans weave intricate patterns and designs that often complement Madhubani paintings. Bhagalpur is famous for Tussar silk production, known as 'Bihar silk', where silkworms are reared on arjun and asan trees. The silk fabrics are renowned for their natural golden color and durability. Stone carving traditions continue in areas around Gaya and Rajgir, producing sculptures and architectural elements for temples and monuments. Bamboo craft thrives in various districts, creating household items, furniture, and decorative pieces. Pottery traditions are particularly strong in rural areas, producing earthenware for daily use and decorative purposes. These crafts provide livelihoods to thousands of families while preserving traditional skills passed down through generations. Government initiatives and NGOs work to modernize these crafts and connect artisans with wider markets, ensuring economic viability while maintaining cultural authenticity.",
+                "image": "https://example.com/bihar-traditional-crafts.jpg"
+            }
+        ]
     },
     {
         "name":"TamilNadu",
@@ -61,8 +124,29 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/7/78/TamilNadu_History_Map.jpg",
         "History": " Tamil Nadu, located in southeast India, has a rich history dating back to 15,000 BCE to 10,000 BCE. The region has been inhabited by three ancient Tamil dynasties, Chera, Chola, and Pandya, who ruled with unique culture and language. The Kalabhras invaded the region in the 3rd century, displacing the three ruling kingdoms.The Pandyas and Pallavas later restored the traditional kingdoms. The Cholas, who re-emerged in the 9th century, expanded their empire over the southern peninsula, spanning almost 3,600,000 km². The Chola navy held power over the Sri Vijaya kingdom in Southeast Asia.Rapid political changes in India occurred due to Muslim incursions and the decline of the ancient dynasties.The Vijayanagara Empire gained a foothold in the region from the late 14th century until the 16th century.The Maratha Empire expanded its territories into present-day Tamil Nadu.",
         "wall": "https://cdn.dribbble.com/users/26413/screenshots/11243317/media/4f8db187ebfe4b3a3f70a6c7a7f60356.jpg",
-        "Culures": "Bharatanatyam, Carnatic music, Pongal festival, Kanchipuram sarees, and Tamil literature define the culture."
-    },
+        "Cultures": [
+      {
+        "txt": "Bharatanatyam, Tamil Nadu's classical dance form, represents the pinnacle of Indian performing arts with its origins tracing back over 2000 years to temple traditions. This sacred dance combines intricate footwork, expressive hand gestures (mudras), facial expressions (abhinaya), and rhythmic movements to narrate stories from Hindu epics and mythology. Dancers undergo rigorous training for years to master the complex techniques, learning precise positions, steps, and emotional expressions. The dance is characterized by its geometric precision, with dancers creating triangular shapes and symmetrical patterns through their body positions. Traditional performances include items like Alarippu, Jatiswaram, Shabdam, Varnam, and Thillana, each serving different purposes in storytelling and spiritual expression. The elaborate costumes feature silk sarees, temple jewelry, intricate makeup, and jasmine flowers, transforming dancers into divine beings. Bharatanatyam was revived during the independence movement as a symbol of cultural pride and continues to be performed worldwide. Contemporary choreographers blend traditional elements with modern themes, ensuring this ancient art form remains relevant while preserving its spiritual essence and technical rigor.",
+        "image": "https://example.com/bharatanatyam-classical-dancer.jpg"
+      },
+      {
+        "txt": "Tamil literature stands as one of the world's oldest literary traditions, with works dating back over 2000 years that continue to influence modern thought and culture. The Sangam literature, composed between 300 BCE and 300 CE, includes masterpieces like Thirukkural by Thiruvalluvar, containing 1330 couplets on ethics, politics, and love that remain relevant today. Epic works like Silappatikaram and Manimekalai showcase Tamil narrative poetry at its finest, weaving together love stories, moral lessons, and cultural insights. The medieval period produced devotional literature through Nayanars and Alvars, whose hymns form the foundation of Tamil spirituality. Modern Tamil literature has produced renowned authors like Bharathiyar, Kalki, and Jayakanthan who addressed social issues and human emotions with profound sensitivity. The language itself is celebrated for its rich vocabulary, grammatical sophistication, and poetic beauty. Today, Tamil literature encompasses diverse genres from historical fiction to contemporary poetry, with works being translated globally. Literary festivals and cultural organizations continue to promote Tamil literary heritage, ensuring this ancient tradition thrives in the digital age while maintaining its linguistic purity and cultural significance.",
+        "image": "https://example.com/tamil-literature-manuscripts.jpg"
+      },
+      {
+        "txt": "Tamil Nadu's temple architecture represents the zenith of Dravidian architectural achievement, with magnificent temples that serve as centers of spirituality, art, and community life. The iconic gopurams (temple towers) rise majestically skyward, adorned with thousands of colorful sculptures depicting gods, goddesses, and mythological scenes. Famous temples like Meenakshi Temple in Madurai, Brihadeeswarar Temple in Thanjavur, and Nataraja Temple in Chidambaram showcase different periods of architectural evolution spanning over a millennium. These structures feature intricate stone carvings, mandapams (halls), sacred tanks, and elaborate pillared corridors that create spiritual atmospheres. The bronze sculptures of Chola period temples, particularly the Nataraja (Dancing Shiva), are considered masterpieces of world art. Temple festivals bring these monuments to life with processions, music, dance, and elaborate decorations. The architectural principles emphasize harmony, proportion, and spiritual symbolism, with every element serving both aesthetic and religious purposes. Modern temple construction continues these traditions while incorporating contemporary needs. These temples are not just religious sites but living museums that preserve Tamil culture, providing space for classical arts, festivals, and community gatherings that maintain Tamil Nadu's rich spiritual heritage.",
+        "image": "https://example.com/tamil-nadu-temple-gopuram.jpg"
+      },
+      {
+        "txt": "Tamil cuisine reflects the state's diverse geography, climate, and cultural influences, offering a rich tapestry of flavors that celebrate both vegetarian and non-vegetarian traditions. The foundation lies in rice, which is prepared in countless ways - from simple steamed rice to elaborate biryanis and flavorful varieties like coconut rice, lemon rice, and curd rice. Traditional meals are served on banana leaves, creating an eco-friendly and aromatic dining experience. South Indian breakfast items like idli, dosa, vada, and pongal have gained international recognition for their nutritional value and unique preparation methods. The famous sambar and rasam provide the liquid base for meals, combining lentils with vegetables and spices in perfect harmony. Regional specialties include Chettinad cuisine known for its fiery spices, Kongu cuisine featuring unique preparations, and coastal varieties emphasizing seafood and coconut. Traditional sweets like Mysore pak, adhirasam, and payasam mark celebrations and festivals. The extensive use of curry leaves, tamarind, coconut, and indigenous spices creates distinctive flavors. Modern Tamil cuisine has evolved to include fusion dishes while maintaining traditional cooking methods and emphasizing fresh, local ingredients that promote health and sustainability.",
+        "image": "https://example.com/tamil-nadu-traditional-meal.jpg"
+      },
+      {
+        "txt": "Tamil folk arts encompass a vibrant collection of traditional performances that preserve the state's cultural narratives and community bonds through generations. Karagattam, a folk dance balancing decorated pots, combines acrobatics with storytelling, often performed during temple festivals and community celebrations. Oyilattam involves rhythmic dancing with colorful handkerchiefs, creating mesmerizing patterns while narrating folk tales. Devarattam, performed with wooden sticks, showcases warrior traditions and requires precise coordination among performers. Puppet shows using traditional string puppets tell stories from epics and local legends, entertaining audiences while preserving oral traditions. Folk music includes various regional forms like Oppari (lamentation songs), Kummi (circle dances), and work songs that accompany agricultural activities. These art forms serve multiple purposes: entertainment, cultural preservation, social commentary, and community bonding. Instruments like nadaswaram, thavil, and various percussion instruments provide musical accompaniment. Many folk artists come from hereditary performer communities who have maintained these traditions despite modern challenges. Government initiatives and cultural organizations work to document, preserve, and promote these art forms through festivals, workshops, and educational programs, ensuring their survival for future generations while adapting to contemporary contexts.",
+        "image": "https://example.com/tamil-folk-karagattam-dance.jpg"
+      }
+    ]
+      },
     {
       "name":"Punjab",
         "image": [
@@ -77,7 +161,28 @@
         "HOSImage": "https://www.mapsofindia.com/maps/punjab/punjab-history.jpg",
         "History": "Punjab, cradle of the Indus Valley Civilization, has a rich Sikh heritage. It was a major site for the freedom struggle and partition. Post-independence, it was reorganized in 1966 into a primarily Punjabi-speaking state. It remains culturally vibrant and agriculturally prosperous.",
         "wall": "https://img.freepik.com/premium-vector/punjabi-culture-seamless-pattern_102902-71.jpg",
-        "Culures": "Punjabi folk dances like Bhangra, rich Sikh traditions, vibrant cuisine (like Makki di Roti & Sarson da Saag), and festivals like Baisakhi."
+             "Cultures": [
+        {
+          "txt": "Bhangra, a high‑energy folk dance originally from the Punjab region, marks harvest celebrations with vigorous leaps, kicks and drum rhythms (dhol). Dancers wear colorful attire with turbans and sashes. It’s now a global cultural symbol of Punjabi pride.",
+          "image": "https://example.com/punjab-bhangra.jpg"
+        },
+        {
+          "txt": "Giddha is the complementary folk dance performed by Punjabi women, characterized by graceful hand gestures (boliyan) and rhythmic claps, performing around a central ring while singing playful folk couplets.",
+          "image": "https://example.com/giddha-punjab.jpg"
+        },
+        {
+          "txt": "Punjabi folk music uses instruments like tumbi, algoza, chimta and dholak. Dhadi balladeers sing heroic tales at village melas—celebrating valor, history and community unity.",
+          "image": "https://example.com/punjab-folk-music.jpg"
+        },
+        {
+          "txt": "Punjabi cuisine is famous for its rich, buttery texture and robust flavors—think makki di roti with sarson da saag, butter chicken, chole bhature, lassi, and jalebi. It reflects a hearty agrarian lifestyle.",
+          "image": "https://example.com/punjab-cuisine.jpg"
+        },
+        {
+          "txt": "Punjabi literature includes medieval Sufi poetry (Bulleh Shah, Waris Shah) and modern writers like Amrita Pritam. These works explore love, social justice and spirituality in rhythmic, folk‑accessible language.",
+          "image": "https://example.com/punjabi-literature.jpg"
+        }
+      ]
     },
     {
       "name":"WestBengal",
@@ -93,7 +198,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Map_of_Bengal%2C_1907.jpg",
         "History": "West Bengal was at the forefront of the Bengal Renaissance and India's independence movement. It was partitioned in 1947, separating it from East Pakistan (now Bangladesh). Known for its literature, arts, and political activism, the state was reorganized post-independence with Kolkata as its capital.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/005/280/161/small_2x/indian-motif-seamless-pattern-free-vector.jpg",
-        "Culures": "Rabindra Sangeet, Durga Puja, Bengali sweets like Rasgulla, sarees, literature (Tagore), and films are core to the culture."
+             "Cultures": [
+        {
+          "txt": "Rabindra Sangeet, the poetic songs of Rabindranath Tagore, blend classical Indian ragas with folk and western influences; they explore love, nature, devotion and modern life and are integral to Bengali identity.",
+          "image": "https://example.com/rabindra-sangeet.jpg"
+        },
+        {
+          "txt": "Durga Puja is Bengal’s grandest religious festival, celebrating Goddess Durga’s triumph over evil. Elaborately sculpted idols, thematic pandals, cultural performances and bhog (feast) bring entire communities together.",
+          "image": "https://example.com/durga-puja.jpg"
+        },
+        {
+          "txt": "Bengali sweets like rasgulla, sandesh, mishti doi and chomchom are world‑famous for their delicate textures and sugar‑balanced flavors. Mithai shops are cultural icons in every locality.",
+          "image": "https://example.com/bengali-sweets.jpg"
+        },
+        {
+          "txt": "Bengali literature, from the medieval mystic Chaitanya poets to modern novelists like Sarat Chandra Chattopadhyay, Tagore, and Satyajit Ray, uses music, social realism and political commentary.",
+          "image": "https://example.com/bengali-literature.jpg"
+        },
+        {
+          "txt": "Bengali cinema, from Satyajit Ray’s humanistic masterpieces to contemporary arthouse films, reflects social dilemmas and cultural depth. Jatra (open‑air folk theatre) remains a vibrant rural performance tradition.",
+          "image": "https://example.com/bengali-cinema-jatra.jpg"
+        }
+      ]
     },
      {
       "name":"Gujarat",
@@ -109,7 +235,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/9/97/Map_of_Gujarat_1858.jpg",
         "History": "Gujarat has a history tracing back to the Harappan civilization. It saw the rise of the Mauryas, Guptas, and later the Solanki dynasty. It was a key region for maritime trade. Post-independence, Gujarat was separated from Bombay State in 1960 and became a leading industrial and cultural state.",
         "wall": "https://as2.ftcdn.net/v2/jpg/02/71/76/79/1000_F_271767996_7B9AA3vAHCkX3EiB0aPaHyCqVzKlK2MK.jpg",
-        "Culures": "Garba and Dandiya Raas, Navratri festival, handicrafts, Gujarati cuisine (Dhokla, Thepla), and Jain architecture."
+              "Cultures": [
+        {
+          "txt": "Garba and Dandiya Raas are energetic circle dances performed during Navratri, featuring rhythmic steps, twirls, sticks (dandiya) and prayerful songs honoring the Goddess.",
+          "image": "https://example.com/garba-dandiya.jpg"
+        },
+        {
+          "txt": "Gujarati cuisine balances sweet, salty and spicy flavors—dishes like dhokla, thepla, khandvi and undhiyu showcase gram‑flour, yogurt, peanuts and seasonal vegetables; snacks and farsan are world‑famous.",
+          "image": "https://example.com/gujarati-cuisine.jpg"
+        },
+        {
+          "txt": "Kutchi embroidery and bandhani tie‑dye textiles feature vivid patterns made with mirror‑work and resist dyeing; they are central to traditional dress and regional artisan markets.",
+          "image": "https://example.com/gujarat-textiles.jpg"
+        },
+        {
+          "txt": "Gujarati folk music includes Dayro gatherings—story‑telling musical poetry; trance‑like devotional songs (Garbi), and Bhavai folk theatre that blends humour and social messages.",
+          "image": "https://example.com/gujarat-folk-music.jpg"
+        },
+        {
+          "txt": "Jain architecture in Gujarat includes exquisitely carved temples like Palitana and Mount Abu shrines—symmetrical marble carvings, ornate domes and spiritual halls showcase unparalleled craftsmanship.",
+          "image": "https://example.com/gujarat-jain-temple.jpg"
+        }
+      ]
     },
     {
       "name":"Kerala",
@@ -125,7 +272,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Travancore_Map_1815.jpg",
         "History": "Kerala's history includes the Chera kingdom and later colonial periods under the Portuguese, Dutch, and British. It was formed in 1956 by merging Malabar, Travancore, and Cochin regions. Kerala is known for its literacy, healthcare, and unique matrilineal traditions.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/009/351/997/small_2x/hand-drawn-tropical-leaves-seamless-pattern-background-free-vector.jpg",
-        "Culures": "Kathakali, Mohiniyattam, Ayurveda, Onam festival, coconut-based cuisine, and boat races."
+              "Cultures": [
+        {
+          "txt": "Kathakali, with its elaborate face‑paint, headgear and slow‑motion storytelling, dramatizes Hindu epics through expressive gestures and eye movements backed by classical percussion.",
+          "image": "https://example.com/kathakali.jpg"
+        },
+        {
+          "txt": "Mohiniyattam is a graceful solo dance form performed by women, blending poetic expression and feminine elegance, often themed around devotion and love.",
+          "image": "https://example.com/mohiniyattam.jpg"
+        },
+        {
+          "txt": "Ayurveda, the traditional system of medicine, thrives in Kerala’s numerous wellness retreats offering herbal oil massages, holistic therapies and rejuvenation rituals drawn from ancient texts.",
+          "image": "https://example.com/kerala-ayurveda.jpg"
+        },
+        {
+          "txt": "Onam, the state’s major festival, celebrates King Mahabali’s mythical homecoming. It includes pookkalam (flower carpets), boat races (vallam kali), Onasadya feast on banana leaves, and folk dances.",
+          "image": "https://example.com/kerala-onam.jpg"
+        },
+        {
+          "txt": "Coconut‑based cuisine—like appam, puttu, fish moilee and keralan stew—is flavored with coconut oil, fresh spices and curry leaves. Traditional toddy, banana chips and seafood mark cuisine diversity.",
+          "image": "https://example.com/kerala-cuisine.jpg"
+        }
+      ]
     },
     {
       "name":"Maharashtra",
@@ -141,7 +309,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/c/ca/British_Bombay_Presidency_1909.jpg",
         "History": "Maharashtra has been home to the Maratha Empire led by Shivaji. It played a crucial role in the British era as Bombay Presidency. After independence, the state was formed in 1960 with Mumbai as its capital. It remains an economic powerhouse and cultural hub.",
         "wall": "https://cdn.pixabay.com/photo/2017/02/01/10/39/pattern-2025610_960_720.png",
-        "Culures": "Lavani dance, Ganesh Chaturthi, Marathi literature, forts, and cuisine like Vada Pav and Puran Poli."
+         "Cultures": [
+        {
+          "txt": "Lavani is a fast‑paced folk dance combining traditional Marathi music and storytelling through powerful song and rhythmic footwork; performers wear striking nine‑yard sarees and silver jewellery.",
+          "image": "https://example.com/lavani.jpg"
+        },
+        {
+          "txt": "Ganesh Chaturthi sees Maharashtra’s streets alive with elaborately crafted Ganesha idols, processions of chanting devotees, dhol‑tasha drummers, visarjan immersions, and community feasts.",
+          "image": "https://example.com/ganesh-festival.jpg"
+        },
+        {
+          "txt": "Marathi literature includes saint‑poets like Tukaram and Dnyaneshwar (abhang devotional poetry), alongside modern novelists like P. L. Deshpande and V. P. Kale addressing social issues with wit.",
+          "image": "https://example.com/marathi-literature.jpg"
+        },
+        {
+          "txt": "Historic hill‑forts and Marathi folk theatre—like Tamasha and Gondhal—feature folk song‑dance drama, humour and social commentary, often staged in rural gatherings.",
+          "image": "https://example.com/tamasha.jpg"
+        },
+        {
+          "txt": "Street‑food favourites like vada pav, misal pav, and poha reflect Maharashtra’s urban pulse. Traditional sweets such as puran poli, modak, and shrikhand hold religious and seasonal significance.",
+          "image": "https://example.com/maharashtra-cuisine.jpg"
+        }
+      ]
     },
      {
       "name":"Karnataka",
@@ -157,7 +346,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Karnataka_Hoysala_Empire_Map.jpg",
         "History": "Karnataka has a rich heritage, once ruled by the Hoysalas, Chalukyas, and Vijayanagara Empire. It was earlier known as Mysore State before being renamed in 1973. With a blend of ancient architecture and modern IT hubs like Bengaluru, Karnataka plays a pivotal role in India's development.",
         "wall": "https://img.freepik.com/free-vector/seamless-mandala-pattern_1048-13104.jpg",
-        "Culures": "Carnatic music, Yakshagana, sandalwood craft, Mysore Dasara, and dishes like Bisi Bele Bath and Ragi Mudde."
+              "Cultures": [
+        {
+          "txt": "Carnatic music—classical south Indian music—is deeply rooted in Karnataka, with composers like Purandara Dasa (‘Father of Carnatic Music’) and Karnataka Sangeetha tradition centered around vocal recital and instrumental accompaniment.",
+          "image": "https://example.com/karnataka-carnatic-music.jpg"
+        },
+        {
+          "txt": "Yakshagana is a vibrant folk theatre combining dance, dialogue, music and elaborate costumes to narrate stories from epics like Mahabharata in coastal and central Karnataka.",
+          "image": "https://example.com/yakshagana.jpg"
+        },
+        {
+          "txt": "Sandalwood craftsmanship is renowned—Karnataka produces fragrant sandalwood used in carvings, incense, and sculptures, preserving an artisanal legacy of temples and decorative arts.",
+          "image": "https://example.com/sandalwood-craft.jpg"
+        },
+        {
+          "txt": "Mysore Dasara is the state festival commemorating Goddess Chamundeshwari, featuring royal processions, elephant pageantry, torchlight parade, and cultural performances in Mysuru.",
+          "image": "https://example.com/mysore-dasara.jpg"
+        },
+        {
+          "txt": "Cuisine like Bisi Bele Bath (spiced rice‑lentil dish) and Ragi Mudde (finger millet balls)—nutritious, earthy staples—reflect local agriculture, served with sambar, chutneys, or saaru.",
+          "image": "https://example.com/karnataka-cuisine.jpg"
+        }
+      ]
     },
     {
       "name":"UttarPradesh",
@@ -173,7 +383,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Map_of_British_India%2C_1909%2C_Uttar_Pradesh.jpg",
         "History": "Uttar Pradesh, home to ancient cities like Varanasi and Ayodhya, has deep roots in Hindu mythology and Indian history. It played a major role in the Revolt of 1857 and the Indian independence movement. Created in 1950 from the United Provinces, it is India's most populous state.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/007/967/260/small_2x/indian-traditional-seamless-pattern-design-free-vector.jpg",
-        "Culures": "Kathak dance, Ramleela, Urdu poetry, Ganga Aarti, Mughlai cuisine (Tunday Kebab, Galouti Kebab), and Holi."
+        "Cultures": [
+        {
+          "txt": "Kathak, one of the eight major Indian classical dance forms, traces its origins to Uttar Pradesh—with intricate footwork and expressive storytelling passed down through Lucknow and Jaipur Gharanas.",
+          "image": "https://example.com/kathak-up.jpg"
+        },
+        {
+          "txt": "Ramleela, theatrical enactment of the Ramayana, draws massive audiences across UP in the lead‑up to Dussehra—culminating in effigy burning symbolizing Ravana’s defeat.",
+          "image": "https://example.com/ramleela.jpg"
+        },
+        {
+          "txt": "Urdu poetry, especially ghazals and shayari, thrives in cities like Lucknow and Varanasi—celebrated in mushairas with poets like Mir and contemporary stars.",
+          "image": "https://example.com/urdu-poetry.jpg"
+        },
+        {
+          "txt": "Ganga Aarti, the devotional evening ritual on Varanasi’s riverfronts, uses incense, fire lamps and hymns—creating a spiritual spectacle that attracts pilgrims worldwide.",
+          "image": "https://example.com/ganga-aarti.jpg"
+        },
+        {
+          "txt": "Mughlai cuisine (e.g., Tunday Kebab, Galouti), rich in aroma and texture, blends Central Asian and local traditions—served in narrow lanes of Lucknow and historic dishes across the state.",
+          "image": "https://example.com/mughlevitheup-cuisine.jpg"
+        }
+      ]
     },
     {
       "name":"Assam",
@@ -189,7 +420,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Assam_British_India_1909_map.jpg",
         "History": "Assam has a unique cultural identity, shaped by the Ahom dynasty and later colonial influence. It became a part of British India in the 19th century. Post-independence, it has been central to Northeast Indian affairs, known for tea production, wildlife, and Bihu celebrations.",
         "wall": "https://img.freepik.com/free-vector/indian-ethnic-pattern-with-ornaments_107791-1584.jpg",
-        "Culures": "Bihu dance, Assamese silk (Muga), tribal festivals, Sattriya dance, bamboo crafts, and Assamese thali (Khar, Tenga)."
+        "Cultures": [
+        {
+          "txt": "Bihu is Assam’s most celebrated folk dance and festival—performed to mark the Assamese New Year and harvest, with rhythmic steps, jaapi (umbrella) use, and traditional melodies.",
+          "image": "https://example.com/assam-bihu.jpg"
+        },
+        {
+          "txt": "Assam silk like muga and eri are treasured for their natural golden hue and resilience; weaving traditions are maintained by artisan communities.",
+          "image": "https://example.com/assam-silk.jpg"
+        },
+        {
+          "txt": "Sattriya is a classical dance-drama born in the Vaishnavite monasteries (satras) of Assam, narrating mythological stories with expressive gestures and devotional music.",
+          "image": "https://example.com/assam-sattriya.jpg"
+        },
+        {
+          "txt": "Bamboo and cane crafts include intricate weaves and decorative items like baskets, mats and traditional lamps, sourced sustainably from Assam’s forests.",
+          "image": "https://example.com/assam-bamboo-craft.jpg"
+        },
+        {
+          "txt": "Assamese thali features dishes like khar and tenga (sour curry)—balanced, local fare often served with fresh fish or greens, showcasing regional produce and flavours.",
+          "image": "https://example.com/assam-thali.jpg"
+        }
+      ]
     },
     {
       "name":"MadhyaPradesh",
@@ -205,7 +457,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Madhya_Pradesh_Princely_States_1909.jpg/800px-Madhya_Pradesh_Princely_States_1909.jpg",
         "History": "Madhya Pradesh, known as the 'Heart of India', has witnessed the rise and fall of several dynasties including the Mauryas, Guptas, and Mughals. The region houses some of India's oldest archaeological sites, including the Bhimbetka rock shelters dating back to the Paleolithic era. The state was home to powerful kingdoms like Malwa and Gondwana, and later became part of various Maratha territories. During British rule, it comprised several princely states including Gwalior, Indore, and Bhopal. After independence, the modern state of Madhya Pradesh was formed in 1956 through the reorganization of states. The region has been a center of Buddhist learning and culture, evidenced by the ancient Sanchi Stupa and other Buddhist monuments. The state played a significant role in India's freedom struggle, with leaders like Tatya Tope and Rani Lakshmibai fighting against British rule. Today, it stands as India's second-largest state by area, rich in mineral resources and cultural heritage.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/008/515/322/small_2x/indian-pattern-seamless-background-free-vector.jpg",
-        "Culures": "Classical Indian architecture at Khajuraho, tribal cultures, Gond art, folk music, and traditional crafts like Chanderi textiles."
+              "Cultures": [
+        {
+          "txt": "Khajuraho’s temple architecture—famed for erotic and spiritual stone carvings—exemplifies Nagara style and UNESCO heritage, representing medieval sculptural excellence.",
+          "image": "https://example.com/khajuraho.jpg"
+        },
+        {
+          "txt": "Sanchi Stupa, one of the world’s oldest Buddhist monuments, dates to the 3rd century BCE and features carved toranas (gateways) bearing deep symbolism and artistry.",
+          "image": "https://example.com/sanchi-stupa.jpg"
+        },
+        {
+          "txt": "Gond art is tribal folk painting by Gond communities—using dots and vibrant colours to depict nature, deities and village life, now celebrated globally.",
+          "image": "https://example.com/gond-art.jpg"
+        },
+        {
+          "txt": "Folk music of MP includes Powada and Kabir folk traditions; regional fairs (melas) host tribal singers and dancers with percussion like mandar and manjira.",
+          "image": "https://example.com/mp-folk-music.jpg"
+        },
+        {
+          "txt": "Chanderi textiles—handwoven sarees and fabrics—combine silk and cotton with designs like buttas, stripes and gloss, representing MP’s weaving heritage.",
+          "image": "https://example.com/chanderi-textiles.jpg"
+        }
+      ]
     },
     {
       "name":"Odisha",
@@ -221,7 +494,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Orissa_Feudatory_States_1893.jpg/800px-Orissa_Feudatory_States_1893.jpg",
         "History": "Odisha, formerly known as Orissa, boasts a glorious history spanning over 2,000 years. The region was the center of the ancient Kalinga kingdom, which gained prominence under Emperor Kharavela in the 1st century BCE. The famous Kalinga War fought by Emperor Ashoka in 261 BCE led to his conversion to Buddhism, making it a pivotal moment in Indian history. The state has been ruled by various dynasties including the Somavamshis, Eastern Gangas, and Gajapatis. The medieval period saw the construction of magnificent temples like the Jagannath Temple in Puri and the Sun Temple at Konark, showcasing the remarkable Kalinga architecture. During colonial rule, Odisha was part of the Bengal Presidency until it became a separate province in 1936, making it the first state to be formed on linguistic basis. The state played an active role in India's freedom struggle with leaders like Utkal Gourav Madhusudan Das. Post-independence, Odisha has emerged as a significant industrial state while preserving its rich cultural traditions, classical dance forms like Odissi, and religious heritage.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/009/384/644/small_2x/indian-traditional-ornamental-seamless-pattern-free-vector.jpg",
-        "Culures": "Odissi classical dance, Jagannath worship, Pattachitra paintings, silver filigree work, and festivals like Rath Yatra."
+              "Cultures": [
+        {
+          "txt": "Odissi, one of India’s classical dances, emerges from Odisha’s temple rituals—characterized by fluid torso movements, tribhangi stance, and expressive abhinaya.",
+          "image": "https://example.com/odissi-dance.jpg"
+        },
+        {
+          "txt": "Pattachitra is a traditional scroll painting style with mythological themes—intricate, natural-coloured works painted on cloth and dried palm leaves.",
+          "image": "https://example.com/pattachitra.jpg"
+        },
+        {
+          "txt": "Applique crafts from Pipili feature vibrantly coloured cloth designs used in temple canopies and home decoration, showcasing folk aesthetics.",
+          "image": "https://example.com/pipili-applique.jpg"
+        },
+        {
+          "txt": "Theatre-folk culture includes Gotipua dance (young boys in feminine costume)—a predecessor of Odissi—and traditional theatrical performances in rural Odisha.",
+          "image": "https://example.com/gotipua.jpg"
+        },
+        {
+          "txt": "Temple festivals like Rath Yatra in Puri unite grand chariot-pull, devotional songs, and art forms—drawing lakhs of pilgrims annually.",
+          "image": "https://example.com/puri-rathyatra.jpg"
+        }
+      ]
     },
     {
       "name":"HimachalPradesh",
@@ -237,7 +531,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Himachal_Pradesh_Hill_States_1947.jpg/800px-Himachal_Pradesh_Hill_States_1947.jpg",
         "History": "Himachal Pradesh, nestled in the western Himalayas, has a rich history dating back to the Vedic period when it was inhabited by the Dasas, Kolikas, and Kiradas. The region finds mention in ancient texts like the Mahabharata and Puranas. Various Rajput dynasties ruled different parts of the region, including the Katoch dynasty in Kangra, one of the oldest ruling dynasties in the world. The area witnessed invasions by Mahmud of Ghazni and later came under Mughal influence. The Gurkhas also controlled parts of the region before being defeated by the British in the early 19th century. During the British era, it comprised numerous princely states including Chamba, Mandi, Bilaspur, and Kangra. The region served as the summer capital of British India with Shimla as the seat of government. After independence, these princely states were gradually integrated, and Himachal Pradesh was formed as a union territory in 1948, becoming a full state in 1971. The state has maintained its traditional culture while developing tourism and horticulture as major economic drivers.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/008/862/046/small_2x/mountain-seamless-pattern-hand-drawn-vintage-mountain-range-background-vector.jpg",
-        "Culures": "Pahari folk culture, Himachali music and dance, apple orchards, woolen crafts, and Buddhist monasteries in Dharamshala."
+              "Cultures": [
+        {
+          "txt": "Himachali music and dance include Nati, a graceful folk dance performed in villages with circular formations during festivals and social events.",
+          "image": "https://example.com/himachal-nati.jpg"
+        },
+        {
+          "txt": "Pahari folk culture emphasizes traditional story-songs and ballads sung in mountain dialects, accompanied by instruments like the damphu and sarangi.",
+          "image": "https://example.com/pahari-music.jpg"
+        },
+        {
+          "txt": "Apple orchards are integral to hill life, with fruit‑festivals celebrating local produce and rural livelihoods, accompanied by cultural fairs.",
+          "image": "https://example.com/himachal-apple-orchards.jpg"
+        },
+        {
+          "txt": "Woollen handicrafts like shawls, caps and carpets are handwoven in Himachal—tradition passed through communities, often using natural dyes.",
+          "image": "https://example.com/himachal-wool-crafts.jpg"
+        },
+        {
+          "txt": "Buddhist monasteries, especially in Dharamshala and Lahaul‑Spiti, are hubs of Tibetan art, prayer flags, thangka painting, and monastic festivals.",
+          "image": "https://example.com/himachal-monastery.jpg"
+        }
+      ]
     },
     {
       "name":"Goa",
@@ -253,7 +568,28 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Portuguese_India_1630.jpg/800px-Portuguese_India_1630.jpg",
         "History": "Goa's history is marked by diverse cultural influences spanning over 2,000 years. Originally inhabited by the Konkani people, the region was ruled by the Kadamba dynasty from the 4th to 14th centuries, followed by the Bahmani Sultanate and later the Adil Shahi dynasty of Bijapur. The Portuguese arrived in 1510 under Afonso de Albuquerque, establishing Goa as the capital of Portuguese India. For over 450 years, Portuguese rule left an indelible mark on Goan culture, architecture, cuisine, and religion. The region became a major center for spice trade and Christian missionary activities. The Portuguese introduced Christianity, European architectural styles, and new crops like cashew and coconut. Despite several attempts by Maratha and Mysore rulers to capture Goa, Portuguese control remained strong. The Indian government finally liberated Goa in 1961 through Operation Vijay, ending centuries of colonial rule. Initially a union territory along with Daman and Diu, Goa achieved full statehood in 1987. Today, it's India's smallest state by area and fourth smallest by population, renowned for its beaches, Portuguese colonial architecture, and unique Indo-Portuguese culture.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/008/137/991/small_2x/tropical-seamless-pattern-with-palm-leaves-free-vector.jpg",
-        "Culures": "Konkani culture, Portuguese colonial architecture, Carnival celebrations, Fado music, seafood cuisine, and Catholic-Hindu syncretism."
+              "Cultures": [
+        {
+          "txt": "Konkani culture blends Hindu and Catholic traditions—visible in village feasts, folk songs (kantigals), and community celebrations in many languages.",
+          "image": "https://example.com/goa-konkani-culture.jpg"
+        },
+        {
+          "txt": "Portuguese colonial architecture is seen in heritage churches (e.g., Basilica of Bom Jesus), colorful houses and tiled roofs, reflecting centuries of influence.",
+          "image": "https://example.com/goa-portuguese-architecture.jpg"
+        },
+        {
+          "txt": "Carnival features parades, floats, samba troupes and masquerades—a legacy of Portuguese Brazil—held in streets before Lent, blending fun and tradition.",
+          "image": "https://example.com/goa-carnival.jpg"
+        },
+        {
+          "txt": "Fado music is performed in intimate venues; these melodic, melancholic Portuguese songs echo across Goan heritage music scenes.",
+          "image": "https://example.com/goa-fado.jpg"
+        },
+        {
+          "txt": "Seafood cuisine—Goan fish curry, vindaloo, xacuti—blends coconut, tamarind and spices, reflecting coastal life and Portuguese‑Indian fusion; cashews and sol kadi are staples.",
+          "image": "https://example.com/goa-cuisine.jpg"
+        }
+      ]
     },
     {
       "name":"Haryana",
@@ -269,7 +605,7 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Punjab_1947_Partition.jpg/800px-Punjab_1947_Partition.jpg",
         "History": "Haryana, carved out of Punjab in 1966, has a history deeply rooted in ancient Indian civilization. The region is considered sacred in Hindu tradition as it encompasses Kurukshetra, the legendary battlefield of the Mahabharata where Lord Krishna delivered the Bhagavad Gita. Archaeological evidence suggests the area was part of the Indus Valley Civilization, with sites like Rakhigarhi being one of the largest Harappan settlements. The region witnessed the rise and fall of various empires including the Mauryas, Guptas, and Delhi Sultanate. Panipat, located in Haryana, was the site of three historic battles that shaped Indian history - particularly the battles of 1526, 1556, and 1761. During the Mughal period, the region was strategically important as it lay on the route between Delhi and Punjab. The area later came under Maratha influence before being incorporated into the Sikh Empire. Post-independence, when Punjab was reorganized on linguistic lines, Haryana emerged as a separate Hindi-speaking state. The state has since transformed from a predominantly agricultural region to an industrial and technological hub, contributing significantly to the national economy while maintaining its cultural heritage and traditional values.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/008/476/842/small_2x/indian-paisley-pattern-seamless-background-free-vector.jpg",
-        "Culures": "Haryanvi folk music, Saang theater, traditional wrestling (Kushti), rural cuisine, and vibrant festivals like Teej and Karva Chauth."
+        "Cultures": "Haryanvi folk music, Saang theater, traditional wrestling (Kushti), rural cuisine, and vibrant festivals like Teej and Karva Chauth."
     },
     {
       "name":"Jharkhand",
@@ -285,7 +621,7 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Jharkhand_Tribal_Map.jpg/800px-Jharkhand_Tribal_Map.jpg",
         "History": "Jharkhand, meaning 'Land of Forests', was carved out of Bihar in 2000 to become India's 28th state. The region has a rich tribal heritage with indigenous communities like the Santhals, Mundas, and Oraons inhabiting the area for centuries. Archaeological evidence suggests human habitation dating back to the Mesolithic period. The area was historically known as Jharkhand or Chotanagpur, referenced in ancient texts including the Mahabharata. Various dynasties ruled the region including the Mauryas, Guptas, and later the Mughals, though many tribal kingdoms maintained their autonomy. The British colonial administration established control over the region in the 19th century, leading to several tribal uprisings including the famous Santhal Rebellion of 1855 and the Birsa Munda movement in the 1890s. Birsa Munda, revered as 'Bhagwan Birsa', led a significant movement against British colonial rule and exploitation of tribal lands. The region's rich mineral deposits, including coal, iron ore, and mica, attracted industrial development during the colonial period. Post-independence, the demand for a separate state grew due to tribal identity and resource exploitation concerns. The state's formation in 2000 was aimed at preserving tribal culture and ensuring better governance of the resource-rich region.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/008/853/987/small_2x/tribal-seamless-pattern-with-geometric-shapes-free-vector.jpg",
-        "Culures": "Tribal art and crafts, Santhali music and dance, Sarna religion, traditional festivals like Sohrai and Karam, and diverse tribal cuisines."
+        "Cultures": "Tribal art and crafts, Santhali music and dance, Sarna religion, traditional festivals like Sohrai and Karam, and diverse tribal cuisines."
     },
     {
       "name":"Uttarakhand",
@@ -301,6 +637,6 @@
         "HOSImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Uttarakhand_Hill_States_1815.jpg/800px-Uttarakhand_Hill_States_1815.jpg",
         "History": "Uttarakhand, formerly known as Uttaranchal, was carved out of Uttar Pradesh in 2000 to become India's 27th state. The region, known as Devbhoomi or 'Land of Gods', has immense religious and cultural significance in Hindu tradition. Ancient texts like the Skanda Purana and Mahabharata mention the region as Kedarkhand and Manaskhand. The area has been inhabited since prehistoric times, with evidence of human settlement dating back to the Stone Age. The region was ruled by various dynasties including the Kunindas, Pauravas, and later the Katyuri dynasty which established the first major kingdom in the 7th century. The Chand dynasty ruled Kumaon while the Panwar dynasty controlled Garhwal for several centuries. The region faced invasions from various rulers including the Rohillas and later the British. The British established control in the early 19th century after the Anglo-Nepalese War. The state played a significant role in the independence movement with leaders like Govind Ballabh Pant. The Chipko movement, an environmental conservation movement led by Sunderlal Bahuguna, originated here in the 1970s. The formation of Uttarakhand was driven by the unique geographical, cultural, and administrative needs of the hill regions, distinct from the plains of Uttar Pradesh.",
         "wall": "https://static.vecteezy.com/system/resources/thumbnails/008/862/046/small_2x/mountain-seamless-pattern-hand-drawn-vintage-mountain-range-background-vector.jpg",
-        "Culures": "Garhwali and Kumaoni folk traditions, classical music, Char Dham pilgrimage, traditional hill cuisine, and handicrafts like wood carving."
+        "Cultures": "Garhwali and Kumaoni folk traditions, classical music, Char Dham pilgrimage, traditional hill cuisine, and handicrafts like wood carving."
     }
 ]
