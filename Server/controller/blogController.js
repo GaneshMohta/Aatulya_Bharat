@@ -50,7 +50,6 @@ export const getBlogId = async (req, res) => {
 
 
 export const filterBlog = async (req, res) => {
-  console.log(req.query);
   const { category } = req.query;
   console.log(category);
   try {

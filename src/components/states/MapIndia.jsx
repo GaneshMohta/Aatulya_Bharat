@@ -44,11 +44,11 @@ export default function MapIndia() {
       <div className='aatulya-header flex justify-between p-2 sticky top-0 z-50 bg-slate-200 items-center'>
         <div className='flex gap-2'>
           <Link to='/'>
-            <span className='text-slate-950 relative top-1'>
+            <span className='text-gray-700 text-2xl relative top-1'>
               <BsArrowLeftShort />
             </span>
           </Link>
-          <h3>Aatulya Bharat</h3>
+          <h3 className='text-xl font-semibold text-gray-800'>Atulya Bharat</h3>
         </div>
       </div>
 

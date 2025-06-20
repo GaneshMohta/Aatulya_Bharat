@@ -78,6 +78,14 @@
     cursor: pointer;
   } */
 
+    .aatulya-blog {
+    padding: 2rem;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    align-items: center;
+  }
+
   ReactQuill img{
     height: 70vh;
   }

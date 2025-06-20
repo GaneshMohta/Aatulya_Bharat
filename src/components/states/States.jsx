@@ -69,8 +69,30 @@ export default function States() {
       </div>
 
       <div>
-        <h1>Beauty And Culture of the State</h1>
-        {selectedState.Cultures}
+        <h1 className="text-center font-extrabold font-sans mb-4 ">Beauty And Culture of the State</h1>
+       <div className="ms-16 me-16 text-justify flex flex-col gap-4 mt-2">
+  {
+    selectedState.Cultures.map((info, index) => (
+      <div key={index} className="flex flex-row gap-2 mt-2">
+        <div className="flex bg-slate-200 p-4 rounded-xl shadow-lg">
+          {
+            index % 2 === 0 ? (
+              <>
+                <img src={info.image} alt="img" className="w-[22%] rounded-lg" />
+                <p className="font-serif ps-3">{info.txt}</p>
+              </>
+            ) : (
+              <>
+                <p className="font-serif pe-3">{info.txt}</p>
+                <img src={info.image} alt="img" className="w-[20%] rounded-lg" />
+              </>
+            )
+          }
+        </div>
+      </div>
+    ))
+  }
+</div>
       </div>
     </div>
   );

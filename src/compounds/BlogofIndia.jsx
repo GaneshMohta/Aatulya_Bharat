@@ -28,20 +28,22 @@ const BlogofIndia = () => {
   }
 
    const moveBlogs=()=>{
-    window.scrollTo(0, localStorage.getItem('position'));
+    window.scrollTo(1, localStorage.getItem('position'));
     navigate('/blogs');
    }
 
 
 
-
+if(blog.length > 1){
   return (
     <div>
-          <div className='p-2 flex m-2 flex-wrap justify-around gap-7 h-fit mb-0 aatulya-header'>
+        <div className='flex flex-col flex-wrap justify-around  h-fit aatulya-blog'>
+        <h1 className='text-center text-3xl font-serif font-black'>Blog</h1>
+        <h2 className='text-center  text-pretty mib-h1 '>An insight to the incredible experience in India </h2>
           <div className='p-card text-center'>
           {
-            blog.map((item) => (
-                <Link to={`blog/${item.id}`} key={item.Titleid}>
+            blog.slice(0,3).map((item) => (
+                <Link to={`blogs/${item.Titleid}`} key={item.Titleid}>
                 <div className='card text-center'>
                 <img src={`https://aatulya-bharat.onrender.com/uploads/${item.image}`} alt="image"  className='h-48 w-48 rounded-t-lg'/>
                 <h3 className='whitespace-nowrap overflow-hidden text-ellipsis pb-0 ps-2 pe-1'>{item.Title}</h3>
@@ -62,5 +64,7 @@ const BlogofIndia = () => {
     </div>
   )
 }
+}
+
 
 export default BlogofIndia;

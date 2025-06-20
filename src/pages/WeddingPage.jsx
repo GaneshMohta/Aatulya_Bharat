@@ -17,7 +17,7 @@ export default function WeddingPage() {
     setVisible((prevVisible) => !prevVisible);
 };
   useEffect(()=>{
-    window.scroll(0,0)
+     window.scrollTo(1, localStorage.getItem('position'));
   },[])
   return (
     <div>

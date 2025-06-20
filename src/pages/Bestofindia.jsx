@@ -12,7 +12,7 @@ export default function Bestofindia() {
         <p  className='text-center mib-h1 font-light w-[100vw]'>From historical cities to natural splendours, come see the best of India</p>
         <br />
         <div className='flex justify-around dest-cards'>
-          <Link to='/WeddingPage' onScroll={1}>
+          <Link to='/WeddingPage' o>
           <div className='w-[25vw] h-[50vh] bg-stone-400 relative  dest-hov'>
             <img src='https://i.pinimg.com/564x/79/22/a1/7922a18e522ede086755da933a15b50e.jpg'  className='h-[100%] w-[100%]'/>
             <div className='w-[20vw] h-[20vh] absolute -bottom-12  bg-black/60 text-white p-2 dest-detail'>

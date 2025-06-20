@@ -1,28 +1,20 @@
-import React,{ lazy,  useState }  from 'react'
-import MB1 from '../components/states/image/mb3.jpg'
-import NE from '../components/states/image/National-Emblem.jpg'
-import { Link } from 'react-router-dom'
-import './front.css'
-
-const Bestofindia = lazy(() => import('./Bestofindia'));
-const BlogofIndia = lazy(() => import('../compounds/BlogofIndia'));
-import './responsive.css'
+import React, { lazy, useEffect, useState, useCallback, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { CgProfile } from "react-icons/cg";
 
+import { homes } from './homeJson';
+import './front.css';
+import './responsive.css';
 
-export default function HomePage() {
+// Lazy load components
+const Bestofindia = lazy(() => import('./Bestofindia'));
+const BlogofIndia = lazy(() => import('../compounds/BlogofIndia'));
 
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
-
-  let user_name=localStorage.getItem('Bharat_email') || null;
-  let u_name;
-  if(user_name !== null){
-  u_name = user_name.split('@')[0];
-  }
-
-  const responsive = {
+// Constants
+const CAROUSEL_CONFIG = {
+  responsive: {
     superLargeDesktop: {
       breakpoint: { max: 3000, min: 2500 },
       items: 1
@@ -39,135 +31,252 @@ export default function HomePage() {
       breakpoint: { max: 900, min: 400 },
       items: 1
     }
-  };
+  },
+  autoPlay: true,
+  autoPlaySpeed: 4000,
+  infinite: true,
+  arrows: false,
+  showDots: false,
+  transitionDuration: 2000,
+  pauseOnHover: false
+};
 
-  return (
-    <div className='bg-slate-50'>
-      <Carousel
-        responsive={responsive}
-        autoPlay={true}
-        autoPlaySpeed={4000}
-        infinite={true}
-        arrows={false}
-        showDots={false}
-        transitionDuration={2000}
-        pauseOnHover={false}
+const LOADING_DELAY = 300;
 
-      >
-        <div className='relative h-auto bg-white hm-m1'>
-          <img src="https://thesocialmediaexplorer.wordpress.com/wp-content/uploads/2015/09/3.jpg?w=1000" alt='hm-img' className='w-full hm-img'/>
-          <div className="absolute top-1 flex justify-between w-full hm-h1">
-            <div className='ms-2'></div>
-            <div><h1>ATALTUYA BHARAT</h1></div>
-            <div className='me-2 relative'>
-              <CgProfile onClick={() => setDropdownVisible(!isDropdownVisible)} className='cursor-pointer'/>
-              {isDropdownVisible && (
-                <div className='absolute top-8 right-0 bg-white shadow-md rounded p-2'>
-                  {
-                    u_name == null ? (<Link to='/signin' className='w-14' ><div className='button bg-blue-500 text-white font-semibold text-xs p-2 min-w-fit'>Sign In</div></Link>):(
-                     <div>
-                        <Link to="/profile" className='text-blue-500 text-pretty'>{u_name}</Link>
-                      </div>
-                    )
-                  }
+// Custom hooks
+const useUserAuth = () => {
+  return useMemo(() => {
+    const userEmail = localStorage.getItem('Bharat_email');
+    if (!userEmail) return { isAuthenticated: false, username: null };
 
-                </div>
-              )}
-            </div></div>
-          <div className='absolute top-[30vh] left-[0vh]'>
-            <div className='w-[100vw] h-[30vh] flex items-center'>
-              <h1 className='matemasie-regular typewriter '>INCREDIBLE INDIA</h1>
-            </div>
-          </div>
-        </div>
+    const username = userEmail.split('@')[0];
+    return { isAuthenticated: true, username };
+  }, []);
+};
 
-        <div className='relative h-auto bg-white hm-m1'>
-          <img src="https://static-blog.treebo.com/wp-content/uploads/2018/06/Uttar-Pradesh.jpg" alt='hm-img' className='w-full hm-img'/>
-          <div className="absolute top-1 flex justify-between w-full hm-h1">
-          <div className='ms-2'></div>
-            <div><h1>ATALTUYA BHARAT</h1></div>
-            <div className='me-2 relative'>
-            <CgProfile onClick={() => setDropdownVisible(!isDropdownVisible)} className='cursor-pointer'/>
-              {isDropdownVisible && (
-                <div className='absolute top-8 right-0 bg-white shadow-md rounded p-2'>
-                {
-                    u_name == null ? (<Link to='/signin' className='w-14' ><div className='button bg-blue-500 text-white font-semibold text-xs p-2 min-w-fit'>Sign In</div></Link>):(
-                     <div>
-                        <Link to="/profile" className='text-blue-500 text-pretty'>{u_name}</Link>
-                      </div>
-                    )
-                  }
-                </div>
-              )}
-            </div> </div>
-          <div className='absolute top-[30vh] left-[10vh] backdrop-card'>
-            <div className='w-[40vw] h-[30vh] backdrop-blur-1 bg-white/20 p-3 flex'>
-              <div className='w-[60%]'>
-                <h1 className='text-orange-700 font-bold'>The Incredible states of India</h1>
-                <p className='text-white'>8 Beauties and 28 Wonders of India</p>
-                <br />
-                <Link to='/Map'>
-                <button className='bg-yellow-400 p-1 rounded-md w-20'>Explore</button>
-                </Link>
-              </div>
-              <div className='bg-red-700 rounded-3xl h-32 w-36'>
-                <img src='https://fairgaze.com/images/UploadedImages/thumbs/0309134_0309134_xasdiihbb.jpg' className='h-full rounded-3xl'/>
-              </div>
-            </div>
-          </div>
-        </div>
+const useCarouselData = () => {
+  const [carouselItems, setCarouselItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-        <div className='relative h-auto bg-white hm-m1'>
-          <img src="https://i.pinimg.com/736x/f4/c4/3c/f4c43cd02794709f565d65d40a83d66b.jpg" alt='hm-img' className='w-full hm-img'/>
-          <div className="absolute top-1 flex justify-between w-full hm-h1">
-            <div className='ms-2'></div>
-            <div><h1>ATALTUYA BHARAT</h1></div>
-            <div className='me-2 relative'>
-              <CgProfile onClick={() => setDropdownVisible(!isDropdownVisible)} className='cursor-pointer'/>
-              {isDropdownVisible && (
-                <div className='absolute top-8 right-0 bg-white shadow-md rounded p-2'>
-                    {
-                    u_name == null ? (<Link to='/signin' className='w-14' ><div className='button bg-blue-500 text-white font-semibold text-xs p-2 min-w-fit'>Sign In</div></Link>):(
-                     <div>
-                        <Link to="/profile" className='text-blue-500 text-pretty'>{u_name}</Link>
-                      </div>
-                    )
-                  }
-                </div>
-              )}
-            </div></div>
-          <div className='absolute top-[30vh] left-[10vh] backdrop-card'>
-            <div className='w-[40vw] h-[30vh] backdrop-blur-1 bg-white/20 p-3 flex'>
-              <div className='w-[60%]'>
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCarouselItems(homes);
+      setIsLoading(false);
+    }, LOADING_DELAY);
 
-                <h1 className='text-orange-700 font-bold'>Make in India</h1>
-                <p className='text-white'>It is an India Product Zero Defect and Zero Effect</p>
-                <br />
-                <Link to='/Make-in-India'>
-                <button className='bg-yellow-400 p-1 rounded-md w-20'>Explore</button>
-                </Link>
-              </div>
-              <div className='bg-red-700 rounded-3xl h-32 w-36'>
-                <img src='https://b1088462.smushcdn.com/1088462/wp-content/uploads/2021/02/made_in_india_cctv.webp?lossy=2&strip=1&webp=1' className='h-full rounded-3xl'/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Carousel>
-      <br />
+    return () => clearTimeout(timer);
+  }, []);
 
-      <div className='mb-12'>
-        <Bestofindia />
+  return { carouselItems, isLoading };
+};
+
+// Components
+const ProfileDropdown = ({ isVisible, onToggle, user }) => (
+  <div className="relative">
+    <CgProfile
+      onClick={onToggle}
+      className="cursor-pointer text-xl hover:text-blue-600 transition-colors"
+      role="button"
+      tabIndex={0}
+      aria-label="Profile menu"
+      onKeyDown={(e) => e.key === 'Enter' && onToggle()}
+    />
+    {isVisible && (
+      <div className="absolute top-8 right-0 bg-white shadow-lg rounded-lg p-3 min-w-[120px] z-50 border">
+        {!user.isAuthenticated ? (
+          <Link
+            to="/signin"
+            className="block w-full"
+            onClick={onToggle}
+          >
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold text-sm py-2 px-4 rounded transition-colors w-full">
+              Sign In
+            </button>
+          </Link>
+        ) : (
+          <Link
+            to="/profile"
+            className="text-blue-500 hover:text-blue-700 font-medium transition-colors block"
+            onClick={onToggle}
+          >
+            {user.username}
+          </Link>
+        )}
       </div>
-      <div>
-      <div>
-        <h1 className='text-center text-3xl font-serif font-black'>Blog</h1>
-        <h2 className='text-center  text-pretty mib-h1 '>An insight to the incredible experience in India </h2>
-        <div>
-          <BlogofIndia />
-        </div>
+    )}
+  </div>
+);
+
+const CarouselSlide = ({ item }) => (
+  <div className="relative h-auto bg-white hm-m1">
+    <img
+      src={item.img}
+      alt={item.headerTitle || 'Carousel image'}
+      className="w-full hm-img object-cover"
+      loading="lazy"
+    />
+
+    <div className="absolute top-4 flex justify-between items-center w-full px-4 hm-h1">
+      <div className="flex-1" />
+      <div className="flex-1 text-center">
+        <h1 className="text-xl font-semibold text-gray-800 drop-shadow-sm">
+          {item.headerTitle}
+        </h1>
       </div>
+      <div className="flex-1 flex justify-end">
+        <ProfileDropdownContainer />
       </div>
     </div>
-  )
+
+    {item.isTyping ? (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-full h-[30vh] flex items-center justify-center">
+          <h1 className="matemasie-regular typewriter text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+            INCREDIBLE INDIA
+          </h1>
+        </div>
+      </div>
+    ) : (
+      <BackdropCard item={item} />
+    )}
+  </div>
+);
+
+const BackdropCard = ({ item }) => (
+  <div className="absolute top-[30vh] left-4 md:left-[10vh] backdrop-card max-w-[90vw] md:max-w-none">
+    <div className="w-full md:w-[40vw] backdrop-blur-sm bg-white/30 p-4 md:p-6 rounded-lg shadow-lg flex flex-col md:flex-row gap-4">
+      <div className="flex-1">
+        <h2 className="text-orange-600 font-bold text-lg md:text-xl mb-2">
+          {item.backdropTitle}
+        </h2>
+        <p className="text-gray-800 text-sm md:text-base mb-4 leading-relaxed">
+          {item.backdropSubtitle}
+        </p>
+        <Link to={item.link}>
+          <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold py-2 px-6 rounded-md transition-colors shadow-md">
+            Explore
+          </button>
+        </Link>
+      </div>
+
+      {item.backdropImg && (
+        <div className="w-full md:w-36 h-32 flex-shrink-0">
+          <img
+            src={item.backdropImg}
+            alt={item.backdropTitle || 'Backdrop image'}
+            className="w-full h-full object-cover rounded-2xl shadow-md"
+            loading="lazy"
+          />
+        </div>
+      )}
+    </div>
+  </div>
+);
+
+const ProfileDropdownContainer = () => {
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const user = useUserAuth();
+
+  const toggleDropdown = useCallback(() => {
+    setDropdownVisible(prev => !prev);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isDropdownVisible && !event.target.closest('.relative')) {
+        setDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isDropdownVisible]);
+
+  return (
+    <ProfileDropdown
+      isVisible={isDropdownVisible}
+      onToggle={toggleDropdown}
+      user={user}
+    />
+  );
+};
+
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center h-64">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600"></div>
+  </div>
+);
+
+// Error Boundary Component
+class CarouselErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('Carousel error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="text-center py-8">
+          <p className="text-gray-600">Something went wrong loading the carousel.</p>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+// Main Component
+export default function HomePage() {
+  const { carouselItems, isLoading } = useCarouselData();
+
+  if (isLoading) {
+    return (
+      <div className="bg-slate-50 min-h-screen">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-slate-50 min-h-screen">
+      <main>
+        <section aria-label="Featured content carousel">
+          <CarouselErrorBoundary>
+            <Carousel {...CAROUSEL_CONFIG}>
+              {carouselItems.map((item, index) => (
+                <CarouselSlide
+                  key={item.id || index}
+                  item={item}
+                />
+              ))}
+            </Carousel>
+          </CarouselErrorBoundary>
+        </section>
+
+        <div className="container mx-auto px-4">
+          <section className="my-20" aria-label="Best of India">
+            <React.Suspense fallback={<LoadingSpinner />}>
+              <Bestofindia />
+            </React.Suspense>
+          </section>
+
+          <section aria-label="Blog content">
+            <React.Suspense fallback={<LoadingSpinner />}>
+              <BlogofIndia />
+            </React.Suspense>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
 }
