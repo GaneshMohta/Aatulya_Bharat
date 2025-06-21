@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import './App.css';
 import './index.css';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, HashRouter } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage.jsx';
 import States from './components/states/States.jsx';
 
@@ -42,7 +42,7 @@ class ErrorBoundary extends React.Component {
 function App() {
   return (
     <GoogleOAuthProvider clientId="990977981881-5hkqf6bqhkij2jit0pq1cge935gp37rf.apps.googleusercontent.com">
-      <Router>
+      <HashRouter>
         <ErrorBoundary>
           <Routes>
             <Route
@@ -169,7 +169,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </ErrorBoundary>
-      </Router>
+      </HashRouter>
     </GoogleOAuthProvider>
   );
 }
