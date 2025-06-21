@@ -13,7 +13,7 @@ export const homes = [
       isTyping:false,
       backdropTitle:'The Incredible states of India',
       backdropSubtitle:'8 Beauties and 28 Wonders of India',
-      link:'/Map',
+      link:'/map',
       backdropImg:'https://fairgaze.com/images/UploadedImages/thumbs/0309134_0309134_xasdiihbb.jpg'
     },
     {
