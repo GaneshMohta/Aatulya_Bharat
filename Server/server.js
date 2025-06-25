@@ -132,9 +132,11 @@ const projectConfig = {
 
 
 app.post('/api/chat', async (req, res) => {
-  const { userMessage, context } = req.body;
+  //console.log(req);
+  const { userMessage, context } = req.query;
 
   if (!userMessage || !context) {
+    console.log(userMessage);
       return res.status(400).json({ error: 'Missing userMessage or context in the request.' });
   }
 
