@@ -3,7 +3,7 @@ import MB1 from '../components/states/image/mb3.jpg'
 import NE from '../components/states/image/National-Emblem.jpg'
 import { Link } from 'react-router-dom'
 import './front.css'
-import './responsive.css'
+import './Home_Page/responsive.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
