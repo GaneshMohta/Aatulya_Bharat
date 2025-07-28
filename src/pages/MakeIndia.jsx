@@ -151,7 +151,7 @@ export default function MakeIndia() {
   const cartAdded = (item) => {
     dispatch(arraycart(item));
    // setCart(prev => [...prev, item]);
-    console.log('Added to cart:', cart);
+   // console.log('Added to cart:', cart);
   };
 
   const getProductsByCategory = (category) => {
@@ -160,7 +160,7 @@ export default function MakeIndia() {
 
   const ProductCard = ({ product }) => (
     <div className="flex-shrink-0 w-1/4 px-2">
-      <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+      <div className="bg-white rounded-xl shadow-lg  overflow-hidden">
         <div className="relative group">
           <img
             src={product.image}
@@ -223,7 +223,7 @@ export default function MakeIndia() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200">
+      <header className="sticky top-0 z-50 bg-gradient-to-r from-rose-700 to-orange-300 shadow-lg border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Left section */}
@@ -241,7 +241,7 @@ export default function MakeIndia() {
                 alt="Make in India"
                 className="h-12 w-auto"
               />
-              <span className="text-orange-600 font-bold text-sm tracking-wider">
+              <span className="text-blue-50 font-bold text-sm tracking-wider">
                 MAKE IN BHARAT
               </span>
             </div>
@@ -282,7 +282,7 @@ export default function MakeIndia() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-orange-600 to-blue-600 text-white py-8 mt-16">
+      <footer className="bg-gradient-to-r from-rose-700 to-orange-300 text-white py-7 mt-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-2">Make in Bharat</h3>
           <p className="text-orange-100">Supporting Indian craftsmanship and entrepreneurship</p>
@@ -291,186 +291,3 @@ export default function MakeIndia() {
     </div>
   );
 }
-
-
-
-// export default function MakeIndia() {
-//   const dispatch = useDispatch();
-//   // const [preview , setPreview] = useState(null);
-//   useEffect(() => {
-//     dispatch(fetchProducts());
-//   }, [dispatch]);
-
-//   const prod = useSelector((state) => state.product.products);
-//   let len = prod.length;
-//   const isLoading = useSelector((state) => state.product.isLoading);
-//   const error = useSelector((state) => state.product.error);
-//   if (isLoading) {
-//     return "loading...";
-//   }
-//   if (error) {
-//     return error;
-//   }
-
-//   // const getProducts=async()=>{
-//   //   const res = await axios.get("https://aatulya-bharat.onrender.com/product/get");
-//   //   console.log("res",res);
-//   //   dispatch(getProducts(res.data));
-//   // }
-  // const cartAdded = (item) => {
-  //   dispatch(arraycart(item));
-  // };
-
-//   const responsive = {
-//     superLargeDesktop: {
-//       // the naming can be any, depends on you
-//       breakpoint: { max: 4000, min: 3000 },
-//       items: 5,
-//     },
-//     desktop: {
-//       breakpoint: { max: 3000, min: 1024 },
-//       items: 4,
-//     },
-//     tablet: {
-//       breakpoint: { max: 1024, min: 464 },
-//       items: 3,
-//     },
-//     mobile: {
-//       breakpoint: { max: 464, min: 0 },
-//       items: 3,
-//     },
-//   };
-//   return (
-//     <div className="h-auto aatulya-body">
-//       <div className="aatulya-header flex justify-between p-2 sticky top-0 z-10 items-center bg-slate-300">
-//         <div className="flex gap-2">
-//           <Link to="/">
-//             <span className="text-slate-950 relative top-1">
-//               <BsArrowLeftShort />
-//             </span>
-//           </Link>
-//           <h6>Aatulya Bharat</h6>
-//         </div>
-//         <div className="flex flex-col items-center justify-center md:max-xl:">
-//           <img
-//             src="https://imagesvs.oneindia.com/webp/img/2015/06/02-1433264361-makeinindia-logo.jpg"
-//             alt="make in India"
-//             className="text-center w-[10%] md:relative left-24 "
-//           />
-//           <span className="font-semibold mib-h1 text-orange-500  mt-0  md:relative left-24 ">
-//             MAKE IN BHARAT
-//           </span>
-//         </div>
-//         <div className="">
-//           <NavBar />
-//         </div>
-//       </div>
-
-//       <div className=" mib-body">
-//         <div className="flex flex-col gap-2">
-//           <div>
-//             <h1 className="p-1 ms-2 font-medium product-block p-card">
-//               Best Seller in Home & Decoration
-//             </h1>
-//             <Carousel responsive={responsive}>
-//               {prod.map((product) => (
-//                 <div key={product.id} className="card1">
-//                   <img
-//                     src={`https://aatulya-bharat.onrender.com/uploads/${product.image}`}
-//                     width={150}
-//                     alt={product.name}
-//                     className="mib-prod-img"
-//                   />
-//                   <div className="text-center">
-//                     <h3>{product.productName}</h3>
-//                     <p>₹{product.price}</p>
-//                     <button
-//                       className="bg-blue-400 w-10 p-1 rounded-md hover:bg-blue-500 duration-150"
-//                       onClick={() => cartAdded(product)}
-//                     >
-//                       Add
-//                     </button>
-//                   </div>
-//                 </div>
-//               ))}
-//             </Carousel>
-//             {len > 4 ? (
-//               <button className="relative left-[90%] bg-slate-400 p-1 rounded-md">
-//                 View All
-//               </button>
-//             ) : (
-//               <div></div>
-//             )}
-//           </div>
-//           <br />
-
-//           <div className=" product-block p-card p-1 ms-2 ">
-//             <h1 className="p-1 font-medium">Best Seller in Indian Snacks</h1>
-//             <Carousel responsive={responsive}>
-//               {prod.map((product) => (
-//                 <div key={product.id} className="card1">
-//                   <img
-//                     src={`https://aatulya-bharat.onrender.com/uploads/${product.image}`}
-//                     width={150}
-//                     alt={product.name}
-//                     className="mib-prod-img"
-//                   />
-//                   <div className="text-center">
-//                     <h3>{product.productName}</h3>
-//                     <p>₹{product.price}</p>
-//                     <button
-//                       className="bg-blue-400 w-10 p-1 rounded-md hover:bg-blue-500 duration-150"
-//                       onClick={() => cartAdded(product)}
-//                     >
-//                       Add
-//                     </button>
-//                   </div>
-//                 </div>
-//               ))}
-//             </Carousel>
-//             {len > 4 ? (
-//               <button className="relative left-[90%] bg-slate-400 p-1 rounded-md">
-//                 View All
-//               </button>
-//             ) : (
-//               <div></div>
-//             )}
-//           </div>
-
-//           <div className=" product-block p-card p-1 ms-2 ">
-//             <h1 className="p-1 font-medium">Best Seller in Fashion</h1>
-//             <Carousel responsive={responsive}>
-//               {prod.map((product) => (
-//                 <div key={product.id} className="card1">
-//                   <img
-//                     src={`https://aatulya-bharat.onrender.com/uploads/${product.image}`}
-//                     width={150}
-//                     alt={product.name}
-//                     className="mib-prod-img"
-//                   />
-//                   <div className="text-center">
-//                     <h3>{product.productName}</h3>
-//                     <p>₹{product.price}</p>
-//                     <button
-//                       className="bg-blue-400 w-10 p-1 rounded-md hover:bg-blue-500 duration-150"
-//                       onClick={() => cartAdded(product)}
-//                     >
-//                       Add
-//                     </button>
-//                   </div>
-//                 </div>
-//               ))}
-//             </Carousel>
-//             {len > 4 ? (
-//               <button className="relative left-[90%] bg-slate-400 p-1 rounded-md">
-//                 View All
-//               </button>
-//             ) : (
-//               <div></div>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

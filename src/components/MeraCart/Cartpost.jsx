@@ -43,22 +43,54 @@ export default function Cartpost() {
 
       const toggleDropdown = () => setIsOpen(!isOpen);
 
+
+      const uploadImageToCloudinary = async (file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "react_unsigned_upload");
+
+        const response = await axios.post(
+          "https://api.cloudinary.com/v1_1/dhn7ngwqs/image/upload",
+          formData
+        );
+
+        return response.data.secure_url;
+        };
+
+
       const handleSubmit=async(e)=>{
         e.preventDefault();
-        const formData = new FormData();
+        // const formData = new FormData();
 
-        formData.append('productName',productName);
-        formData.append('image',image);
-        formData.append('description',description);
-        formData.append('price',price);
-        formData.append('selectedCategories',selectedCategories);
-        formData.append('quantity',quantity);
-        console.log(formData);
+        // formData.append('productName',productName);
+        // formData.append('image',image);
+        // formData.append('description',description);
+        // formData.append('price',price);
+        // formData.append('selectedCategories',selectedCategories);
+        // formData.append('quantity',quantity);
+        // // console.log(formData);
         try {
-          const res = await axios.post("https://aatulya-bharat.onrender.com/product/create", formData, {
+
+          let imageUrl = "";
+
+          if (image) {
+            imageUrl = await uploadImageToCloudinary(image);
+          }
+
+          const token = localStorage.getItem("token");
+
+          const productData = {
+            productName,
+            description,
+            price,
+            selectedCategories,
+            quantity,
+            image : imageUrl
+          }
+          const res = await axios.post("https://aatulya-bharat.onrender.com/product/create", productData, {
             headers: { "Content-Type": "multipart/form-data" },
           });
-          console.log(res);
+          console.log("Product added" ,res.data);
         } catch (error) {
           console.error("There was an error submitting the form!", error);
         }

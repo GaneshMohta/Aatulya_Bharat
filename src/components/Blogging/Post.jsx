@@ -6,6 +6,7 @@ import { GrAddCircle } from 'react-icons/gr';
 import { BsArrowLeftShort } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// import { v2 as cloudinary } from 'cloudinary';
 
 export default function Post() {
   const [Title, setTitle] = useState('');
@@ -118,39 +119,55 @@ export default function Post() {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    const formData = new FormData();
-      formData.append("Title",Title);
-      formData.append("image",image);
-      formData.append("QuillContent",QuillContent);
-      formData.append("selectedCategories",selectedCategories);
+const uploadImageToCloudinary = async (file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", "react_unsigned_upload");
 
+  const response = await axios.post(
+    "https://api.cloudinary.com/v1_1/dhn7ngwqs/image/upload",
+    formData
+  );
 
-    // const formData = {
-    //   Title,
-    //   image,  // This will now be the file name
-    //   QuillContent,
-    //   selectedCategories
-    // }
-
-    try {
-      console.log("Form ", formData);
-      const token = localStorage.getItem('token');
-      // https://aatulya-bharat.onrender.com
-      const response = await axios.post('https://aatulya-bharat.onrender.com/blog/create', formData, {
-        headers: {
-          "Content-Type": "multipart/form-data" ,
-          Authorization: `Bearer ${token}`
-        }
-      });
-      console.log("res", response.data);
-      navigate('/blogs');
-    } catch (error) {
-      console.error("Error uploading the post:", error);
-    }
+  return response.data.secure_url;
   };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    let imageUrl = "";
+
+    // Upload image to Cloudinary if selected
+    if (image) {
+      imageUrl = await uploadImageToCloudinary(image);
+    }
+
+    const token = localStorage.getItem("token");
+
+    const blogData = {
+      Title,
+      QuillContent,
+      selectedCategories: selectedCategories.join(','), // send as comma string
+      image:imageUrl, // include the cloudinary image URL
+    };
+
+    const response = await axios.post("https://aatulya-bharat.onrender.com/blog/create", blogData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log("Blog created:", response.data);
+    navigate("/blogs");
+
+  } catch (error) {
+    console.error("Error uploading the post:", error);
+    alert("Failed to create blog. Please try again.");
+  }
+};
+
 
   return (
     <div className=' h-auto pb-28'>

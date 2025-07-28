@@ -7,17 +7,17 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import States from './components/states/States.jsx';
 
 // Lazy-loaded components
-const HomePage = lazy(() => import('./pages/HomePage'));
+const HomePage = lazy(() => import('./pages/Home_Page/HomePage.jsx'));
 const Post = lazy(() => import('./components/Blogging/Post'));
-const Blogpage = lazy(() => import('./compounds/Blogpage'));
+const Blogpage = lazy(() => import('./pages/Blogs_of_India/Blogpage.jsx'));
 const Signup = lazy(() => import('./validation/Signup'));
 const MakeIndia = lazy(() => import('./pages/MakeIndia'));
-const MainBlogs = lazy(() => import('./compounds/MainBlogs'));
+const MainBlogs = lazy(() => import('./pages/Blogs_of_India/MainBlogs.jsx'));
 const Cartpost = lazy(() => import('./components/MeraCart/Cartpost'));
 const OrderCart = lazy(() => import('./components/MeraCart/OrderCart'));
 const Ref = lazy(() => import('./pages/Ref'));
 const MapIndia = lazy(() => import('./components/states/MapIndia'));
-const WeddingPage = lazy(() => import('./pages/WeddingPage'));
+const WeddingPage = lazy(() => import('./pages/Home_Page/WeddingPage'));
 const Signin = lazy(() => import('./validation/Signin'));
 const Temple = lazy(() => import('./pages/Temple.jsx'));
 const AdventurePage = lazy(() => import('./pages/AdventurePage.jsx'));

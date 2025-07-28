@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import ne from "../components/states/image/image.png";
 import { useDispatch, useSelector } from "react-redux";
 import { CiSearch } from "react-icons/ci";
 // import { searchBlogs, setBlogs } from "../Redux/blogslice";
 import { IoIosCreate } from "react-icons/io";
 import axios from "axios";
-import "./Blog.css";
+
 
 export default function MainBlogs() {
   const [searchtext, setSearchText] = useState("");
@@ -16,7 +15,7 @@ export default function MainBlogs() {
     setourBlogs();
   }, []);
   const dispatch = useDispatch();
-
+   // https://aatulya-bharat.onrender.com
   const setourBlogs = async () => {
     const res = await axios.get("https://aatulya-bharat.onrender.com/blog/get", {
       headers: {
@@ -44,7 +43,7 @@ export default function MainBlogs() {
   return (
 
     <div className="flex flex-col aatulya-responsive ">
-    <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 flex justify-between p-2">
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-rose-700 to-orange-400 shadow-lg flex justify-between p-2">
         <div className="flex items-center gap-3">
             <Link to='/' className="text-gray-600 hover:text-gray-800 text-2xl">
             ←
@@ -61,13 +60,13 @@ export default function MainBlogs() {
         <div className="w-[70%] h-auto p-4 border-e-2">
             {Blog.map((ourblog) => (
                 <Link to={`${ourblog.Titleid}`} key={ourblog.id} className="pt-2">
-                    <div className="h-[30vh] gap-1 bg-zinc-400 flex m-2">
+                    <div className="h-[30vh] gap-1 bg-gradient-to-r from-amber-200 to-orange-400 shadow-lg flex m-2">
                         <div className="w-[70%] p-2">
                             <h1 className="text-xl font-semibold">{ourblog.Title}</h1>
                             <p className="text-sm">{ourblog.author}</p>
                         </div>
                         <div className="w-[30%] flex justify-end img-container">
-                            <img src={`https://aatulya-bharat.onrender.com/uploads/${ourblog.image}`} alt="Blog" />
+                            <img src={ourblog.image} alt="Blog" />
                         </div>
                     </div>
                 </Link>

@@ -9,7 +9,7 @@ const blogSchema = mongoose.Schema({
     image : String,
     QuillContent : String,
     selectedCategories : [{
-        type:String,
+         type:String,
         required:true
     }],
     Date :  {

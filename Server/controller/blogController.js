@@ -6,8 +6,7 @@ import { uuid } from 'uuidv4';
 export const createBlog=async(req,res)=>{
     try{
       const {Title,QuillContent,selectedCategories} = req.body;
-      // console.log("titlefile,")
-      const image = req.file.filename;
+      const image = req.body.image;
 
       console.log('Request Body:', req.body);
       console.log("data",selectedCategories)
@@ -36,7 +35,6 @@ export const getBlog= async(req,res)=>{
 }
 
 export const getBlogId = async (req, res) => {
-  //console.log(req.params.id);
   try {
     const blogId = await Blog.findOne({ Titleid: req.params.id })
     if (!blogId) {
