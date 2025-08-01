@@ -116,65 +116,65 @@ app.use('/pay', paymentRouter);
 app.use('/api/v1/auth', authRouter);
 
 
-import  { SessionsClient } from '@google-cloud/dialogflow';
+//import  { SessionsClient } from '@google-cloud/dialogflow';
 
-const projectConfig = {
-  projectId: {
-    projectId: 'merabharat-97f8a',
-    credentials: JSON.parse(process.env.WEDDING_KEY),
-  },
-  travelId: {
-    travelId: 'merabharat-ge9f',
-    credentials: JSON.parse(process.env.TRAVEL_KEY),
-  },
-  HeritageId: {
-    travelId: 'heritage-ddhf',
-    credentials: JSON.parse(process.env.HERITAGE_KEY),
-  },
-};
+// const projectConfig = {
+//   projectId: {
+//     projectId: 'merabharat-97f8a',
+//     credentials: JSON.parse(process.env.WEDDING_KEY),
+//   },
+//   travelId: {
+//     travelId: 'merabharat-ge9f',
+//     credentials: JSON.parse(process.env.TRAVEL_KEY),
+//   },
+//   HeritageId: {
+//     travelId: 'heritage-ddhf',
+//     credentials: JSON.parse(process.env.HERITAGE_KEY),
+//   },
+// };
 
-app.post('/api/chat', async (req, res) => {
-  const { userMessage, context } = req.query;
+// app.post('/api/chat', async (req, res) => {
+//   const { userMessage, context } = req.query;
 
-  console.log("req   "+ userMessage+ " " + context);
+//   console.log("req   "+ userMessage+ " " + context);
 
-  if (!userMessage || !context) {
-    return res.status(400).json({ error: 'Missing userMessage or context in the request.' });
-  }
+//   if (!userMessage || !context) {
+//     return res.status(400).json({ error: 'Missing userMessage or context in the request.' });
+//   }
 
-  const config = projectConfig[context];
-  if (!config) {
-    return res.status(400).json({ error: 'Invalid context provided.' });
-  }
+//   const config = projectConfig[context];
+//   if (!config) {
+//     return res.status(400).json({ error: 'Invalid context provided.' });
+//   }
 
-  const { projectId, credentials } = config;
-  const sessionClient = new SessionsClient({ credentials });
-  const sessionId = uuidv4();
+//   const { projectId, credentials } = config;
+//   const sessionClient = new SessionsClient({ credentials });
+//   const sessionId = uuidv4();
 
-  try {
-    const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
-    const request = {
-      session: sessionPath,
-      queryInput: {
-        text: {
-          text: userMessage,
-          languageCode: 'en',
-        },
-      },
-    };
+//   try {
+//     const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
+//     const request = {
+//       session: sessionPath,
+//       queryInput: {
+//         text: {
+//           text: userMessage,
+//           languageCode: 'en',
+//         },
+//       },
+//     };
 
-    const [response] = await sessionClient.detectIntent(request);
-    if (!response || !response.queryResult) {
-      return res.status(500).json({ error: "Unexpected response from Dialogflow." });
-    }
+//     const [response] = await sessionClient.detectIntent(request);
+//     if (!response || !response.queryResult) {
+//       return res.status(500).json({ error: "Unexpected response from Dialogflow." });
+//     }
 
-    const fulfillmentText = response.queryResult.fulfillmentText || "Sorry, I couldn't understand that.";
-    res.json({ botResponse: fulfillmentText });
-  } catch (error) {
-    console.error("Error communicating with Dialogflow:", error);
-    res.status(500).json({ error: "Error communicating with Dialogflow." });
-  }
-});
+//     const fulfillmentText = response.queryResult.fulfillmentText || "Sorry, I couldn't understand that.";
+//     res.json({ botResponse: fulfillmentText });
+//   } catch (error) {
+//     console.error("Error communicating with Dialogflow:", error);
+//     res.status(500).json({ error: "Error communicating with Dialogflow." });
+//   }
+// });
 
 
 
