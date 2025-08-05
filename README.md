@@ -1,8 +1,22 @@
-# React + Vite
+<h1 style="color:red; text-align:center">अतुल्य भारत - Incredible India</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2 style="color:green;">
+  Purpose:
+</h2>
+<p>
+  1) Explore the Culture and Heritage of Each States 
+  2) Write Blogs on the field you want like Culture,Heritage,etc...
+  3) Sell and Buy the Made in India Products 
+  4) Team and Collabaration of Wedding,Devotion,Tourist...
+</p>
 
-Currently, two official plugins are available:
+<h2 style="color:green;">
+  Tools:
+</h2>
+<ol>
+  <li>MERN</li>
+  <li>payment Integration</li>
+  <li>Oauth and JWT</li>
+  <li>Gemini Api</li>
+</ol>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
