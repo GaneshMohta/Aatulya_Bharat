@@ -10,7 +10,9 @@ import HomeCarusel from './HomeCarusel';
 
 // Lazy load components
 const Bestofindia = lazy(() => import('./Bestofindia'));
-const BlogofIndia = lazy(() => import('../Blogs_of_India/BlogofIndia'));
+// const BlogofIndia = lazy(() => import('../Blogs_of_India/BlogofIndia'));
+
+import BlogofIndia from '../Blogs_of_India/BlogofIndia';
 
 // Constants
 const CAROUSEL_CONFIG = {

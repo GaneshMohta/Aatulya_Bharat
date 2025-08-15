@@ -63,6 +63,7 @@
       justify-content: center;
       align-items: center;
       padding-top: 0px;
+      max-width: fit-content;
     }
 
     .history-content{
@@ -71,6 +72,7 @@
       padding: 10px;
       position: relative;
       left: 10%;
+      padding-top: 95px;
     }
 
   .map-container{

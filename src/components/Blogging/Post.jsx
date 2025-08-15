@@ -171,7 +171,7 @@ const uploadImageToCloudinary = async (file) => {
 
   return (
     <div className=' h-auto pb-28'>
-      <div className='flex justify-between p-2 aatulya-header bg-slate-300'>
+      <div className='flex justify-between p-2 aatulya-header bg-slate-300  bg-gradient-to-r from-rose-700 to-orange-400'>
         <div className='flex gap-2'>
           <Link to='/blogs'><span className='text-slate-950 relative top-1 hover:text-slate-950 duration-300'><BsArrowLeftShort /></span></Link>
           <h3>Aatulya Bharat</h3>

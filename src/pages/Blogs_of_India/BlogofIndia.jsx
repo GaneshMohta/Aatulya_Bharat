@@ -47,17 +47,21 @@ if(blog.length >= 1){
 
       <div className='blogs-grid'>
           {
-          blog.slice(0,3).map((blogs,idx)=>{
-            return
-            <Link to={`blogs/${blogs.Titleid}`}><div className='w-[60%] sm:h-80 sm:w-48 md:h-96  '>
-              <img src={`${blogs.image}`} alt={blogs.Title} className='h-[40%] sm:h-80 md:h-96  ' loading='lazy' />
-              <div className='h-[50%]'>
-                <p className=''>{blogs.Title}</p>
-                <span className="blog-cta">Read More..</span>
-              </div>
-            </div></Link>
+          blog.slice(0,3).map((blogs,idx)=> {
+            return (
+              <Link to={`blogs/${blogs.Titleid}`} key={idx}>
+                <div className='w-[60%] sm:h-80 sm:w-48 md:h-96'>
+                  <img src={blogs.image} alt={blogs.Title} className='h-[40%] sm:h-80 md:h-96' loading='lazy' />
+                  <div className='h-[50%]'>
+                    <p>{blogs.Title}</p>
+                    <span className="blog-cta">Read More..</span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })
           }
-          )}
+          <div><Link to='/blogs'><button className='max-w-fit p-2 bg-gradient-to-r from-orange-400 to-rose-400 rounded-md'>See All</button></Link></div>
       </div>
     </section>
   )
