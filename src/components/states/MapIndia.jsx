@@ -41,18 +41,18 @@ export default function MapIndia() {
       backgroundPosition: "center",
       minHeight:'100vh'
     }}>
-      <div className='aatulya-header flex justify-between p-2 sticky top-0 z-50 bg-slate-200 items-center'>
-        <div className='flex gap-2'>
+      <div className='flex justify-between p-2 top-0 z-50 bg-gradient-to-r from-rose-700 to-orange-300 '>
+        <div className='flex gap-1'>
           <Link to='/'>
             <span className='text-gray-700 text-2xl relative top-1'>
               <BsArrowLeftShort />
             </span>
           </Link>
-          <h3 className='text-xl font-semibold text-gray-800'>Atulya Bharat</h3>
+          <h1 className='text-xl font-bold text-gray-800'>Atulya Bharat</h1>
         </div>
       </div>
 
-      <div className='map-container  flex justify-center '>
+      <div className='map-container'>
         <India
           type="select-single"
           size={500}
@@ -67,6 +67,7 @@ export default function MapIndia() {
           hintPadding={5}
           hintBorderRadius={5}
           onSelect={handleSelect}
+
         />
       </div>
     </div>

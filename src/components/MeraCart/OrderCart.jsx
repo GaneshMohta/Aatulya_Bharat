@@ -36,20 +36,42 @@ export default function OrderCart() {
 
   if(Carts.length==0){
     return <>
-   <div className='sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200'>
-    <div className='flex gap-2'>
+   <div className='sticky top-0 z-50 bg-gradient-to-r from-rose-700 to-orange-300 shadow-lg border-b border-gray-200'>
+    <div className='flex gap-2 max-w-7xl mx-auto px-4 py-3'>
      <Link to='/Make-in-India'><span className='text-slate-950 relative top-1'><BsArrowLeftShort/></span></Link>
-  <h3>Aatulya Bharat</h3>
+  <h2 className='text-xl font-semibold text-gray-800'>Aatulya Bharat</h2>
+
+  <div className="flex flex-col relative left-[30%] items-center text-center">
+  <img
+    src="https://imagesvs.oneindia.com/webp/img/2015/06/02-1433264361-makeinindia-logo.jpg"
+    alt="Make in India"
+    className="h-12 w-auto"
+  />
+  <span className="text-blue-50 font-bold text-sm tracking-wider">
+    MAKE IN BHARAT
+  </span>
+</div>
   </div>
   </div>
     <h1 style={{textAlign:"center"}} className='bg-slate-100 h-[90vh] flex items-center justify-center font-bold text-3xl text-blue-700'>😑Cart is Empty😑</h1>
 </>}
 return (
   <div className='min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50'>
-   <div className='sticky top-0 z-50 p-1 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 items-center'>
-    <div className='flex gap-2 items-center'>
-     <Link to='/Make-in-India'><span className='text-gray-600 hover:text-gray-800 text-2xl'><BsArrowLeftShort/></span></Link>
-      <h3 className='text-xl font-semibold text-gray-800'>Atulya Bharat</h3>
+   <div className='sticky top-0 z-50 bg-gradient-to-r from-rose-700 to-orange-300 shadow-lg border-b border-gray-200'>
+    <div className='flex gap-2 max-w-7xl mx-auto px-4 py-3'>
+     <Link to='/Make-in-India'><span className='text-slate-950 relative top-1'><BsArrowLeftShort/></span></Link>
+  <h2 className='text-xl font-semibold text-gray-800'>Aatulya Bharat</h2>
+
+  <div className="flex flex-col relative left-[30%] items-center text-center">
+  <img
+    src="https://imagesvs.oneindia.com/webp/img/2015/06/02-1433264361-makeinindia-logo.jpg"
+    alt="Make in India"
+    className="h-12 w-auto"
+  />
+  <span className="text-blue-50 font-bold text-sm tracking-wider">
+    MAKE IN BHARAT
+  </span>
+</div>
   </div>
   </div>
   <div className="overall">

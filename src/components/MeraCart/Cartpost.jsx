@@ -26,10 +26,9 @@ export default function Cartpost() {
     }
 
     const category = [
-       "Decor",
-       "Food",
-       "Clothes",
-       ""
+       "home",
+       "snacks",
+       "fashion",
     ];
 
     const handleCheckbox = (e) => {
@@ -87,8 +86,15 @@ export default function Cartpost() {
             quantity,
             image : imageUrl
           }
+
+          console.log(productData);
+
+          // https://aatulya-bharat.onrender.com/product
           const res = await axios.post("https://aatulya-bharat.onrender.com/product/create", productData, {
-            headers: { "Content-Type": "multipart/form-data" },
+                  headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Content-Type": "application/json",
+                },
           });
           console.log("Product added" ,res.data);
         } catch (error) {
@@ -102,15 +108,15 @@ export default function Cartpost() {
 
   return (
 
-    <div className='bg-slate-100 h-auto w-[100vw]'>
-     <div className='flex justify-between p-2 bg-slate-300'>
+    <div className='bg-gradient-to-br from-orange-50 via-white to-blue-50 h-auto w-[100vw]'>
+     <div className='flex justify-between p-2 bg-gradient-to-r from-rose-700 to-orange-400'>
       <div className='flex gap-2'>
       <Link to='/Make-in-India'><span className='text-slate-950 relative top-1'><BsArrowLeftShort/></span></Link>
       <h3 className='text-xl font-semibold text-gray-800'>Atulya Bharat</h3>
       </div>
       </div>
       <h1 className='font-serif text-base text-center text-red-400 pt-2'>DESH KA MAAN DESH KA SAAMAN</h1>
-      <div className='p-5 bg-gray-600 m-3 h-auto '>
+      <div className='p-5 bg-orange-200 m-3 h-auto '>
 
         <form onSubmit={handleSubmit} method="post" enctype="multipart/form-data" >
         <input

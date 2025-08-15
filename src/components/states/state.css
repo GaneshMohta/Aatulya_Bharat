@@ -2,6 +2,23 @@
     background-color: whitesmoke;
 }
 
+.history{
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.history-content{
+  font-size: 17px;
+  line-height: 150%;
+  letter-spacing: 20%;
+}
+
+.history-image {
+  padding-top: 46px;
+  padding-bottom: 20px;
+  height: 100px;
+}
+
 .maps {
 
     background-repeat: repeat;
@@ -17,31 +34,77 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 
+  .history-container{
+      width: 50%;
+    }
+
+  @media screen and (max-width: 480px){
+    .wall{
+      display: none;
+    }
+
+
+  .history-container{
+      width: 100%;
+    }
+
+    .history-image {
+        padding-top: 14px;
+        padding-bottom: 15px;
+      }
+
+
+    .history{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0px;
+    }
+
+    .history-content{
+      text-align: justify;
+      width: 80%;
+      padding: 10px;
+      position: relative;
+      left: 10%;
+    }
+
+  .map-container{
+    display: flex;
+    justify-content: start;
+    width: 420px;
+    padding-top: 40%;
+    padding-left: 0px;
+  }
   }
 
 
   @media screen and (max-width: 700px) {
-    .maps {
+    /* .maps {
         background-repeat: no-repeat;
         background-size:cover;
         background-position: center;
         position: relative;
-        /*min-height: 1vh; /* Ensure the element takes the full viewport height */
+        /*min-height: 1vh; /* Ensure the element takes the full viewport height
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         align-content: center;
         width: auto;
         z-index: 1;
-      }
+      } */
 
   .map-container{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    padding-top: 0%;
-    padding-left: 10px;
+    padding-top: 40%;
+    padding-left: 0px;
   }
 
   }

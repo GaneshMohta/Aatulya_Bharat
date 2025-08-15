@@ -16,67 +16,116 @@ import { fetchProducts } from "../Redux/productSlice";
 // Dummy data for products
 const dummyProducts = [
   {
-    id: 1,
+    id: 31,
     productName: "Handwoven Silk Saree",
     price: 2500,
     image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=300&fit=crop",
-    category: "fashion"
+    selectedCategories:[ "fashion"]
+  },
+  {
+    id: 21,
+    productName: "Handwoven Silk Saree",
+    price: 2500,
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=300&fit=crop",
+    selectedCategories:[ "fashion"]
+  },
+  {
+    id: 19,
+    productName: "Handwoven Silk Saree",
+    price: 2500,
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=300&fit=crop",
+    selectedCategories:[ "fashion"]
+  },
+  {
+    id: 12,
+    productName: "Handwoven Silk Saree",
+    price: 2500,
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=300&fit=crop",
+    selectedCategories:[ "fashion"]
+  },
+,  {
+    id: 11,
+    productName: "Handwoven Silk Saree",
+    price: 2500,
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=300&h=300&fit=crop",
+    selectedCategories:[ "fashion"]
   },
   {
     id: 2,
     productName: "Brass Decorative Lamp",
     price: 850,
     image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop",
-    category: "home"
-  },
+    selectedCategories:[ "home"
+  ]},
   {
     id: 3,
     productName: "Organic Masala Chips",
     price: 120,
     image: "https://images.unsplash.com/photo-1613919113640-25732ec5e61f?w=300&h=300&fit=crop",
-    category: "snacks"
-  },
+    selectedCategories:[ "snacks"
+]  },
   {
     id: 4,
     productName: "Khadi Cotton Kurta",
     price: 1200,
     image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop",
-    category: "fashion"
+    selectedCategories:[ "fashion"]
   },
   {
     id: 5,
     productName: "Wooden Wall Art",
     price: 950,
     image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop",
-    category: "home"
+    selectedCategories:[ "home"]
   },
   {
     id: 6,
     productName: "Spiced Namkeen Mix",
     price: 180,
     image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300&h=300&fit=crop",
-    category: "snacks"
-  },
+    selectedCategories:[ "snacks"
+]  },
   {
     id: 7,
     productName: "Embroidered Dupatta",
     price: 680,
     image: "https://images.unsplash.com/photo-1583391733956-6c78276477e5?w=300&h=300&fit=crop",
-    category: "fashion"
+    selectedCategories:[ "fashion"]
   },
   {
     id: 8,
     productName: "Copper Water Bottle",
     price: 450,
     image: "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?w=300&h=300&fit=crop",
-    category: "home"
-  }
+    selectedCategories:[ "home"
+  ]}
 ];
+
+const useWindowWidth = () =>{
+   const [width ,setWidth] = useState(0);
+    useEffect(()=>{
+    if(typeof width !== 'undefined'){
+      setWidth(window.innerWidth);
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener('resize',handleResize);
+      return ()=>window.removeEventListener('resize',handleResize);
+    }
+  },[])
+  return width;
+}
 
 // Simple Carousel Component
 const SimpleCarousel = ({ children, responsive }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 4; // Default for desktop
+
+
+
+  let view = 4;
+  let screenWidth = useWindowWidth();
+  if(screenWidth < 768){
+    view = 2;
+  }
+  const itemsPerView = view;
 
   const nextSlide = () => {
     setCurrentIndex((prev) =>
@@ -131,7 +180,9 @@ const NavBar = () => {
           {arr.length}
         </span>
       </div>
+      <Link to='/MyBusiness'>
       <div className="text-2xl">👤</div>
+      </Link>
     </div>
   );
 };
@@ -146,6 +197,12 @@ export default function MakeIndia() {
     setTimeout(() => {
       setProducts(dummyProducts);
     }, 500);
+
+    // setTimeout(async ()=>{
+    //  const data =await axios.get('http://localhost:3000/product/get');
+    //  console.log(data.data.products);
+    //  if(data.data.products.length>0) setProducts(data.data.products);
+    // },500);
   }, []);
 
   const cartAdded = (item) => {
@@ -155,11 +212,14 @@ export default function MakeIndia() {
   };
 
   const getProductsByCategory = (category) => {
-    return products.filter(product => product.category === category);
+    return products.filter(product =>
+      Array.isArray(product.selectedCategories) &&
+      product.selectedCategories.includes(category)
+    );
   };
 
   const ProductCard = ({ product }) => (
-    <div className="flex-shrink-0 w-1/4 px-2">
+    <div className="flex-shrink-0 max-lg:w-1/4 min-w-fit px-2">
       <div className="bg-white rounded-xl shadow-lg  overflow-hidden">
         <div className="relative group">
           <img

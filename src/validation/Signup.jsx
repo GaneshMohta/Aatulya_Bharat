@@ -8,24 +8,24 @@ import { useNavigate } from 'react-router-dom';
 import Signin from './Signin';
 
 
-
 export default function Signup() {
   const navigate = useNavigate();
-
   const responseGoogle = async (authResult) => {
     try {
       if (authResult.code) {
         console.log("Authorization Code:", authResult.code);
 
         // Send the authorization code to the backend
+        // https://aatulya-bharat.onrender.com
         const result = await axios.post("https://aatulya-bharat.onrender.com/api/v1/auth/google", {
           code: authResult.code,
         });
 
         // Handle the user data from the backend
+        // console.log(result.data.user)
         localStorage.setItem("token",authResult.code);
-        localStorage.setItem("Bharat_email",res.data.user);
-        console.log(result.data.user)
+        localStorage.setItem("Bharat_email",result.data.user);
+        // console.log(result.data.user)
 
         navigate("/");
       } else {

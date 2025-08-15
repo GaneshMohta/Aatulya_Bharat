@@ -22,6 +22,7 @@ export default function Carousel({slides}) {
         return ()=>clearInterval(interval);
       },[slides.length])
 
+      
 
   return (
     <div className='overflow-hidden relative'>

@@ -127,3 +127,34 @@ div > .link{
   .profile-input:focus {
     border-bottom: 1px solid #333;
   }
+
+
+@media screen and (max-width:480px){
+
+  .signin-main{
+
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+    transform: translate(0%,0%);
+    display: flex;
+    font-family: karma;
+  }
+  .sign-f2{
+    display: none;
+  }
+  .sign-f1{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0%;
+  }
+
+  .sign-f1 > div > h1{
+    color: orange;
+    font-weight: 800;
+    font-size:x-large;
+  }
+
+
+}

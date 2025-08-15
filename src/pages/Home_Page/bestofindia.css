@@ -132,4 +132,12 @@
   opacity: 1;
 }
 
-/* Small Mobile (320px - 480px) */
+
+.carousel-slide-container {
+  transition: opacity 2s ease-in-out;
+  opacity: 1;
+}
+
+.carousel-slide-container-enter {
+  opacity: 0;
+}

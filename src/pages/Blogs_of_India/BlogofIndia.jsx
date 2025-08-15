@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { setBlogs } from '../../Redux/blogslice';
 import axios from 'axios';
 import './blog.css'
+import '../Home_Page/responsive.css'
 
 const BlogofIndia = () => {
 
@@ -34,7 +35,7 @@ const BlogofIndia = () => {
 
 
 
-if(blog.length > 1){
+if(blog.length >= 1){
   return (
     <section className='blogs-section'>
       <div className='blogs-container'>
@@ -47,14 +48,14 @@ if(blog.length > 1){
       <div className='blogs-grid'>
           {
           blog.slice(0,3).map((blogs,idx)=>{
-            return<Link to={`blogs/${blogs.Titleid}`}><div className='blogs-card'>
-              <img src={`https://aatulya-bharat.onrender.com/uploads/${blogs.image}`} alt={blogs.Title} className='blogs-image' loading='lazy' />
-              <div className='blog-content'>
+            return
+            <Link to={`blogs/${blogs.Titleid}`}><div className='w-[60%] sm:h-80 sm:w-48 md:h-96  '>
+              <img src={`${blogs.image}`} alt={blogs.Title} className='h-[40%] sm:h-80 md:h-96  ' loading='lazy' />
+              <div className='h-[50%]'>
                 <p className=''>{blogs.Title}</p>
                 <span className="blog-cta">Read More..</span>
               </div>
             </div></Link>
-
           }
           )}
       </div>

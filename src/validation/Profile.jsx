@@ -10,7 +10,6 @@ const Profile = () => {
 
     useEffect(() => {
     const email = localStorage.getItem("Bharat_email");
-    //console.log(email);
     const fetchData = async () => {
       try{
       const res = await axios.get(

@@ -59,11 +59,11 @@ export default function Blogpage() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Image */}
         <div className="mb-8">
-          <div className="relative overflow-hidden rounded-xl shadow-2xl">
+          <div className="relative overflow-hidden rounded-xl shadow-2xl text-center flex justify-center">
             <img
-              src={`https://aatulya-bharat.onrender.com/uploads/${singleBlog.image}`}
+              src={`${singleBlog.image}`}
               alt={singleBlog.Title}
-              className="w-full h-64 sm:h-80 md:h-96 object-cover"
+              className=" sm:h-80 md:h-96 object-fill "
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>

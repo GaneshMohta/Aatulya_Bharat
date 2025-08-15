@@ -5,13 +5,13 @@ import Carousel from "./Carousel";
 import jsondata from './states.json';
 import ErrorPage from "../../pages/ErrorPage";
 // import {ErrorPage} from './ErrorPage.jsx'
-
+import Gemini_React from "../../Gemini/Gemini_React";
+import { IoMdChatbubbles } from "react-icons/io";
 const NavigationBar = () => {
   const goBack = () => {
     // Since we can't use React Router Link, we'll use a simple back function
     window.history.back();
   };
-
   return (
     <div className="flex justify-between p-4 bg-gradient-to-r text-gradient-to-r from-rose-700 to-orange-300 shadow-lg">
       <div className="flex gap-3 items-center">
@@ -33,6 +33,12 @@ export default function States() {
   // const currState = useSelector((state) => state.state.statesName);
   const [selectedState, setSelectedState] = useState(null);
   const currState = localStorage.getItem('currState');
+
+  const [visible, setVisible] = useState(false);
+
+    const isVisible = () => {
+      setVisible((prevVisible) => !prevVisible);
+    };
 
   useEffect(() => {
     const theState = jsondata.find(state => state.name === currState);
@@ -71,33 +77,33 @@ export default function States() {
           </h1>
         </div>
 
-        <div className="flex justify-between py-3">
-          <img src={selectedState.wall} className="max-w-28 min-h-96" />
+        <div className="flex justify-between  history">
+          <img src={selectedState.wall} className="max-w-28 min-h-96 wall" />
 
-          <div className="py-14">
+          <div className="history-image">
             <a href={selectedState.HOSImage}>
               <img
                 src={selectedState.HOSImage}
-                width={"240px"}
-                height={"250px"}
+                width={"160px"}
+                height={"160px"}
                 className="flex align-middle relative top-3"
               />
             </a>
           </div>
 
-          <div className="w-1/2 py-5">
-            <p className="font-mono font-medium text-sm">
+          <div className="history-container">
+            <p className="font-mono font-medium text-sm history-content">
               {selectedState.History}
               <span className="text-blue-300"> Click the picture to know more</span>
             </p>
           </div>
 
-          <img src={selectedState.wall} className="max-w-28 min-h-96" />
+          <img src={selectedState.wall} className="max-w-28 min-h-96 wall" />
         </div>
       </div>
 
 
-      <div className="relative z-10 py-20 bg-gradient-to-br from-rose-500 to-orange-400  backdrop-blur-sm">
+      <div className="relative py-20 bg-gradient-to-br from-rose-500 to-orange-400  backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-slate-200 mb-4">
             Beauty And Culture
@@ -141,6 +147,17 @@ export default function States() {
           </div>
         </div>
       </div>
+    </div>
+    <div className="fixed top-[85%] left-[95%] ">
+          <div className="flex flex-row ">
+            {visible && (
+              <div className="absolute w-[300px] h-[400px] bottom-2 right-12  z-auto">
+                <Gemini_React />
+              </div>
+            )}
+          <button onClick={isVisible} className="chatbot-button cursor-pointer">
+              <IoMdChatbubbles size={32} color="green" />
+            </button></div>
     </div>
     </>
   );

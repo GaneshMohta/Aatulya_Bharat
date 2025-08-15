@@ -6,6 +6,7 @@ import { homes } from '../homeJson';
 import '../front.css';
 import './responsive.css';
 import ProfileDrop from './ProfileDrop';
+import HomeCarusel from './HomeCarusel';
 
 // Lazy load components
 const Bestofindia = lazy(() => import('./Bestofindia'));
@@ -31,15 +32,11 @@ const CAROUSEL_CONFIG = {
       items: 1
     }
   },
-  autoPlay: true,
-  autoPlaySpeed: 4000,
+  autoPlay: false,
   infinite: true,
-  arrows: false,
+  arrows: true,
   showDots: false,
-  transitionDuration: 2000,
   pauseOnHover: false,
-  containerClass: "carousel-container",
-  itemClass: "carousel-item"
 };
 
 const LOADING_DELAY = 300;
@@ -175,14 +172,30 @@ export default function HomePage() {
       <main>
         <section className="carousel-section" aria-label="Featured content carousel">
           <CarouselErrorBoundary>
-            <Carousel {...CAROUSEL_CONFIG}>
-              {carouselItems.map((item, index) => (
+
+          <HomeCarusel  />
+          {/* <Carousel {...CAROUSEL_CONFIG}> */}
+              {/* {carouselItems.map((item, index) => (
                 <CarouselSlide
-                  key={item.id || index}
+                  key={item.id}
                   item={item}
                 />
               ))}
-            </Carousel>
+
+
+
+              {
+                Array.from({length:3}).map((_, index) => {
+                  const item = carouselItems[index % carouselItems.length];
+                  return (
+                <CarouselSlide
+                  // key={index}
+                  item={item}
+                />
+                  )
+                })
+              }
+             </Carousel> */}
           </CarouselErrorBoundary>
         </section>
 

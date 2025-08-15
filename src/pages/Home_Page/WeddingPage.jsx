@@ -9,6 +9,8 @@ import 'react-chatbot-kit/build/main.css';
 import { IoMdChatbubbles } from "react-icons/io";
 import './bestofindia.css'
 import './bestofindiaResponsive.css'
+import Gemini_React from "../../Gemini/Gemini_React";
+
 
 export default function WeddingPage() {
   const [visible, setVisible] = useState(false);
@@ -250,11 +252,7 @@ export default function WeddingPage() {
 
       {visible && (
         <div className="chatbot-container">
-          <Chatbot
-            config={config}
-            messageParser={MessageParser}
-            actionProvider={ActionProvider}
-          />
+          <Gemini_React />
         </div>
       )}
     </div>

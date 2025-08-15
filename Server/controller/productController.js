@@ -3,18 +3,22 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const createProducts = async (req, res) => {
   try {
-    const { productName, description, price, selectedcategory, quantity } = req.body;
+    const { productName, description, price, selectedCategories, quantity,image } = req.body;
+    console.log(req.body);
 
-    if (!req.file) {
+
+    if (!productName) {
       return res.status(400).json({ error: "No file uploaded" });
     }
-    const image = req.body.image;
+    //const image = req.body.image;
+
+console.log("image "+req.body);
 
     const product = new Product({
       id: uuidv4(),
       productName,
       description,
-      selectedcategory,
+      selectedCategories,
       price,
       quantity,
       image
