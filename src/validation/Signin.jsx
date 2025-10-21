@@ -69,9 +69,6 @@ export default function Signin() {
       console.log(res)
       localStorage.setItem("token",res.data.token);
       localStorage.setItem("Bharat_email",res.data.email);
-      // let u_name = email.split("@")[0];
-      // localStorage.setItem("u_name",res.data.userName);
-      // dispatch(setUser(res.data.userName));
       navigate('/');
     }
     catch(e){

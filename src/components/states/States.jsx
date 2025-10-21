@@ -94,7 +94,7 @@ export default function States() {
           <div className="history-container">
             <p className="font-mono font-medium text-sm history-content">
               {selectedState.History}
-              <span className="text-blue-300"> Click the picture to know more</span>
+             
             </p>
           </div>
 

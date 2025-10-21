@@ -87,7 +87,7 @@ app.use((err, req, res, next) => {
 //   const imageUrl = `/uploads/${req.file.filename}`;
 //   res.json({ imageUrl });
 // });
-// MongoDB connection
+// MongoDB Local Host connection
 // mongoose.connect("mongodb://127.0.0.1:27017/MeraBharat")
 //   .then(() => {
 //     console.log('Connected to MongoDB');
@@ -114,6 +114,20 @@ app.use('/blog', blogRouter);
 app.use('/product', productRouter);
 app.use('/pay', paymentRouter);
 app.use('/api/v1/auth', authRouter);
+
+
+
+
+app.listen(3000, () => {
+  console.log('Server is running on https://aatulya-bharat.onrender.com');
+});
+
+
+
+
+
+
+
 
 
 //import  { SessionsClient } from '@google-cloud/dialogflow';
@@ -175,9 +189,3 @@ app.use('/api/v1/auth', authRouter);
 //     res.status(500).json({ error: "Error communicating with Dialogflow." });
 //   }
 // });
-
-
-
-app.listen(3000, () => {
-  console.log('Server is running on https://aatulya-bharat.onrender.com');
-});
