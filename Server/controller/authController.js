@@ -18,7 +18,7 @@ const client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://aatulya-bharat.onrender.com',
+  'https://aatulya.netlify.app',
   process.env.FRONTEND_URL,
 ];
 

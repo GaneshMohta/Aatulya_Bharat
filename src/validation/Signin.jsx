@@ -27,7 +27,7 @@ export default function Signin() {
 
   const handleGoogleLogin = () => {
     // Redirect to backend OAuth route
-    window.location.href = `${API_URL}/api/auth/v1/google`;
+    window.location.href = `https://aatulya.netlify.app/api/auth/v1/google`;
   };
 
     const handleLogin = async (e) => {
