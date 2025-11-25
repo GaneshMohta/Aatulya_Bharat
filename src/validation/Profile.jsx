@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({});
@@ -9,17 +10,28 @@ const Profile = () => {
   const [editingField, setEditingField] = useState(null);
 
     useEffect(() => {
-    const email = localStorage.getItem("Bharat_email");
+    let email = localStorage.getItem("Bharat_email");
+    let g_email = Cookies.get("bharat_email");
     const fetchData = async () => {
       try{
-      const res = await axios.get(
-        "https://aatulya-bharat.onrender.com/user/getuser",
-        {
-          params: { email: email },
+        if(email!=null){
+          const res = await axios.get(
+            "https://aatulya-bharat.onrender.com/user/getuser",
+            {
+              params: { email: email },
+            }
+          );
+          setProfileData(res.data.users_det[0]);
+          setLoading(false);
         }
-      );
-      setProfileData(res.data.users_det[0]);
-      setLoading(false);
+        else{
+          console.log("bharat");
+          const res = await axios.get("https://aatulya-bharat.onrender.com/api/auth/v1/getGoogleLogin",{
+            params: { g_email: g_email },
+          });
+          setProfileData(res.data.user_details[0]);
+          setLoading(false);
+        }
      }
     catch (e){
         console.error("Error fetching profile:", e);

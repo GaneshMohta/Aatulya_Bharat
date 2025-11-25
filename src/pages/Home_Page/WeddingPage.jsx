@@ -243,18 +243,16 @@ export default function WeddingPage() {
             </tbody>
           </table>
         </div>
+              <div className="fixed left-[68%] bottom-11 z-10 w-fit">
+      {visible && (
+        <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/66091ac9-d0ae-43fc-a195-41c482f4f6f9"></iframe>
+      )}</div>
       </div>
 
       {/* Chatbot */}
       <button onClick={isVisible} className="chatbot-button">
-        <IoMdChatbubbles size={32} color="white" />
+        <IoMdChatbubbles size={28} color="white" />
       </button>
-
-      {visible && (
-        <div className="chatbot-container">
-          <Gemini_React />
-        </div>
-      )}
     </div>
   );
 }

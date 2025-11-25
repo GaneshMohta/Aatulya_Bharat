@@ -5,6 +5,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter as Router, Routes, Route, HashRouter } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage.jsx';
 import States from './components/states/States.jsx';
+import AuthCallback from './validation/AuthCallBack.jsx';
 
 // Lazy-loaded components
 const HomePage = lazy(() => import('./pages/Home_Page/HomePage.jsx'));
@@ -41,7 +42,7 @@ class ErrorBoundary extends React.Component {
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId="990977981881-5hkqf6bqhkij2jit0pq1cge935gp37rf.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="250959873670-ft3mdst7t48jo05bhfhbmlqlcqpqioo8.apps.googleusercontent.com">
       <HashRouter>
         <ErrorBoundary>
           <Routes>
@@ -165,6 +166,7 @@ function App() {
                 </Suspense>
               }
             />
+             <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/wonders" element={<States />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>

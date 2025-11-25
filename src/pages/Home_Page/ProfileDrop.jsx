@@ -1,18 +1,31 @@
 import  {useEffect, useState, useCallback, useMemo} from 'react'
 import { CgProfile } from "react-icons/cg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 
 const useUserAuth = () => {
     return useMemo(() => {
-      const userEmail = localStorage.getItem('Bharat_email');
-      if (!userEmail) return { isAuthenticated: false, username: null };
+      let userEmail = localStorage.getItem('Bharat_email');
+
+
+      if (!userEmail) {
+        userEmail =  Cookies.get("bharat_email");
+        if(!userEmail)
+        return { isAuthenticated: false, username: null };
+      }
 
       const username = userEmail.split('@')[0];
       return { isAuthenticated: true, username };
     }, []);
 };
 
+const handleLogOut=()=>  {
+  localStorage.removeItem('Bharat_email');
+  localStorage.removeItem('token');
+  Cookies.remove('bharat_email');
+  Cookies.remove('bharat_token');
+}
 
 const ProfileDropdown = ({ isVisible, onToggle, user }) => (
   <div className="relative1">
@@ -32,11 +45,12 @@ const ProfileDropdown = ({ isVisible, onToggle, user }) => (
             className="signin-link"
             onClick={onToggle}
           >
-            <button className="signin-button">
+            <button className="signin-button" >
               Sign In
             </button>
           </Link>
         ) : (
+          <>
           <Link
             to="/profile"
             className="profile-link"
@@ -44,6 +58,9 @@ const ProfileDropdown = ({ isVisible, onToggle, user }) => (
           >
             {user.username}
           </Link>
+          <Link to='/signup' className='text-center'>
+          <button className='bg-white rounded-md p-2' onClick={handleLogOut}>SignOut</button></Link>
+          </>
         )}
       </div>
     )}

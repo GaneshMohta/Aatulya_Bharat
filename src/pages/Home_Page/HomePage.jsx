@@ -170,38 +170,17 @@ export default function HomePage() {
   }
 
   return (
-    <div className="page-container">
+    <div className="page-container  bg-gradient-to-br from-orange-50 via-amber-50 to-rose-50">
       <main>
         <section className="carousel-section" aria-label="Featured content carousel">
           <CarouselErrorBoundary>
 
           <HomeCarusel  />
-          {/* <Carousel {...CAROUSEL_CONFIG}> */}
-              {/* {carouselItems.map((item, index) => (
-                <CarouselSlide
-                  key={item.id}
-                  item={item}
-                />
-              ))}
 
-
-
-              {
-                Array.from({length:3}).map((_, index) => {
-                  const item = carouselItems[index % carouselItems.length];
-                  return (
-                <CarouselSlide
-                  // key={index}
-                  item={item}
-                />
-                  )
-                })
-              }
-             </Carousel> */}
           </CarouselErrorBoundary>
         </section>
 
-        <div className="content-container">
+        <div className="content-container  bg-gradient-to-br from-orange-50 via-amber-50 to-rose-50">
           <section className="bestofindia-section" aria-label="Best of India">
             <React.Suspense fallback={<LoadingSpinner />}>
               <Bestofindia />

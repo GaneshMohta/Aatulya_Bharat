@@ -9,7 +9,6 @@ import multer from 'multer';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
 import { v4 as uuidv4 } from 'uuid';
-// Import routes
 import userRouter from './Routes/userRoutes.js';
 import blogRouter from './Routes/blogRoutes.js';
 import productRouter from './Routes/productRoutes.js';
@@ -20,20 +19,58 @@ import fs from 'fs'
 // Get file and directory names for static file serving
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+import session from 'express-session';
+import passport from './config/passport.js';
 
 
-const app = express();
-
-import { v2 as cloudinary } from 'cloudinary';
 
 // Middleware setup
 dotenv.config();
-app.use(cors());
-app.use(xss());
-app.use(mongoSanitize());
+const app = express();
 
+app.use(express.json());
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:5173',
+      process.env.FRONTEND_URL,
+    ];
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Important for cookies
+};
+
+app.use(cors(corsOptions));
+
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    }
+  })
+);
+app.set('trust.proxy',1);
+// app.use(cookieParser());
+app.use(xss());
+app.use(mongoSanitize());
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use((err, req, res, next) => {
   if (err.type === 'entity.too.large') {
@@ -41,6 +78,8 @@ app.use((err, req, res, next) => {
   }
   next(err);
 });
+
+
 
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
@@ -95,7 +134,6 @@ app.use((err, req, res, next) => {
 //   .catch((e) => {
 //     console.error('Error connecting to MongoDB:', e);
 //   });
-
   mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
       console.log('Connected to MongoDB');
@@ -113,7 +151,9 @@ app.use('/user', userRouter);
 app.use('/blog', blogRouter);
 app.use('/product', productRouter);
 app.use('/pay', paymentRouter);
-app.use('/api/v1/auth', authRouter);
+// app.use('/api/v1/auth', authRouter);
+app.use('/api/auth/v1', authRouter);
+// app.use('/api/v1/auth', authRouter)
 
 
 

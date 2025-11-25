@@ -22,14 +22,6 @@ export const login = async(req,res)=>{
             expiresIn : "24h",
         });
 
-        // const profile = await Profile.findOne({userEmail : email});
-        // if (!profile) {
-        //     console.log("hii")
-        //     return res.status(404).json({ message: "Profile not found" });
-        // }
-
-        // const u_name = profile.userName;
-
         return res.status(200).json({
             token,
             email

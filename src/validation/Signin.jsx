@@ -10,39 +10,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../Redux/nameslice';
 
+const API_URL = 'https://aatulya-bharat.onrender.com';
+
 
 export default function Signin() {
-
-  const responseGoogle = async (authResult) => {
-    try {
-      if (authResult.code) {
-        console.log("Authorization Code:", authResult.code);
-
-        // Send the authorization code to the backend
-        const result = await axios.post("https://aatulya-bharat.onrender.com/api/v1/auth/google", {
-          code: authResult.code,
-        });
-
-        // Handle the user data from the backend
-        console.log(result.data.user)
-        localStorage.setItem("token",authResult.code);
-        localStorage.setItem("Bharat_email",result.data.user.email);
-
-        navigate("/");
-      } else {
-        console.error("Google Auth Failed:", authResult);
-        throw new Error(authResult);
-      }
-    } catch (error) {
-      console.error("Login Error:", error.message);
-    }
-  };
-
-	const googleLogin = useGoogleLogin({
-		onSuccess: responseGoogle,
-		onError: responseGoogle,
-		flow: "auth-code",
-	});
 
 
   const [email,setEmail]= useState("");
@@ -52,29 +23,62 @@ export default function Signin() {
     setEmail(e.target.value);
   }
 
+
+
+  const handleGoogleLogin = () => {
+    // Redirect to backend OAuth route
+    window.location.href = `${API_URL}/api/auth/v1/google`;
+  };
+
+    const handleLogin = async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        email: email,
+        password: password
+      };
+
+      try {
+        const res = await axios.post(
+          `${API_URL}/user/login`,
+          payload
+        );
+
+        localStorage.setItem("token",res.data.token);
+        localStorage.setItem("Bharat_email",res.data.email);
+
+        console.log('Signup successful:', res.data);
+        navigate('/');
+      } catch (e) {
+        console.error('Signup failed:', e.response?.data || e.message);
+        alert('Signup failed. Please try again.');
+      }
+    };
+
+
   const handleChangePassword=(e)=>{
     setPassword(e.target.value);
   }
 
-  const handleLogin = async(e)=>{
-    e.preventDefault();
-    const payload={
-      email:email,
-      password:password
-    }
-    console.log(payload);
+  // const handleLogin = async(e)=>{
+  //   e.preventDefault();
+  //   const payload={
+  //     email:email,
+  //     password:password
+  //   }
+  //   console.log(payload);
 
-    try{
-      const res= await axios.post("https://aatulya-bharat.onrender.com/user/login",payload);
-      console.log(res)
-      localStorage.setItem("token",res.data.token);
-      localStorage.setItem("Bharat_email",res.data.email);
-      navigate('/');
-    }
-    catch(e){
-      console.log("not valid")
-    }
-  }
+  //   try{
+  //     const res= await axios.post("https://aatulya-bharat.onrender.com/user/login",payload);
+  //     console.log(res)
+  //     localStorage.setItem("token",res.data.token);
+  //     localStorage.setItem("Bharat_email",res.data.email);
+  //     navigate('/');
+  //   }
+  //   catch(e){
+  //     console.log("not valid")
+  //   }
+  // }
   return (
     <div>
 
@@ -82,7 +86,7 @@ export default function Signin() {
             <div className='sign-f1'>
              <div><h1>Bharat</h1></div>
              <p>Sign up for Best Experience</p>
-             <button className='sgn_btn flex justify-center w-[100%] text-base ' onClick={googleLogin} ><FcGoogle /></button>
+             <button className='sgn_btn flex justify-center w-[100%] text-base' onClick={handleGoogleLogin} ><FcGoogle /></button>
              <p><span className='or'>________</span > or <span className='or'>________</span></p>
              <button className='text-xs'>Continue with mail</button>
              <hr className='w-11/12 text-center relative translate-x-2 text-stone-900 bg-slate-950'/>

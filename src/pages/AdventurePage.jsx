@@ -162,13 +162,7 @@ export default function AdventurePage() {
 
       {visible && (
         <div className="fixed bottom-2 right-2 bg-white rounded-2xl shadow-2xl p-6 z-20 ring-4 ring-orange-200 ring-opacity-50">
-          <div className="w-80 h-96 border border-orange-200 rounded-xl flex items-center justify-center bg-gradient-to-br from-orange-50 to-rose-50">
-            <div className="text-center">
-              <div className="text-orange-500 text-3xl mb-2 animate-spin" style={{animationDuration: '4s'}}>🧭</div>
-              <p className="text-gray-600 font-medium">Adventure Travel Guide</p>
-              <p className="text-gray-500 text-sm mt-2">Ready to plan your next adventure?</p>
-            </div>
-          </div>
+          <iframe height="430" width="350" src="https://console.dialogflow.com/api-client/demo/embedded/82a54d4d-d09d-4b6e-9a50-7c8376b44eda"></iframe>
         </div>
       )}
     </div>

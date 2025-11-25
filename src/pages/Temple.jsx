@@ -154,11 +154,12 @@ export default function Temple() {
         <div className="fixed bottom-2 right-2 bg-white ring-4 ring-orange-200 ring-opacity-50">
           {/* <div className="w-80 h-96 border border-orange-200 rounded-xl flex items-center justify-center bg-gradient-to-br from-orange-50 to-rose-50"> */}
             {/* <div className="text-center"> */}
-              <Chatbot
+              {/* <Chatbot
                 config={config}
                 messageParser={MessageParser}
                 actionProvider={ActionProviderHeritage}
-              />
+              /> */}
+              <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/dd401814-1040-4a82-8f33-2ae9e1cfc35d"></iframe>
               {/* <p className="text-gray-600 font-medium">Spiritual Guide Chatbot</p>
               <p className="text-gray-500 text-sm mt-2">Here to help your divine journey</p> */}
             {/* </div> */}

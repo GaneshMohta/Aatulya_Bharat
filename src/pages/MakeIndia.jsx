@@ -199,7 +199,7 @@ export default function MakeIndia() {
     }, 500);
 
     // setTimeout(async ()=>{
-    //  const data =await axios.get('http://localhost:3000/product/get');
+    //  const data =await axios.get('https://aatulya-bharat.onrender.com/product/get');
     //  console.log(data.data.products);
     //  if(data.data.products.length>0) setProducts(data.data.products);
     // },500);

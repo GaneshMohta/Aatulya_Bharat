@@ -1,7 +1,9 @@
 /* Base styles - Mobile First */
 .destinations-section {
-  background: linear-gradient(135deg, hsl(335, 74%, 73%) , #d89607 100%);
+  /* background: linear-gradient(135deg, hsl(335, 74%, 73%) , #d89607 100%); */
  /* background-color: #e2e8f0; */
+  background-color: white;
+  color: #e22828;
   border-radius: 0.325rem;
   padding: 2rem 1rem;
   margin: 2rem 0;
@@ -22,7 +24,7 @@
   font-size: 1.875rem;
   font-family: serif;
   font-weight: 900;
-  color: #1f2937;
+  color: #e22828;
   margin: 0 0 0.3rem 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   letter-spacing: 0.05em;
@@ -31,7 +33,7 @@
 .destinations-subtitle {
   font-size: 1rem;
   font-weight: 300;
-  color: #374151;
+  color: #e43434;
   margin: 0 0 1.5rem 0;
   line-height: 1.6;
   max-width: 600px;
