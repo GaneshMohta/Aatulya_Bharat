@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import config from '../components/bot/config';
-import MessageParser from '../components/bot/MessageParser';
-import ActionProviderHeritage from '../components/bot/ActionProviderHeritage';
-import Chatbot from "react-chatbot-kit";
+
 
 
 export default function Temple() {

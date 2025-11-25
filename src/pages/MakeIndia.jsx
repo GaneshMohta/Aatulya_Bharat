@@ -1,11 +1,6 @@
 import React, { lazy, useEffect,useState } from "react";
 import "./front.css";
-import { FaShoppingCart } from "react-icons/fa";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { IoIosAddCircle } from "react-icons/io";
-import { IoIosHeart } from "react-icons/io";
-import { BsArrowLeftShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { arraycart, incrementitem } from "../Redux/cartSlice";

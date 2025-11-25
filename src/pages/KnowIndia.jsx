@@ -1,7 +1,4 @@
-// import React from 'react'
-// import NE from '../components/states/image/National-Emblem.jpg'
-// import './front.css';
-// import { Canvas } from '@react-three/fiber';
+
 
 
  const KnowIndia = () => {
