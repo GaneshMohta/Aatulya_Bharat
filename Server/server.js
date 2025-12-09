@@ -7,10 +7,8 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
-import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
-import passport from './config/passport.js';
 
 // Import routers
 import userRouter from './Routes/userRoutes.js';
@@ -26,6 +24,16 @@ const __dirname = path.dirname(__filename);
 // Load environment variables
 dotenv.config();
 
+// Validate critical environment variables
+const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET', 'GOOGLE_CLIENT_ID'];
+const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingVars.length > 0) {
+  console.error('❌ Missing required environment variables:', missingVars.join(', '));
+  console.error('Please check your .env file');
+  process.exit(1);
+}
+
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,6 +44,7 @@ app.set('trust proxy', 1);
 // Security Middleware
 app.use(helmet({
   contentSecurityPolicy: false, // Adjust based on your needs
+  crossOriginEmbedderPolicy: false,
 }));
 
 // CORS Configuration
@@ -65,36 +74,17 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Body Parser Middleware
-app.use(express.json({ limit: '10mb' })); // Reduced from 100mb for security
+app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
-// Cookie Parser (must come before session)
+// Cookie Parser
 app.use(cookieParser());
-
-// Session Configuration
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || 'fallback-secret-change-in-production',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === 'production', // HTTPS only in production
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000, // 24 hours
-      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-    }
-  })
-);
 
 // Security Middleware
 app.use(xss()); // Prevent XSS attacks
 app.use(mongoSanitize()); // Prevent MongoDB injection
-
-// Passport Initialization (after session middleware)
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Request Logging Middleware (helpful for debugging)
 app.use((req, res, next) => {
@@ -123,7 +113,6 @@ const connectDB = async () => {
     }
 
     await mongoose.connect(mongoURI, {
-      // These options are set by default in Mongoose 6+, but explicit for clarity
       maxPoolSize: 10,
       serverSelectionTimeoutMS: 5000,
     });
@@ -131,7 +120,7 @@ const connectDB = async () => {
     console.log('✅ Connected to MongoDB successfully');
   } catch (error) {
     console.error('❌ Error connecting to MongoDB:', error.message);
-    process.exit(1); // Exit process with failure
+    process.exit(1);
   }
 };
 
@@ -206,10 +195,10 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server
-app.listen(3000, () => {
-  console.log(`🚀 Server is running on port 3000`);
+app.listen(PORT, () => {
+  console.log(`🚀 Server is running on port ${PORT}`);
   console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🔗 Local: http://localhost:3000`);
+  console.log(`🔗 Local: http://localhost:${PORT}`);
   if (process.env.NODE_ENV === 'production') {
     console.log(`🔗 Production: https://aatulya-bharat.onrender.com`);
   }
@@ -233,68 +222,3 @@ process.on('SIGINT', () => {
 });
 
 export default app;
-
-
-
-
-
-
-//import  { SessionsClient } from '@google-cloud/dialogflow';
-
-// const projectConfig = {
-//   projectId: {
-//     projectId: 'merabharat-97f8a',
-//     credentials: JSON.parse(process.env.WEDDING_KEY),
-//   },
-//   travelId: {
-//     travelId: 'merabharat-ge9f',
-//     credentials: JSON.parse(process.env.TRAVEL_KEY),
-//   },
-//   HeritageId: {
-//     travelId: 'heritage-ddhf',
-//     credentials: JSON.parse(process.env.HERITAGE_KEY),
-//   },
-// };
-
-// app.post('/api/chat', async (req, res) => {
-//   const { userMessage, context } = req.query;
-
-//   console.log("req   "+ userMessage+ " " + context);
-
-//   if (!userMessage || !context) {
-//     return res.status(400).json({ error: 'Missing userMessage or context in the request.' });
-//   }
-
-//   const config = projectConfig[context];
-//   if (!config) {
-//     return res.status(400).json({ error: 'Invalid context provided.' });
-//   }
-
-//   const { projectId, credentials } = config;
-//   const sessionClient = new SessionsClient({ credentials });
-//   const sessionId = uuidv4();
-
-//   try {
-//     const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
-//     const request = {
-//       session: sessionPath,
-//       queryInput: {
-//         text: {
-//           text: userMessage,
-//           languageCode: 'en',
-//         },
-//       },
-//     };
-
-//     const [response] = await sessionClient.detectIntent(request);
-//     if (!response || !response.queryResult) {
-//       return res.status(500).json({ error: "Unexpected response from Dialogflow." });
-//     }
-
-//     const fulfillmentText = response.queryResult.fulfillmentText || "Sorry, I couldn't understand that.";
-//     res.json({ botResponse: fulfillmentText });
-//   } catch (error) {
-//     console.error("Error communicating with Dialogflow:", error);
-//     res.status(500).json({ error: "Error communicating with Dialogflow." });
-//   }
-// });
