@@ -14,10 +14,43 @@ export default function Signup() {
   const [password, setPassword] = useState("");
 
 
-  const handleGoogleLogin = () => {
-    // Redirect to backend OAuth route
-    window.location.href = `https://aatulya.netlify.app/api/auth/v1/google`;
+const handleGoogleSuccess = async (codeResponse) => {
+    setLoading(true);
+    setError("");
+try {
+      console.log('🔑 Google auth code received');
+
+      // Send authorization code to backend
+      // Path: /api/auth/v1/google (Assuming your backend router is mounted correctly)
+      const res = await axios.post(`${API_URL}/api/auth/v1/google`, {
+        code: codeResponse.code
+      });
+
+      console.log('✅ Backend response:', res.data);
+
+      // Store token
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
+
+      // Set axios default header
+      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
+
+      navigate('/');
+    } catch (err) {
+      console.error('❌ Google login failed:', err);
+      setError(err.response?.data?.message || 'Google login failed');
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess:handleGoogleSuccess,
+    onError:(error)=>{
+      setError("Login Failed");
+    },
+    flow: 'auth-code'
+  })
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -48,10 +81,10 @@ export default function Signup() {
           <div><h1>Bharat</h1></div>
           <p>Sign up for Best Experience</p>
 
-          {/* GOOGLE LOGIN BUTTON */}
           <button
             className='sgn_btn flex justify-center w-[100%] text-base items-center gap-2'
             onClick={handleGoogleLogin}
+            disabled={loading} // Add disabled state
           >
             <FcGoogle size={20} />
             Continue with Google

@@ -14,8 +14,7 @@ import blogRouter from './Routes/blogRoutes.js';
 import productRouter from './Routes/productRoutes.js';
 import paymentRouter from './Routes/paymentRoutes.js';
 import authRouter from './Routes/authRoutes.js';
-import Wedding from './model/weddingSchema.js';
-import fs from 'fs'
+
 // Get file and directory names for static file serving
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -151,9 +150,8 @@ app.use('/user', userRouter);
 app.use('/blog', blogRouter);
 app.use('/product', productRouter);
 app.use('/pay', paymentRouter);
-// app.use('/api/v1/auth', authRouter);
 app.use('/api/auth/v1', authRouter);
-// app.use('/api/v1/auth', authRouter)
+
 
 
 

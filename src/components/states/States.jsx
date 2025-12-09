@@ -94,7 +94,7 @@ export default function States() {
           <div className="history-container">
             <p className="font-mono font-medium text-sm history-content">
               {selectedState.History}
-             
+
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function States() {
               </div>
             )}
           <button onClick={isVisible} className="chatbot-button cursor-pointer">
-              <IoMdChatbubbles size={32} color="green" />
+              <IoMdChatbubbles size={32} color="whitesmoke" />
             </button></div>
     </div>
     </>

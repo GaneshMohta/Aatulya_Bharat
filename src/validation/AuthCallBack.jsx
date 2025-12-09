@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://aatulya-bharat.onrender.com';
+const API_URL = 'https://aatulya-bharat.onrender.com';
 
 export default function AuthCallback() {
   const [searchParams] = useSearchParams();
