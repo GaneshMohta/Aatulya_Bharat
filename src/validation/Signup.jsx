@@ -75,6 +75,10 @@ export default function Signup() {
         payload
       );
 
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('Bharat_email',res.data.email);
+
+
       console.log('Signup successful:', res.data);
       navigate('/');
     } catch (e) {

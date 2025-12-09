@@ -7,7 +7,8 @@ import { setUser } from '../Redux/nameslice';
 import axios from 'axios';
 import './sign.css';
 
-const API_URL = 'https://aatulya-bharat.onrender.com';
+// const API_URL = 'https://aatulya-bharat.onrender.com';
+const API_URL = 'http://localhost:3000';
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -16,42 +17,34 @@ export default function Signin() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   // Handle Google Login Success
-  const handleGoogleSuccess = async (codeResponse) => {
-    setLoading(true);
-    setError("");
+  const handleGoogleSuccess = async (tokenResponse) => {
+  setLoading(true);
+  setError("");
 
-    try {
-      console.log('🔑 Google auth code received');
+  try {
+    console.log('🔑 Google access token received');
 
-      // Send authorization code to backend
-      const res = await axios.post(`${API_URL}/api/auth/v1/google`, {
-        code: codeResponse.code
-      });
+    // Send access token to backend
+    const res = await axios.post(`${API_URL}/api/auth/v1/google`, {
+      access_token: tokenResponse.access_token
+    });
 
-      console.log('✅ Backend response:', res.data);
+    console.log('✅ Backend response:', res.data);
 
-      // Store token and user data
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
+    localStorage.setItem('token', res.data.token);
+    localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
+    axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
 
-      // Set axios default header
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
-
-      // Update Redux store
-      dispatch(setUser(res.data.user));
-
-      // Navigate to home
-      navigate('/');
-    } catch (err) {
-      console.error('❌ Google login failed:', err);
-      setError(err.response?.data?.message || 'Google login failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+    navigate('/');
+  } catch (err) {
+    console.error('❌ Google login failed:', err);
+    setError(err.response?.data?.message || 'Google login failed. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   // Initialize Google Login
   const handleGoogleLogin = useGoogleLogin({
@@ -61,7 +54,7 @@ export default function Signin() {
       setError("Google login failed. Please try again.");
       setLoading(false);
     },
-    flow: 'auth-code'
+
   });
 
   // Handle Email/Password Login
@@ -86,13 +79,10 @@ export default function Signin() {
 
       // Store token and user data
       localStorage.setItem('token', res.data.token);
-      localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
+      localStorage.setItem('Bharat_email',res.data.email);
 
       // Set axios default header
       axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
-
-      // Update Redux store
-      dispatch(setUser(res.data.user));
 
       // Navigate to home
       navigate('/');

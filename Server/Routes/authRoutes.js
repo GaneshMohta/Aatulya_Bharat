@@ -5,7 +5,12 @@ import User from '../model/authSchema.js';
 import { OAuth2Client } from 'google-auth-library';
 
 const Router = express.Router();
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+const client = new OAuth2Client(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  'postmessage'
+);
+
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware to verify JWT
@@ -71,7 +76,9 @@ const sendAuthResponse = (res, user, token) => {
 // @desc    Verify Google token and create/login user
 Router.post('/google', async (req, res) => {
   try {
-    const { code } = req.body;
+
+    const code  = req.body.access_token;
+    //console.log("🙏 ",code);
 
     if (!code) {
       return res.status(400).json({
@@ -83,7 +90,10 @@ Router.post('/google', async (req, res) => {
     console.log('🔑 Google: Received auth code. Exchanging for tokens...');
 
     // Exchange authorization code for tokens
-    const { tokens } = await client.getToken(code);
+    const { tokens } = await client.getToken({
+      code: code,
+      redirect_uri: 'postmessage' 
+    });
     console.log('✅ Tokens received from Google');
 
     // Verify ID token

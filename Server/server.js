@@ -54,6 +54,7 @@ const corsOptions = {
       'http://localhost:5173',
       'http://localhost:3000',
       process.env.FRONTEND_URL,
+      'https://aatulya-bharat.onrender.com'
     ].filter(Boolean); // Remove undefined values
 
     // Allow requests with no origin (mobile apps, Postman, server-to-server)
@@ -89,6 +90,12 @@ app.use(mongoSanitize()); // Prevent MongoDB injection
 // Request Logging Middleware (helpful for debugging)
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  res.setHeader('Cross-Origin-Embedder-Policy', 'unsafe-none');
   next();
 });
 
