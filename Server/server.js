@@ -5,10 +5,14 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import multer from 'multer';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
-import { v4 as uuidv4 } from 'uuid';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import passport from './config/passport.js';
+
+// Import routers
 import userRouter from './Routes/userRoutes.js';
 import blogRouter from './Routes/blogRoutes.js';
 import productRouter from './Routes/productRoutes.js';
@@ -18,150 +22,217 @@ import authRouter from './Routes/authRoutes.js';
 // Get file and directory names for static file serving
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-import session from 'express-session';
-import passport from './config/passport.js';
 
-
-
-// Middleware setup
+// Load environment variables
 dotenv.config();
+
+// Initialize Express app
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use(bodyParser.json({ limit: '100mb' }));
-app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
+// Trust proxy (important for Render/Heroku deployments)
+app.set('trust proxy', 1);
 
+// Security Middleware
+app.use(helmet({
+  contentSecurityPolicy: false, // Adjust based on your needs
+}));
+
+// CORS Configuration
 const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
       'http://localhost:5173',
+      'http://localhost:3000',
       process.env.FRONTEND_URL,
-    ];
-    // Allow requests with no origin (like mobile apps or Postman)
+    ].filter(Boolean); // Remove undefined values
+
+    // Allow requests with no origin (mobile apps, Postman, server-to-server)
     if (!origin) return callback(null, true);
 
-    if (allowedOrigins.indexOf(origin) !== -1) {
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.warn(`CORS blocked origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true, // Important for cookies
+  credentials: true, // Important for cookies and auth headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 };
 
 app.use(cors(corsOptions));
 
+// Body Parser Middleware
+app.use(express.json({ limit: '10mb' })); // Reduced from 100mb for security
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
+// Cookie Parser (must come before session)
+app.use(cookieParser());
+
+// Session Configuration
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || 'fallback-secret-change-in-production',
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+      secure: process.env.NODE_ENV === 'production', // HTTPS only in production
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     }
   })
 );
-app.set('trust.proxy',1);
-// app.use(cookieParser());
-app.use(xss());
-app.use(mongoSanitize());
+
+// Security Middleware
+app.use(xss()); // Prevent XSS attacks
+app.use(mongoSanitize()); // Prevent MongoDB injection
+
+// Passport Initialization (after session middleware)
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Request Logging Middleware (helpful for debugging)
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  next();
+});
 
+// Payload size error handler
 app.use((err, req, res, next) => {
   if (err.type === 'entity.too.large') {
-    return res.status(413).send('Payload too large. Please reduce the size of the file or content.');
+    return res.status(413).json({
+      success: false,
+      message: 'Payload too large. Please reduce the size of the file or content.',
+    });
   }
   next(err);
 });
 
+// MongoDB Connection
+const connectDB = async () => {
+  try {
+    const mongoURI = process.env.MONGODB_URI;
 
+    if (!mongoURI) {
+      throw new Error('MONGODB_URI is not defined in environment variables');
+    }
 
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'uploads/');
-//   },
-//   filename: function (req, file, cb) {
-//     const uniqueSuffix = Date.now();
-//     cb(null, uniqueSuffix + file.originalname);
-//   },
-// });
-
-// const upload = multer({ storage: storage });
-
-// cloudinary.config({
-//   cloud_name: process.env.CLOUD_NAME,
-//   api_key: process.env.API_KEY,
-//   api_secret: process.env.API_SECRET,
-// });
-// async function handleUpload(file) {
-//   const res = await cloudinary.uploader.upload(file, {
-//     resource_type: "auto",
-//   });
-//   return res;
-// }
-
-// app.post('/uploads', upload.single('image'), async(req,res) => {
-//   try {
-//     const b64 = Buffer.from(req.file.buffer).toString("base64");
-//     let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
-//     const cldRes = await handleUpload(dataURI);
-//     res.json(cldRes);
-//   } catch (error) {
-//     console.log(error);
-//     res.send({
-//       message: error.message,
-//     });
-//   }
-// })
-
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// File upload route
-// app.post('/uploads', upload.single('image'), (req, res) => {
-//   const imageUrl = `/uploads/${req.file.filename}`;
-//   res.json({ imageUrl });
-// });
-// MongoDB Local Host connection
-// mongoose.connect("mongodb://127.0.0.1:27017/MeraBharat")
-//   .then(() => {
-//     console.log('Connected to MongoDB');
-//   })
-//   .catch((e) => {
-//     console.error('Error connecting to MongoDB:', e);
-//   });
-  mongoose.connect(process.env.MONGODB_URI)
-    .then(() => {
-      console.log('Connected to MongoDB');
-    })
-    .catch((e) => {
-      console.error('Error connecting to MongoDB:', e);
+    await mongoose.connect(mongoURI, {
+      // These options are set by default in Mongoose 6+, but explicit for clarity
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
     });
-// Test route to verify server is working
-app.get('/', (req, res) => {
-  res.send('Hello, MeraBharat!');
+
+    console.log('✅ Connected to MongoDB successfully');
+  } catch (error) {
+    console.error('❌ Error connecting to MongoDB:', error.message);
+    process.exit(1); // Exit process with failure
+  }
+};
+
+// Connect to database
+connectDB();
+
+// MongoDB connection event listeners
+mongoose.connection.on('disconnected', () => {
+  console.warn('⚠️ MongoDB disconnected');
 });
 
-// Use imported routes for API endpoints
+mongoose.connection.on('error', (err) => {
+  console.error('❌ MongoDB connection error:', err);
+});
+
+// Health check route
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Server is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development',
+  });
+});
+
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Welcome to MeraBharat API',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth/v1',
+      users: '/user',
+      blogs: '/blog',
+      products: '/product',
+      payments: '/pay',
+    }
+  });
+});
+
+// API Routes
+app.use('/api/auth/v1', authRouter);
 app.use('/user', userRouter);
 app.use('/blog', blogRouter);
 app.use('/product', productRouter);
 app.use('/pay', paymentRouter);
-app.use('/api/auth/v1', authRouter);
 
-
-
-
-
-app.listen(3000, () => {
-  console.log('Server is running on https://aatulya-bharat.onrender.com');
+// 404 Handler - Must come after all routes
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: 'Route not found',
+    path: req.path,
+  });
 });
 
+// Global Error Handler - Must be last middleware
+app.use((err, req, res, next) => {
+  console.error('❌ Error:', err.stack);
 
+  // Don't expose error details in production
+  const errorResponse = {
+    success: false,
+    message: err.message || 'Internal server error',
+  };
 
+  if (process.env.NODE_ENV === 'development') {
+    errorResponse.stack = err.stack;
+  }
+
+  res.status(err.status || 500).json(errorResponse);
+});
+
+// Start Server
+app.listen(3000, () => {
+  console.log(`🚀 Server is running on port 3000`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🔗 Local: http://localhost:3000`);
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`🔗 Production: https://aatulya-bharat.onrender.com`);
+  }
+});
+
+// Graceful Shutdown
+process.on('SIGTERM', () => {
+  console.log('⚠️ SIGTERM received, closing server gracefully...');
+  mongoose.connection.close(false, () => {
+    console.log('✅ MongoDB connection closed');
+    process.exit(0);
+  });
+});
+
+process.on('SIGINT', () => {
+  console.log('⚠️ SIGINT received, closing server gracefully...');
+  mongoose.connection.close(false, () => {
+    console.log('✅ MongoDB connection closed');
+    process.exit(0);
+  });
+});
+
+export default app;
 
 
 
