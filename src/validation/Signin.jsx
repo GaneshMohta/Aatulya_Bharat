@@ -77,7 +77,7 @@ export default function Signin() {
     setError("");
 
     try {
-      const res = await axios.post(`${API_URL}/api/auth/v1/login`, {
+      const res = await axios.post(`${API_URL}/user/login`, {
         email,
         password
       });

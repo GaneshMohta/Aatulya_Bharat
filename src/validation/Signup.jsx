@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import { useGoogleLogin } from '@react-oauth/google';
 import './sign.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,47 +11,55 @@ const API_URL = 'https://aatulya-bharat.onrender.com';
 
 export default function Signup() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+   const [error, setError] = useState("");
 
+  const handleGoogleSuccess = async (codeResponse) => {
+      setLoading(true);
+      setError("");
 
-const handleGoogleSuccess = async (codeResponse) => {
-    setLoading(true);
-    setError("");
-try {
-      console.log('🔑 Google auth code received');
+      try {
+        console.log('🔑 Google auth code received');
 
-      // Send authorization code to backend
-      // Path: /api/auth/v1/google (Assuming your backend router is mounted correctly)
-      const res = await axios.post(`${API_URL}/api/auth/v1/google`, {
-        code: codeResponse.code
-      });
+        // Send authorization code to backend
+        const res = await axios.post(`${API_URL}/api/auth/v1/google`, {
+          code: codeResponse.code
+        });
 
-      console.log('✅ Backend response:', res.data);
+        console.log('✅ Backend response:', res.data);
 
-      // Store token
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
+        // Store token and user data
+        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
 
-      // Set axios default header
-      axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
+        // Set axios default header
+        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
 
-      navigate('/');
-    } catch (err) {
-      console.error('❌ Google login failed:', err);
-      setError(err.response?.data?.message || 'Google login failed');
-    } finally {
-      setLoading(false);
-    }
-  };
+        // Update Redux store
+        dispatch(setUser(res.data.user));
 
-  const handleGoogleLogin = useGoogleLogin({
-    onSuccess:handleGoogleSuccess,
-    onError:(error)=>{
-      setError("Login Failed");
-    },
-    flow: 'auth-code'
-  })
+        // Navigate to home
+        navigate('/');
+      } catch (err) {
+        console.error('❌ Google login failed:', err);
+        setError(err.response?.data?.message || 'Google login failed. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Initialize Google Login
+    const handleGoogleLogin = useGoogleLogin({
+      onSuccess: handleGoogleSuccess,
+      onError: (error) => {
+        console.error('❌ Google login error:', error);
+        setError("Google login failed. Please try again.");
+        setLoading(false);
+      },
+      flow: 'auth-code'
+    });
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -83,7 +92,7 @@ try {
 
           <button
             className='sgn_btn flex justify-center w-[100%] text-base items-center gap-2'
-            onClick={handleGoogleLogin}
+            onClick={()=>handleGoogleLogin()}
             disabled={loading} // Add disabled state
           >
             <FcGoogle size={20} />
