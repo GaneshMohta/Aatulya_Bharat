@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Signin from './Signin';
 
 const API_URL = 'https://aatulya-bharat.onrender.com';
+// const API_URL = 'http://localhost:3000';
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -16,50 +17,43 @@ export default function Signup() {
   const [password, setPassword] = useState("");
    const [error, setError] = useState("");
 
-  const handleGoogleSuccess = async (codeResponse) => {
-      setLoading(true);
-      setError("");
+ const handleGoogleSuccess = async (tokenResponse) => {
+   setLoading(true);
+   setError("");
 
-      try {
-        console.log('🔑 Google auth code received');
+   try {
+     console.log('🔑 Google access token received');
 
-        // Send authorization code to backend
-        const res = await axios.post(`${API_URL}/api/auth/v1/google`, {
-          code: codeResponse.code
-        });
+     // Send access token to backend
+     const res = await axios.post(`${API_URL}/api/auth/v1/google`, {
+       access_token: tokenResponse.access_token
+     });
 
-        console.log('✅ Backend response:', res.data);
+     console.log('✅ Backend response:', res.data);
 
-        // Store token and user data
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
+     localStorage.setItem('token', res.data.token);
+     localStorage.setItem('Bharat_email', JSON.stringify(res.data.user.email));
+     axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
 
-        // Set axios default header
-        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
+     navigate('/');
+   } catch (err) {
+     console.error('❌ Google login failed:', err);
+     setError(err.response?.data?.message || 'Google login failed. Please try again.');
+   } finally {
+     setLoading(false);
+   }
+ };
 
-        // Update Redux store
-        dispatch(setUser(res.data.user));
-
-        // Navigate to home
-        navigate('/');
-      } catch (err) {
-        console.error('❌ Google login failed:', err);
-        setError(err.response?.data?.message || 'Google login failed. Please try again.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // Initialize Google Login
-    const handleGoogleLogin = useGoogleLogin({
-      onSuccess: handleGoogleSuccess,
-      onError: (error) => {
-        console.error('❌ Google login error:', error);
-        setError("Google login failed. Please try again.");
-        setLoading(false);
-      },
-      flow: 'auth-code'
-    });
+   // Initialize Google Login
+   const handleGoogleLogin = useGoogleLogin({
+     onSuccess: handleGoogleSuccess,
+     onError: (error) => {
+       console.error('❌ Google login error:', error);
+       setError("Google login failed. Please try again.");
+       setLoading(false);
+     },
+     redirect_uri: 'postmessage'
+   });
 
   const handleLogin = async (e) => {
     e.preventDefault();

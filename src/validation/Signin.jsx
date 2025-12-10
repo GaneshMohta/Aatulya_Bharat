@@ -7,8 +7,8 @@ import { setUser } from '../Redux/nameslice';
 import axios from 'axios';
 import './sign.css';
 
-// const API_URL = 'https://aatulya-bharat.onrender.com';
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://aatulya-bharat.onrender.com';
+// const API_URL = 'http://localhost:3000';
 
 export default function Signin() {
   const [email, setEmail] = useState("");
@@ -34,7 +34,7 @@ export default function Signin() {
     console.log('✅ Backend response:', res.data);
 
     localStorage.setItem('token', res.data.token);
-    localStorage.setItem('Bharat_email', JSON.stringify(res.data.user));
+    localStorage.setItem('Bharat_email', JSON.stringify(res.data.user.email));
     axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
 
     navigate('/');
@@ -54,7 +54,7 @@ export default function Signin() {
       setError("Google login failed. Please try again.");
       setLoading(false);
     },
-
+    redirect_uri: 'postmessage'
   });
 
   // Handle Email/Password Login

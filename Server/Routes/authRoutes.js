@@ -2,15 +2,8 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import User from '../model/authSchema.js';
-import { OAuth2Client } from 'google-auth-library';
 
 const Router = express.Router();
-const client = new OAuth2Client(
-  process.env.GOOGLE_CLIENT_ID,
-  process.env.GOOGLE_CLIENT_SECRET,
-  'postmessage'
-);
-
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware to verify JWT
@@ -73,75 +66,80 @@ const sendAuthResponse = (res, user, token) => {
 };
 
 // @route   POST /api/auth/v1/google
-// @desc    Verify Google token and create/login user
+// @desc    Authenticate with Google access token
 Router.post('/google', async (req, res) => {
   try {
+    const { access_token } = req.body;
 
-    const code  = req.body.access_token;
-    //console.log("🙏 ",code);
-
-    if (!code) {
+    if (!access_token) {
       return res.status(400).json({
         success: false,
-        message: 'Authorization code is required'
+        message: 'Access token is required'
       });
     }
 
-    console.log('🔑 Google: Received auth code. Exchanging for tokens...');
+    console.log('🔑 Google: Received access token. Fetching user info...');
 
-    // Exchange authorization code for tokens
-    const { tokens } = await client.getToken({
-      code: code,
-      redirect_uri: 'postmessage' 
-    });
-    console.log('✅ Tokens received from Google');
+    // Fetch user info from Google
+    const response = await fetch(
+      `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${access_token}`
+    );
 
-    // Verify ID token
-    const ticket = await client.verifyIdToken({
-      idToken: tokens.id_token,
-      audience: process.env.GOOGLE_CLIENT_ID,
-    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('❌ Google API error:', errorData);
+      throw new Error('Failed to fetch user info from Google');
+    }
 
-    const payload = ticket.getPayload();
-    console.log('👤 User email:', payload.email);
+    const googleUser = await response.json();
+    console.log('👤 User info received:', googleUser.email);
+
+    // Verify the user data is valid
+    if (!googleUser.email || !googleUser.email_verified) {
+      return res.status(401).json({
+        success: false,
+        message: 'Unable to verify Google account'
+      });
+    }
 
     // Find or create user
-    let user = await User.findOne({ email: payload.email });
+    let user = await User.findOne({ email: googleUser.email });
 
     if (user) {
       console.log('✅ Existing user found');
 
       // Update Google ID/avatar if necessary
       if (!user.googleId) {
-        user.googleId = payload.sub;
-        user.avatar = payload.picture;
+        user.googleId = googleUser.sub;
+        user.avatar = googleUser.picture;
         await user.save();
       }
     } else {
       console.log('🆕 Creating new user');
 
       user = await User.create({
-        googleId: payload.sub,
-        email: payload.email,
-        name: payload.name,
-        avatar: payload.picture,
+        googleId: googleUser.sub,
+        email: googleUser.email,
+        name: googleUser.name,
+        avatar: googleUser.picture,
         provider: 'google',
       });
     }
 
     // Generate JWT token
     const token = generateToken(user);
-    console.log('✅ Authentication successful. Token generated.');
+    console.log('✅ Authentication successful');
 
     // Send response
     sendAuthResponse(res, user, token);
 
   } catch (error) {
-    console.error('❌ Google auth error:', error.message);
+    console.error('❌ Google auth error:', error);
+
     res.status(500).json({
       success: false,
       message: 'Google authentication failed',
-      error: error.message
+      error: process.env.NODE_ENV === 'development' ? error.message : 'Authentication error'
     });
   }
 });
@@ -159,7 +157,6 @@ Router.post('/login', async (req, res) => {
       });
     }
 
-    // Find user
     const user = await User.findOne({ email });
 
     if (!user) {
@@ -169,7 +166,6 @@ Router.post('/login', async (req, res) => {
       });
     }
 
-    // Check if user has a password (not just Google login)
     if (!user.password) {
       return res.status(401).json({
         success: false,
@@ -177,7 +173,6 @@ Router.post('/login', async (req, res) => {
       });
     }
 
-    // Verify password
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
@@ -187,10 +182,7 @@ Router.post('/login', async (req, res) => {
       });
     }
 
-    // Generate token
     const token = generateToken(user);
-
-    // Send response
     sendAuthResponse(res, user, token);
 
   } catch (error) {
@@ -216,7 +208,6 @@ Router.post('/register', async (req, res) => {
       });
     }
 
-    // Check if user exists
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -226,10 +217,8 @@ Router.post('/register', async (req, res) => {
       });
     }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create user
     const user = await User.create({
       email,
       password: hashedPassword,
@@ -237,10 +226,7 @@ Router.post('/register', async (req, res) => {
       provider: 'local'
     });
 
-    // Generate token
     const token = generateToken(user);
-
-    // Send response
     sendAuthResponse(res, user, token);
 
   } catch (error) {
