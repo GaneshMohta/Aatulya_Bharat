@@ -9,8 +9,9 @@ const useUserAuth = () => {
       let userEmail = localStorage.getItem('Bharat_email');
 
 
+
       if (!userEmail) {
-        userEmail =  Cookies.get("bharat_email");
+        userEmail =  localStorage.getItem("bharat_user");
         if(!userEmail)
         return { isAuthenticated: false, username: null };
       }
@@ -23,7 +24,7 @@ const useUserAuth = () => {
 const handleLogOut=()=>  {
   localStorage.removeItem('Bharat_email');
   localStorage.removeItem('token');
-  Cookies.remove('bharat_email');
+  localStorage.remove('bharat_user');
   Cookies.remove('bharat_token');
 }
 
