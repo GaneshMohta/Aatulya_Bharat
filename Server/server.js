@@ -53,8 +53,9 @@ const corsOptions = {
     const allowedOrigins = [
       'http://localhost:5173',
       'http://localhost:3000',
-      process.env.FRONTEND_URL,
-      'https://aatulya-bharat.onrender.com'
+       process.env.FRONTEND_URL,
+      'https://aatulya-bharat.onrender.com',
+
     ].filter(Boolean); // Remove undefined values
 
     // Allow requests with no origin (mobile apps, Postman, server-to-server)

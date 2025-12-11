@@ -10,9 +10,7 @@ import HomeCarusel from './HomeCarusel';
 
 // Lazy load components
 const Bestofindia = lazy(() => import('./Bestofindia'));
-// const BlogofIndia = lazy(() => import('../Blogs_of_India/BlogofIndia'));
-
-import BlogofIndia from '../Blogs_of_India/BlogofIndia';
+const BlogofIndia = lazy(() => import('../Blogs_of_India/BlogofIndia'));
 
 // Constants
 const CAROUSEL_CONFIG = {
@@ -43,8 +41,6 @@ const CAROUSEL_CONFIG = {
 
 const LOADING_DELAY = 300;
 
-
-
 const useCarouselData = () => {
   const [carouselItems, setCarouselItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -61,24 +57,47 @@ const useCarouselData = () => {
   return { carouselItems, isLoading };
 };
 
+// Sticky Header Component (Common for all slides)
+const StickyHeader = ({ currentSlide }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header className={`sticky-header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="sticky-header-content">
+        <div className="header-left">
+          <Link to="/" className="logo-link">
+            <span className="logo-text">Incredible India</span>
+          </Link>
+        </div>
+
+        <div className="header-center">
+          <h1 className="header-title-text">{currentSlide?.headerTitle || 'Explore India'}</h1>
+        </div>
+
+        <div className="header-right">
+          <ProfileDrop />
+        </div>
+      </div>
+    </header>
+  );
+};
+
 const CarouselSlide = ({ item }) => (
   <div className="hm-m1">
     <img
       src={item.img}
       alt={item.headerTitle || 'Carousel image'}
       className="hm-img"
-      loading="lazy"
     />
-
-    <div className="hm-h1">
-      <div className="header-spacer" />
-      <div className="header-title">
-        <h1>{item.headerTitle}</h1>
-      </div>
-      <div className="header-profile">
-         <ProfileDrop key={item.id} />
-      </div>
-    </div>
 
     {item.isTyping ? (
       <div className="typewriter-container">
@@ -121,8 +140,6 @@ const BackdropCard = ({ item }) => (
   </div>
 );
 
-
-
 const LoadingSpinner = () => (
   <div className="loading-container">
     <div className="loading-spinner"></div>
@@ -160,6 +177,11 @@ class CarouselErrorBoundary extends React.Component {
 // Main Component
 export default function HomePage() {
   const { carouselItems, isLoading } = useCarouselData();
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const handleSlideChange = useCallback((previousSlide, { currentSlide }) => {
+    setCurrentSlideIndex(currentSlide);
+  }, []);
 
   if (isLoading) {
     return (
@@ -170,17 +192,18 @@ export default function HomePage() {
   }
 
   return (
-    <div className="page-container  bg-gradient-to-br from-orange-50 via-amber-50 to-rose-50">
+    <div className="page-container bg-gradient-to-br from-orange-50 via-amber-50 to-rose-50">
+      {/* Sticky Header */}
+      <StickyHeader currentSlide={carouselItems[currentSlideIndex]} />
+
       <main>
         <section className="carousel-section" aria-label="Featured content carousel">
           <CarouselErrorBoundary>
-
-          <HomeCarusel  />
-
+            <HomeCarusel afterChange={handleSlideChange} />
           </CarouselErrorBoundary>
         </section>
 
-        <div className="content-container  bg-gradient-to-br from-orange-50 via-amber-50 to-rose-50">
+        <div className="content-container bg-gradient-to-br from-orange-50 via-amber-50 to-rose-50">
           <section className="bestofindia-section" aria-label="Best of India">
             <React.Suspense fallback={<LoadingSpinner />}>
               <Bestofindia />

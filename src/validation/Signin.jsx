@@ -34,7 +34,7 @@ export default function Signin() {
     console.log('✅ Backend response:', res.data);
 
     localStorage.setItem('token', res.data.token);
-    localStorage.setItem('Bharat_email', JSON.stringify(res.data.user.email));
+    localStorage.setItem('bharat_user', JSON.stringify(res.data.user.email));
     axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
 
     navigate('/');

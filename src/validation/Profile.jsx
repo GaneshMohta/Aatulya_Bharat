@@ -11,7 +11,7 @@ const Profile = () => {
 
     useEffect(() => {
     let email = localStorage.getItem("Bharat_email");
-    let g_email = Cookies.get("bharat_email");
+    let g_email = localStorage.getItem("bharat_user");
     const fetchData = async () => {
       try{
         if(email!=null){

@@ -80,12 +80,12 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #be185d, #fdba74); /* rose-700 to orange-300 */
 }
 
 .hm-img {
   width: 100%;
-  height: 100vh;
+
+  height: 88vh;
   object-fit: cover;
   flex: 1;
 }
@@ -136,8 +136,9 @@
 /* Profile icon styles */
 .profile-icon {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 2.3rem;
   color: #ffffff;
+  background: linear-gradient(135deg, #fdba74, #be185d);
   transition: all 0.3s ease;
   padding: 0.5rem;
   border-radius: 50%;
@@ -147,8 +148,8 @@
 }
 
 .profile-icon:hover {
-  background: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
+  background: linear-gradient(135deg, #be185d, #ffb05b);
 }
 
 /* Profile dropdown styles */
@@ -321,6 +322,178 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 249, 240, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(255, 140, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 140, 0, 0.1);
+}
+
+.sticky-header.scrolled {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 249, 240, 0.98) 100%);
+  box-shadow: 0 8px 40px rgba(255, 140, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 140, 0, 0.2);
+}
+
+.sticky-header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  transition: padding 0.3s ease;
+}
+
+.sticky-header.scrolled .sticky-header-content {
+  padding: 0.75rem 2rem;
+}
+
+/* Header Left - Logo */
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 50%, #ff4500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  font-family: 'Matemasie', cursive, system-ui, -apple-system, sans-serif;
+  position: relative;
+}
+
+.logo-text::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff8c00, #ff4500);
+  transition: width 0.3s ease;
+}
+
+.logo-link:hover .logo-text::after {
+  width: 100%;
+}
+
+/* Header Center - Title */
+.header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title-text {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  text-align: center;
+  margin: 0;
+  letter-spacing: -0.3px;
+  position: relative;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.05), transparent);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.sticky-header.scrolled .header-title-text {
+  font-size: 1.5rem;
+}
+
+.header-title-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(180deg, #ff8c00, #ff4500);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.header-title-text::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(180deg, #ff8c00, #ff4500);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* Header Right - Profile */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: black;
+}
+
+/* Adjust carousel section to account for sticky header */
+.carousel-section {
+  margin-top: 80px;
+  position: relative;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .sticky-header-content {
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+  }
+
+  .header-title-text {
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .sticky-header.scrolled .header-title-text {
+    font-size: 1.25rem;
+  }
+
+
+}
+
 
 /* Typewriter container with flexbox */
 .typewriter-container {

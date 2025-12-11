@@ -37,15 +37,6 @@ const CarouselSlide = ({ item }) => (
       className="hm-img"
       loading="lazy"
     />
-    <div className="hm-h1">
-      <div className="header-spacer" />
-      <div className="header-title">
-        <h1>{item.headerTitle}</h1>
-      </div>
-      <div className="header-profile">
-        <ProfileDrop key={item.id} />
-      </div>
-    </div>
     {item.isTyping ? (
       <div className="typewriter-container">
         <div className="typewriter-content">
