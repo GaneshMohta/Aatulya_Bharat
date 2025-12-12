@@ -38,7 +38,7 @@ if (missingVars.length > 0) {
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Trust proxy (important for Render/Heroku deployments)
+// Trust proxy 
 app.set('trust proxy', 1);
 
 // Security Middleware

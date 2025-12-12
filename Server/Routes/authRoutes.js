@@ -275,4 +275,19 @@ Router.post('/logout', (req, res) => {
   });
 });
 
+
+Router.get('/getGoogleLogin',async (req,res)=>{
+  const {email} = req.body;
+
+  const user = await User.find(email);
+
+  if(!user){
+    return res.status(404).json({message:"Data nOt available"});
+  }
+
+  return res.status(200).json({user_details:user});
+
+
+})
+
 export default Router;
