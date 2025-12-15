@@ -24,8 +24,7 @@ const useUserAuth = () => {
 const handleLogOut=()=>  {
   localStorage.removeItem('Bharat_email');
   localStorage.removeItem('token');
-  localStorage.remove('bharat_user');
-  Cookies.remove('bharat_token');
+  localStorage.removeItem('bharat_user');
 }
 
 const ProfileDropdown = ({ isVisible, onToggle, user }) => (
